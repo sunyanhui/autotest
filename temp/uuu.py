@@ -1,23 +1,18 @@
 import urllib2
 import json
-from urlparse import urljoin
+import re
 
 
 def getvertifycode(towho):
 
     getidurl = 'https://api.mailinator.com/api/inbox?to='+towho+'&token=a65b978467f54e559c028dff740c9621'
-    s1 = json.loads(str(urllib2.urlopen(getidurl).read()))
-    getmailurl = 'https://api.mailinator.com/api/email?msgid='+s1['messages'][0]['id']+'&token=a65b978467f54e559c028dff740c9621'
-    mailfp = urllib2.urlopen(getmailurl)
-    print mailfp.info()
-    s2 = json.loads(str(mailfp.read()))
-    print s2
-    if 'error' in s2.keys():
-    	return None
-    else:
-    	return s2[0]['body']
+    s = json.loads(str(urllib2.urlopen(getidurl).read()))
+    mailurl = 'https://www.mailinator.com/rendermail.jsp?msgid='+s['messages'][0]['id']+'&time='+'1409663495288'
+    mail = urllib2.urlopen(mailurl)
+    return  re.compile(r'\d{6}').search(mail.read()).group() 
 
 
 
 
-print getvertifycode('hgbac123')
+if __name__ == '__main__':
+    print getvertifycode('nnnhhheeeeq')
