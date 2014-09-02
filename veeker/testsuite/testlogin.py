@@ -1,16 +1,14 @@
 #!/usr/bin/python3.3
 #coding=utf-8
 
+import sys, os, unittest, time
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-import sys, unittest, time, re
-sys.path.append(r'D:\autotest\veeker')
-from testdata import dlogin
-from objectrepository.person import omycenter
+from testdata.dlogin import *
 from script import slogin, sbrowser
+
+
+
 
 
 
@@ -20,47 +18,38 @@ class TestLogin(unittest.TestCase):
     def setUp(self):
         self.drive = sbrowser.Browser().openbrowser()
 
+    #testcase1
+    @unittest.skipIf(test_login_case1['tag']=='no',u'test_login+case1跳过测试')
     def test_login_case1(self):
+        u'''测试登录成功'''
 
-        useraccount = dlogin.test_login_case1['useraccount']
-        password = dlogin.test_login_case1['password']
-        vertifycode = dlogin.test_login_case1['vertifycode']
+        u = test_login_case1['useraccount']
+        p = test_login_case1['password']
+        v = test_login_case1['vertifycode']
+        r = test_login_case1['rememberusername']
         drive = self.drive
 
-        logininstance = slogin.Login(drive)
-        logininstance.login(useraccount, password, vertifycode)
-        drive.implicitly_wait(30)
-        #time.sleep(3)
-
-        #drive.window_handles
-
-        #drive.switch_to_window(a[0])
-
-        #print drive.current_url
-        #print drive.title.encode('utf-8')
-        #print drive.page_source
-
-        drive.find_element_by_link_text(u'密码修改').click()
-        time.sleep(1)
+        loginresult = slogin.Login(drive).login_for_test(u, p, v, r)
+        self.assertEqual(loginresult['vertifycodeprompt'],test_login_case1['vertifycodeprompt'],msg='login fail')
 
 
+    #testcase2
+    @unittest.skipIf(test_login_case2['tag']=='no',u'test_login_case2 跳过测试')
     def test_login_case2(self):
+        u'''用户名输入为空'''
 
-        useraccount = dlogin.test_login_case2['useraccount']
-        password = dlogin.test_login_case2['password']
-        vertifycode = dlogin.test_login_case2['vertifycode']
+        u = test_login_case2['useraccount']
+        p = test_login_case2['password']
+        v = test_login_case2['vertifycode']
+        r = test_login_case1['rememberusername']
         drive = self.drive
 
-        logininstance = slogin.Login(drive)
-        logininstance.login(useraccount, password, vertifycode)
-        drive.implicitly_wait(30)
-        print drive.current_url
-        print drive.title.encode('utf-8')
-        drive.find_element_by_link_text(u'退出登录').click()
-        time.sleep(5)
+        loginresult = slogin.Login(drive).login_for_test(u, p, v, r)
+        self.assertEqual(loginresult['result'], test_login_case2['result'], 'login successful')
+        self.assertEqual(loginresult['usernameprompt'], test_login_case2['usernameprompt'], 'Usename Prompt Error')
 
     def tearDown(self):
-        time.sleep(3)
+        time.sleep(1)
         self.drive.quit()
 
 

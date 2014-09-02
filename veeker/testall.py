@@ -1,6 +1,8 @@
 import unittest
 import HTMLTestRunner
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 sys.path.append('\TestSuite')
 from testsuite import *
