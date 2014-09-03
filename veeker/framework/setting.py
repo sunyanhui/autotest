@@ -8,3 +8,4 @@
 
 URL = 'http://www.company.com'
 BROWSER = 'Ie'
+ERRORIMGPATH = 'D:/errorimg/'
