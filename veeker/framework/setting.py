@@ -7,5 +7,5 @@
 
 
 URL = 'http://www.company.com'
-BROWSER = 'Ie'
+BROWSER = 'Chrome'
 ERRORIMGPATH = 'D:/errorimg/'

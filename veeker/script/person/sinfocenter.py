@@ -30,19 +30,11 @@ class InfoCenter():
             driver.find_element(confirmPasswordInput[0], confirmPasswordInput[1]).send_keys(c)
             driver.find_element(passwordSubmit[0], passwordSubmit[1]).click()
 
-        except NoSuchElementException, e:
+        except:
             imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
             driver.get_screenshot_as_file(imgpath)
             return {'result':False,
-                    'describtion':e,
-                    'errorimg':imgpath
-            }
-
-        except e:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':e,
+                    'describtion':sys.exc_info()[1],
                     'errorimg':imgpath
             }
 

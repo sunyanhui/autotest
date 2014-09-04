@@ -125,11 +125,11 @@ class Login():
                     'describtion':e,
                     'errorimg':imgpath
             }
-        except e:
+        except:
             imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
             driver.get_screenshot_as_file(imgpath)
             return {'result':False,
-                    'describtion':e,
+                    'describtion':'需要修改',
                     'errorimg':imgpath
             }
 

@@ -43,4 +43,16 @@ getmailcode = (By.ID, 'button')
 submit = (By.LINK_TEXT, u'提交')
 
 #返回登录按钮
-backtologin = (By.LINK_TEXT, u'返回登录')
+backtologin = (By.LINK_TEXT, u'返回登陆')
+
+#忘记登录密码链接
+forgotPassword = (By.LINK_TEXT, u'忘记登录密码？')
+
+#用户名输入框
+userAccount = (By.ID, 'userAccount')
+
+#验证码输入框
+emailCodeForFind = (By.NAME, 'emailCode')
+
+#下一步按钮
+nextstep = (By.ID, 'submitButton')
