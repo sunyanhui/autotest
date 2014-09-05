@@ -153,7 +153,7 @@ class Regist():
             imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
             driver.get_screenshot_as_file(imgpath)
             return {'result':False,
-                    'describtion':sys.exc_info(),
+                    'describtion':sys.exc_info()[1],
                     'errorimg':imgpath
             }
 
@@ -165,7 +165,10 @@ class Regist():
 
     #获取验证码函数
     def __getvertifycode(self, towho):
-        time.sleep(10)
+
+        time.sleep(10) #等待10S，以确保能收到邮件
+
+        #利用mailinator.com的匿名邮件功能收取验证码
         try:
             getidurl = 'https://api.mailinator.com/api/inbox?to='+towho+'&token=a65b978467f54e559c028dff740c9621'
             s = json.loads(str(urllib2.urlopen(getidurl).read()))
@@ -179,7 +182,7 @@ if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.get('http://www.wiki168.com')
     regist = Regist(driver)
-    print regist.submit_information('asdfasdfasdf6', '111111', '111111')
+    print regist.submit_information('asdfasdfasdf7', '111111', '111111')
     print  regist.regist()
     time.sleep(5)
     driver.quit()

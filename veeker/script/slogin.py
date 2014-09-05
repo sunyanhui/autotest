@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.ologin import *
 from framework import setting
-import time
+import time, sys
 
 
 
@@ -21,7 +21,7 @@ class Login():
 
     def login_for_test(self, u, p, v, r):
         '''
-        该方法公在登录测试时用，其它业务登录时应调用login()
+        @@@该方法暂未完成，后期完善，暂时TESTCASE先使用lonin()
         :param u:用户名
         :param p:密码
         :param v:验证码
@@ -44,7 +44,7 @@ class Login():
         driver.find_element(password1[0], password1[1]).send_keys(p)
         driver.find_element(vertifycode[0], vertifycode[1]).clear()
         driver.find_element(vertifycode[0], vertifycode[1]).send_keys(v)
-        #driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).clear()
+
         if r.upper() == 'YES':
             driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).click()
         driver.find_element(submit[0], submit[1]).click()
@@ -90,11 +90,12 @@ class Login():
 
     def login(self, u, p, v, r='no'):
         '''
-        该方法用于普通流程登录Action
+        该方法用于普通流程登录
         :param u:用户名
         :param p:密码
         :param v:验证码
-        :return:返回登录是否成功，成功为True，失败为False
+        :param r:是否记住密码，默认为no，如需记住，请赋值为yes
+        :return:返回状态字典
         '''
         driver = self.driver
 
@@ -118,18 +119,11 @@ class Login():
                 driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).click()
             driver.find_element(submit[0], submit[1]).click()
 
-        except NoSuchElementException, e:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':e,
-                    'errorimg':imgpath
-            }
         except:
             imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
             driver.get_screenshot_as_file(imgpath)
             return {'result':False,
-                    'describtion':'需要修改',
+                    'describtion':sys.exc_info()[1],
                     'errorimg':imgpath
             }
 
@@ -137,15 +131,25 @@ class Login():
         try:
             time.sleep(1)
             driver.find_element(submit[0], submit[1])
+
+        except NoSuchElementException:
+            return {'result':True,
+                    'describtion':'not find submit button, login succeed'
+            }
+
+        except:
             imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
             driver.get_screenshot_as_file(imgpath)
             return {'result':False,
-                    'describtion':'login fail',
+                    'describtion':sys.exc_info()[1],
                     'errorimg':imgpath
             }
-        except NoSuchElementException:
-            return {'result':True,
-                    'describtion':'login succeed'
+        else:
+            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
+            driver.get_screenshot_as_file(imgpath)
+            return {'result':False,
+                    'describtion':'submint button still in , login fail',
+                    'errorimg':imgpath
             }
 
 if __name__ == '__main__':

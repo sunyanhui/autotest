@@ -13,8 +13,7 @@ def get_left_start_point(im):
             if data[ y*w + x ] != white:
                 found = True
                 start_point = (x,y)
-                break
-         
+                break       
         if found:
             break
     return start_point

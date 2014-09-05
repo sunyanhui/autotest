@@ -17,16 +17,15 @@ class Browser():
         browser = self.__browser
         URL = str(self.__URL)
 
-        if browser.upper() == 'IE': drive = webdriver.Ie()
-        elif browser.upper() == 'CHROME': drive = webdriver.Chrome()
-        elif browser.upper() == 'FIREFOX': drive = webdriver.Firefox()
-        elif browser.upper() == 'SAFARI': drive = webdriver.Safari()
+        if browser.upper() == 'IE': driver = webdriver.Ie()
+        elif browser.upper() == 'CHROME': driver = webdriver.Chrome()
+        elif browser.upper() == 'FIREFOX': driver = webdriver.Firefox()
+        elif browser.upper() == 'SAFARI': driver = webdriver.Safari()
         else: drive = webdriver.Ie()
+        driver.get(URL)
+        driver.maximize_window()
 
-        drive.get(URL)
-        drive.maximize_window()
-
-        return drive
+        return driver
 
 
 if __name__ == '__main__':
