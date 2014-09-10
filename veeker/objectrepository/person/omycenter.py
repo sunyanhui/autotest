@@ -1,23 +1,21 @@
 #coding=utf-8
 from selenium.webdriver.common.by import By
 
-#************************公共的************************#
+#************************公共对象************************#
 #选择省份
-province = (By.ID, 'province', "//option[@value='007041']")
+province = (By.ID, 'province')
 
 #选择市
-city = (By.ID, 'city', "//option[@value='007041001']")
+city = (By.ID, 'city')
 
 #选择区
-county = (By.ID, 'county', "//option[@value='007041001']")
+country = (By.ID, 'county')
 
 #OK按钮
 okButton = (By.ID, 'popup_ok')
 
 #保存提交按钮按钮
 Button = (By.ID, 'button')
-
-
 
 #***********************信息中心***********************#
 #密码修改链接
@@ -80,10 +78,19 @@ revicerNameForMdAd = (By.NAME, 'receiveAddDTO.revicerName')
 mobileForMdAd = (By.NAME, 'receiveAddDTO.mobile')
 
 #电话号码
-telphoneForMdAd = (By.NAME, 'receiveAddDTO.telPhone')
+telephoneForMdAd = (By.NAME, 'receiveAddDTO.telPhone')
 
 #设为默认收货地址
 isDefaultAddress = (By.NAME, 'receiveAddDTO.isDefault')
+
+#已保存地址数
+addressNumber = (By.CSS_SELECTOR, 'body p span')
+
+#修改收货地址链接
+mdaddressLink = (By.LINK_TEXT, u'修改')
+
+#删除收货地址链接
+deladdressLink = (By.LINK_TEXT, u'删除')
 
 #***********************购物管理***********************#
 #订单查询

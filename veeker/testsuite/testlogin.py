@@ -32,21 +32,21 @@ class TestLogin(unittest.TestCase):
         return mode1
 
 
-    @mode
+    #@mode
     #@unittest.skipIf(test_login_case1['tag']=='no', u"skip test_login_case1")
-    def test_login_case1(self):
-        return test_login_case2
+    #def test_login_case1(self):
+    #    return test_login_case2
 
 
 
-    @mode
+    #@mode
     #@unittest.skipIf(test_login_case2['tag']=='no',u'skip test_login_case2')
-    def test_login_case2(self):
-        return test_login_case2
+    #def test_login_case2(self):
+    #    return test_login_case2
 
     #testcase1
     #@unittest.skipIf(test_login_case1['tag']=='no', u"skip test_login_case1")
-    def test_login_case3(self):
+    def test_login_case1(self):
         u'''测试登录成功'''
 
         u = test_login_case1['useraccount']
@@ -61,7 +61,7 @@ class TestLogin(unittest.TestCase):
 
 
     #testcase2
-    def test_login_case4(self):
+    def test_login_case2(self):
         u'''用户名输入为空'''
 
         u = test_login_case2['useraccount']
@@ -71,7 +71,7 @@ class TestLogin(unittest.TestCase):
         drive = self.drive
 
         loginresult = slogin.Login(drive).login(u, p, v, r)
-        self.assertEqual(loginresult['result'],test_login_case1['result'],
+        self.assertEqual(loginresult['result'],test_login_case2['result'],
                          msg=loginresult['describtion']+'  '+loginresult['errorimg'])
 
 
