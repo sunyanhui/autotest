@@ -37,9 +37,11 @@
       <file leaf-file-name="testall.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testall.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="506">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,43 +56,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dlogin.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testdata/dlogin.py">
+      <file leaf-file-name="smanageshopping.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/person/smanageshopping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
-              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sinfocenter.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/person/sinfocenter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5720">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               <folding>
-                <element signature="e#47#77#0" expanded="true" />
+                <element signature="e#46#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework/setting.py">
+      <file leaf-file-name="sorder.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script/person/sorder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="smanageshopping.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/person/smanageshopping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
+            <state vertical-scroll-proportion="1.0305499" vertical-offset="528" max-vertical-offset="1760">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#46#76#0" expanded="true" />
               </folding>
@@ -108,22 +90,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="omycenter.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="omycenter.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/objectrepository/person/omycenter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.142857" vertical-offset="0" max-vertical-offset="3674">
-              <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="4092">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oregister.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/objectrepository/oregister.py">
+      <file leaf-file-name="sinfocenter.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/person/sinfocenter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1386">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1716" max-vertical-offset="5720">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="92" selection-end-column="13" />
+              <folding>
+                <element signature="e#47#77#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,10 +147,11 @@
         <option value="$PROJECT_DIR$/framework/methodtemplate.py" />
         <option value="$PROJECT_DIR$/testdata/dlogin.py" />
         <option value="$PROJECT_DIR$/testsuite/testlogin.py" />
-        <option value="$PROJECT_DIR$/script/person/sinfocenter.py" />
         <option value="$PROJECT_DIR$/script/person/smanageshopping.py" />
         <option value="$PROJECT_DIR$/objectrepository/person/ogoodsdetail.py" />
         <option value="$PROJECT_DIR$/objectrepository/person/omycenter.py" />
+        <option value="$PROJECT_DIR$/script/person/sinfocenter.py" />
+        <option value="$PROJECT_DIR$/script/person/sorder.py" />
       </list>
     </option>
   </component>
@@ -372,25 +357,7 @@
       <recent name="D:\autotest\veeker\TestSuite" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sinfocenter">
-    <configuration default="false" name="sbrowser" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="veeker" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/sbrowser.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.sorder">
     <configuration default="false" name="Unittest TestLogin.test_login_case2" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -474,6 +441,24 @@
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="sorder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/script/person" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="veeker" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/script/person/sorder.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -599,19 +584,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.sbrowser" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestLogin.test_login_case2" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in testlogin" />
-      <item index="3" class="java.lang.String" itemvalue="Python.testall" />
-      <item index="4" class="java.lang.String" itemvalue="Python.sinfocenter" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest TestLogin.test_login_case2" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in testlogin" />
+      <item index="2" class="java.lang.String" itemvalue="Python.testall" />
+      <item index="3" class="java.lang.String" itemvalue="Python.sinfocenter" />
+      <item index="4" class="java.lang.String" itemvalue="Python.sorder" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sinfocenter" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in testlogin" />
-        <item index="2" class="java.lang.String" itemvalue="Python.testall" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestLogin.test_login_case2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.sbrowser" />
+        <item index="0" class="java.lang.String" itemvalue="Python.sorder" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sinfocenter" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in testlogin" />
+        <item index="3" class="java.lang.String" itemvalue="Python.testall" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestLogin.test_login_case2" />
       </list>
     </recent_temporary>
   </component>
@@ -628,7 +613,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -670,13 +655,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/script/sbrowser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="902">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testsuite/testlogin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="467" max-vertical-offset="1210">
@@ -959,14 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="23518">
@@ -983,18 +953,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5800416" vertical-offset="2713" max-vertical-offset="3432">
+          <caret line="153" column="85" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/objectrepository/oregister.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1386">
+        <state vertical-scroll-proportion="0.34920636" vertical-offset="0" max-vertical-offset="1386">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
+    <entry file="file://$PROJECT_DIR$/testdata/dlogin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5800416" vertical-offset="2713" max-vertical-offset="3432">
-          <caret line="153" column="85" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.122392215" vertical-offset="0" max-vertical-offset="719">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1007,38 +993,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testdata/dlogin.py">
+    <entry file="file://$PROJECT_DIR$/testall.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/person/sinfocenter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5720">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="506">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
           <folding>
-            <element signature="e#47#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/person/smanageshopping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
-          <folding>
-            <element signature="e#46#76#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1053,9 +1013,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/objectrepository/person/omycenter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.142857" vertical-offset="0" max-vertical-offset="3674">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2244" max-vertical-offset="4092">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/person/smanageshopping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/person/sinfocenter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1716" max-vertical-offset="5720">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="92" selection-end-column="13" />
+          <folding>
+            <element signature="e#47#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/person/sorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0305499" vertical-offset="528" max-vertical-offset="1760">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

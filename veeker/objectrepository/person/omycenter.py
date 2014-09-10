@@ -106,6 +106,25 @@ goodstatus = (By.ID, 'itemName', "//option[@value='vk002401']")
 searchButtonFororder = (By.NAME, 'cx')
 
 #*****************************************************#
+#找商品
+findgood = (By.LINK_TEXT, u'找商品')
+
+#商品名称
+goodname = (By.ID, 'goodsName')
+
+#开始价格
+startprice = (By.ID, 'promotionPrice')
+
+#结束价格
+endprice = (By.ID, 'transacttonPrice')
+
+#搜索按钮
+searchButtonForFindgoods = (By.ID, 'button')
+
+#商品链接
+goodlink = (By.CSS_SELECTOR, 'td+a+img')
+
+#*****************************************************#
 #我的收藏
 myFavorites = (By.LINK_TEXT, u'我的收藏')
 
