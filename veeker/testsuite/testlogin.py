@@ -1,7 +1,10 @@
-#!/usr/bin/python3.3
+#!/usr/bin/python2.7
 #coding=utf-8
 
-import sys, os, unittest, time
+import sys
+import os
+import unittest
+import time
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from selenium import webdriver
 from testdata.dlogin import *
