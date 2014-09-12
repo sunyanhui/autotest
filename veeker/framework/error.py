@@ -20,3 +20,6 @@ def error_user_defined(driver, msg):
             'describtion': msg,
             'errorimg': imgpath
     }
+
+class BreakException(Exception):
+    pass

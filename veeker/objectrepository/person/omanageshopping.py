@@ -19,14 +19,44 @@ endsaledate = (By.ID, 'searchendDateId')
 #搜索按钮
 searchButtonFororder = (By.NAME, 'cx')
 
-#订单总数字串
+#订单号码字符串
 stringoforder = (By.CSS_SELECTOR, 'td.order_titlee')
 
 #总条数+总页数 字符串
 totalpagenumber = (By.CSS_SELECTOR, 'div.page_yemal p')
 
 #下一页
-nextpage = (By.CSS_SELECTOR, 'a.page_a u')
+nextpage = (By.CSS_SELECTOR, 'a.page_a u:contains('+u'下一页'+')')
+
+#输入页码
+inputpagenumber = (By.ID, 'go1')
+
+#GO按钮
+gobutton = (By.LINK_TEXT, 'GO')
+
+#取消订单
+undoorder = (By.LINK_TEXT, u'取消订单')
+
+#删除订单
+deleteorder = (By.LINK_TEXT, u'删除')
+
+#确认收货
+confirmreceipt = (By.CSS_SELECTOR, "a[href^='javascript:cusOrder.confirmReceiptOrder']")
+
+#退货链接
+applyreturn =(By.CSS_SELECTOR, "a[href^='javascript:cusOrder.applyRefund']")
+
+#退货原因
+returnreason = (By.ID, 'reasonId')
+
+#退货说明
+returndescription = (By.NAME, 'replaceGoodsDTO.memo')
+
+#退货数量
+returnnumber = (By.NAME, 'replaceGoodsDTO.goodsNum')
+
+#申请退货已发出
+returnsuccee = (By.CSS_SELECTOR, u"h3:contains('申请退货已发出')")
 
 #***********************找商品***********************#
 #找商品
