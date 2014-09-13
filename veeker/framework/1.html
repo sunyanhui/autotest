@@ -1,0 +1,863 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+		<base href="http://www.company.com:80/" />
+		<title>我的订单</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<link href="http://www.company.com:80/customer/css/gy.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.company.com:80/customer/css/zhuti.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://www.company.com:80/common/js/validFrom/js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="http://www.company.com:80/common/js/My97DatePicker/WdatePicker.js"></script><link href="http://www.company.com:80/common/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://www.company.com:80/customer/js/alerts.js"></script>
+		<script type="text/javascript" src="http://www.company.com:80/customer/js/cusUtil.js"></script>
+		<script type="text/javascript" src="http://www.company.com:80/customer/js/cusOrder.js"></script>
+</head>
+	<body style="overflow: auto;">
+	        <input id="stateId" type="hidden" value="" />
+	        <input id="goodsStateId" type="hidden" value="" />
+	        <input id="begindateId" type="hidden" value="" />
+	        <input id="endDateId" type="hidden" value="" />
+	        <input id="goodsNameSearch" type="hidden" value="" />
+	        
+	        <form method="post" name="returnedForm" action="selectApplyRefund.shtml">
+		        <input name="state" type="hidden" value="" />
+		        <input id="RegoodsStateid" name="goodsState" type="hidden" value="" />
+		        <input id="RebeginDateid" name="beginDate" type="hidden" value="" />
+		        <input id="ReendDateid" name="endDate" type="hidden" value="" />
+		        <input id="RegoodsNameid" name="goodsName" type="hidden" value="" />
+		        <input id="returnOrderGoodsId" name="orderGoodsId" type="hidden" />
+		        <input id="pageID" name="page" type="hidden" value="1" />
+	        </form>
+	<div class="border_con_right">
+	     <div class="gy_title">我的订单</div>
+	     <form id="searchId" method="post" name="searchForm" action="selectCustomerOrder.shtml">
+	        <table border="0" cellspacing="0" cellpadding="0" style=" margin-bottom:20px;">
+			      <tbody><tr>
+				        <td class="spmc_box_font">商品名称：</td>
+						<td><input id="goodsNameSearch" name="goodsName" class="spmc_box_text" value="" autocomplete="off" /></td>
+						<td class="spmc_box_font">交易状态：</td>
+						<td>
+						   <select name="goodsState" id="itemName" class="jyzt_selet">
+		   	                       <option value="">全部</option>
+				   	            
+				   		           <option value="vk002401">未付款</option>
+				   	            
+				   		           <option value="vk002402">已付款</option>
+				   	            
+				   		           <option value="vk002501">未发货</option>
+				   	            
+				   		           <option value="vk002502">已发货</option>
+				   	            
+				   		           <option value="vk002503">已收货</option>
+				   	            
+				   		           <option value="vk002504">已退货</option>
+				   	            
+				   		           <option value="vk002506">已拒收</option>
+				   	            
+				   		           <option value="vk002507">已拒发</option>
+				   	            
+				   		           <option value="vk005901">交易关闭</option>
+				   	            
+				   		           <option value="vk005902">交易成功</option>
+				   	            
+				   		           <option value="vk005903">交易进行中</option>
+				   	            
+			              </select>
+					    </td>
+				  </tr>
+				  <tr>
+					  	<td class="spmc_box_font">成交日期：</td>
+						<td colspan="3" class="ddrq_box">
+						   <input type="text" id="searchbeginDateId" name="searchbeginDate" class="cjrq_ddrq" value="" onclick="WdatePicker({isShowClear:true,readOnly:true,dateFmt:'yyyy-MM-dd', maxDate:'#F{$dp.$D(\'searchendDateId\') || \'%y-%M-%d\'}'})" />
+						   <span class="zhi">至</span>
+						   <input type="text" id="searchendDateId" name="searchendDate" class="cjrq_ddrq" value="" onclick="WdatePicker({isShowClear:true,readOnly:true,dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d',minDate:'#F{$dp.$D(\'searchbeginDateId\')}'})" />
+						</td>
+						<td class="cx_button_bg">
+						  <input name="cx" id="cx" type="submit" value="搜索" class="btnApplyLong btnanniu" style="margin-left:10px;display:inline;float: left;" />
+						</td>
+				  </tr>
+            </tbody></table>
+		   </form>
+	
+		<table width="783" border="0" cellspacing="0" cellpadding="0" class="order">
+			    
+					<tbody><tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101828509841000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:2</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101828509841000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101828509841000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(923);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('923');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101828218841000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:400g 口味:2</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">72.00</font></p>
+						          <p>促销价：¥<font name="price">50.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">50.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101828218841000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101828218841000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(922);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('922');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101825208741000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101825208741000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101825208741000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(921);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('921');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101827430241000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101827430241000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101827430241000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(920);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('920');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101822842841000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101822842841000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101822842841000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(919);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('919');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101825218341000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101825218341000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101825218341000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(918);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('918');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101824795641000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101824795641000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101824795641000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(917);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('917');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101828646441000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-13      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101828646441000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101828646441000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(916);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('916');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101811790941000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-12      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101811790941000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101811790941000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(913);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('913');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+					<tr>
+					   <td colspan="8" class="order_titlee">  订单编号：101811570741000237       企业名称：<a href="javascript:void(0);" onclick="goMall('www.fssy.com','01','15000000237','ISGMyneATSuhkiwz4BURBQ==');" style="width: 200px; " title="石家庄富生实业有限公司">石家庄富生实业有限公司</a>      成交日期：2014-09-12      物流单号：
+					    
+						     暂无
+						     
+					    
+					    
+					   </td>
+					</tr>
+				
+					    <tr>
+						   <td width="92" align="left" class="order_bd cbl">
+						    <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">
+							   
+							   
+								 <img src="http://192.168.0.250/upload/weblogic/olsm/file/enterprise/goods/13/2014/09/140981630634613.jpg" alt="肉肉肉肉肉肉" title="肉肉肉肉肉肉" width="75" height="75" />
+							   
+						   </a>
+						   </td>
+						   <td width="240" align="left" valign="top" class="order_bd">
+						         <span class="ddwz">
+						            <a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');" title="肉肉肉肉肉肉">肉肉肉肉肉肉</a>
+						         </span>
+						         <p class="dj">规格:250g 口味:1</p>
+						   </td>
+						   <td width="120" align="left" class="order_rt">
+						          <p>单    价：¥<font name="price">40.00</font></p>
+						          <p>促销价：¥<font name="price">30.00</font></p>
+						          <p>数    量：1</p>
+						   </td>
+				       
+						   <td width="97" rowspan="1" align="center" class="order_rt">
+						         <p class="jgwz">¥<font name="price">30.00</font></p>
+						         <p class="myf">(免邮费)</p>
+						   </td>
+					   
+					   
+					        <td width="91" rowspan="1" align="center" class="order_rt">
+							       
+								   	   <p><font style="color: #43CD80">交易成功</font></p>
+								   
+							       
+							       
+					          <blockquote>  </blockquote></td>
+					    
+					    
+					        <td width="73" rowspan="1" align="center" class="order_rt">
+					           
+							   
+							       <p><a href="javascript:cusOrder.orderDetails('101811570741000237');">订单详情</a></p>
+					           
+							       <p><a href="javascript:cusOrder.delOrder('101811570741000237');">删除</a></p>
+							   
+					         </td>
+					    
+					        <td width="92" valign="middle" class="order_bd">
+					              
+					                <p><a href="javascript:queryOrderReplace(912);">查看退货</a></p>
+					               
+					               <p>
+					                  
+					                       
+							          
+					               </p>
+					               <p>
+					                 
+							            
+							                <a href="javascript:cusOrder.reviewOrder('912');">评论</a><br />
+							            
+							            
+							         
+					              </p>
+					              <p><a href="javascript:void(0);" onclick="buyAgainGoods('341','13','341','01','01','www.fssy.com','03','15000000237','ISGMyneATSuhkiwz4BURBQ==');">再次购买</a></p>
+					          </td>
+					      </tr>
+					      
+					      
+			    </tbody></table>
+			     <div style="float:left; width:790px;"><div class="page_yemal"><p>共37条，共4页</p><div class="page_right"><span class="page_a" style="color:#C0C0C0"><u>首页</u></span><span class="page_a" style="color:#C0C0C0"><u>上一页</u></span><span class="current page_a page_on" id="page">1</span><a href="javascript:pageSearch(2)" class="page_a">2</a><a href="javascript:pageSearch(3)" class="page_a">3</a><a href="javascript:pageSearch(4)" class="page_a">4</a><a href="javascript:pageSearch(2)" class="page_a"><u>下一页</u></a><a href="javascript:pageSearch(4)" class="page_a"><u>尾页</u></a><input name="go1" id="go1" onkeyup="this.value=this.value.replace(/[^\d]/g,''); if(this.value&gt;4||this.value&lt;=0)this.value='';" type="text" class="page_input" value="1" /><a href="javascript:pageSearch('go1')" class="page_a">GO</a></div></div></div>
+			    <div style=" clear:both"></div>
+			    
+			    
+		</div>
+	
+
+</body></html>

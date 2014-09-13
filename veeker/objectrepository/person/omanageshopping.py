@@ -55,27 +55,9 @@ returndescription = (By.NAME, 'replaceGoodsDTO.memo')
 #退货数量
 returnnumber = (By.NAME, 'replaceGoodsDTO.goodsNum')
 
-#申请退货已发出
-returnsuccee = (By.CSS_SELECTOR, u"h3:contains('申请退货已发出')")
+#申请退货已发出文字
+returnsucceed = (By.CSS_SELECTOR, "div.thBox ul li h3")
 
-#***********************找商品***********************#
-#找商品
-findgood = (By.LINK_TEXT, u'找商品')
-
-#商品名称
-goodname = (By.ID, 'goodsName')
-
-#开始价格
-startprice = (By.ID, 'promotionPrice')
-
-#结束价格
-endprice = (By.ID, 'transacttonPrice')
-
-#搜索按钮
-searchButtonForFindgoods = (By.ID, 'button')
-
-#商品链接
-goodlink = (By.CSS_SELECTOR, 'td+a+img')
 
 #***********************我的收藏***********************#
 #我的收藏链接
@@ -85,7 +67,6 @@ myFavorites = (By.LINK_TEXT, u'我的收藏')
 #************************购物车************************#
 #购物车链接
 shoppingCart = (By.LINK_TEXT, u'购物车')
-
 
 #************************抵值券************************#
 #我的抵值券链接
