@@ -1,4 +1,4 @@
-#!/usr/bin/python3.3
+#!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
@@ -104,7 +104,6 @@ class ManageShopping():
         #建立匹配规则
         pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
         pattern2 = re.compile(w['ordernumber'])
-        mark = False
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -115,19 +114,14 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        mark = True
-                        raise error.BreakException()
+                        return {'result': True, 'describtion': 'confirm receipt success'}
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
-        except error.BreakException:
-            pass
         except:
             return error.error_auto(driver)
 
-        if not mark:
-            return error.error_user_defined(driver, 'not fount the order to confirm')
+        return error.error_user_defined(driver, 'not fount the order to confirm')
 
-        return {'result': True, 'describtion': 'confirm receipt success'}
 
     def delete_order(self, **w):
         u'''
@@ -149,7 +143,6 @@ class ManageShopping():
         #建立匹配规则
         pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
         pattern2 = re.compile(w['ordernumber'])
-        mark = False
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -160,19 +153,13 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        mark = True
-                        raise error.BreakException()
+                        return {'result': True, 'describtion': 'delete order success'}
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
-        except error.BreakException:
-            pass
         except:
             return error.error_auto(driver)
 
-        if not mark:
-            return error.error_user_defined(driver, 'not fount the order to delete')
-
-        return {'result': True, 'describtion': 'delete order success'}
+        return error.error_user_defined(driver, 'not fount the order to delete')
 
     def undo_order(self, **w):
         u'''
@@ -194,7 +181,6 @@ class ManageShopping():
         #建立匹配规则
         pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
         pattern2 = re.compile(w['ordernumber'])
-        mark = False
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -205,19 +191,15 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        mark = True
-                        raise error.BreakException()
+                        return {'result': True, 'describtion': 'undo order success'}
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
-        except error.BreakException:
-            pass
         except:
             return error.error_auto(driver)
 
-        if not mark:
-            return error.error_user_defined(driver, 'not fount the order to undo')
+        return error.error_user_defined(driver, 'not fount the order to undo')
 
-        return {'result': True, 'describtion': 'undo order success'}
+
 
     def apply_return(self, **w):
         u'''
@@ -273,24 +255,26 @@ class ManageShopping():
                         #判断是否存在‘申请退货已发出’字样，有则返回申请成功
                         driver.implicitly_wait(5)
                         if u'申请退货已发出' in sdriver(*returnsucceed).text:
+                            driver.switch_to_default_content()
                             return {'result': True, 'describtion': 'apply return success'}
                         else:
                             return error.error_user_defined(driver, 'apply return failed!')
 
-                #实现翻页功能，以达到遍历的目的
+                #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
-                sdriver(*inputpagenumber).clear()
-                sdriver(*inputpagenumber).send_keys(str(int(i)+2))
-                sdriver(*gobutton).click()
+                sdriver(*nextpage).click()
+                #sdriver(*inputpagenumber).clear()
+                #sdriver(*inputpagenumber).send_keys(str(int(i)+2))
+                #sdriver(*gobutton).click()
         except:
             return error.error_auto(driver)
 
         return error.error_user_defined(driver, 'not fount the order to apply')
 
-    def order_status(self, ordernumber=''):
+    def order_status(self, **w):
         pass
 
-    def review_good(self, ordernumber='', reviewgrade='', reviewdetail='', ifanonymous='yes',**w):
+    def review_good(self, **w):
         u'''
         该方法用于评价商品
         :param kwargs:订单号码
@@ -326,33 +310,44 @@ class ManageShopping():
                     if pattern2.search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
-                        href = publicmethod.gethref(driver.page_source, w['ordernumber'], u'评价')
+                        href = publicmethod.gethref(driver.page_source, w['ordernumber'], u'评论')
 
                         #如果href为False，返回没找到订单
                         if href==False:
                             return error.error_user_defined(driver, 'not fount the order to review')
 
-                        #点击申请退货-- 填写退货表单，而后提交
+                        #点击评价-- 填写评价表单，而后提交
                         driver.find_element_by_css_selector('a[href="'+href+'"]').click()
-                        sdriver(*returnreason).find_element_by_xpath("//option[@value='"+w['returnreason']+"']").click()
-                        sdriver(*returndescription).clear()
-                        sdriver(*returndescription).send_keys(w['returndescription'])
-                        sdriver(*returnnumber).clear()
-                        sdriver(*returnnumber).send_keys(w['returnnumber'])
+                        if w['reviewgrade'] == u'好评':
+                            sdriver(*reviewgrade_01).click()
+                        elif w['reviewgrade'] == u'中评':
+                            sdriver(*reviewgrade_02).click()
+                        elif w['reviewgrade'] == u'差评':
+                            sdriver(*reviewgrade_03).clcik()
+
+                        sdriver(*reviewdetail).clear()
+                        sdriver(*reviewdetail).send_keys(w['reviewdetail'])
+
+                        if w['ifanonymity'].upper() == 'YES':
+                            sdriver(*ifanonymity).click()
+                        else:
+                            pass
+
                         sdriver(*Button).click()
 
                         #判断是否存在‘申请退货已发出’字样，有则返回申请成功
-                        driver.implicitly_wait(5)
-                        if u'申请退货已发出' in sdriver(*returnsucceed).text:
-                            return {'result': True, 'describtion': 'apply return success'}
+                        driver.switch_to_default_content()
+                        driver.implicitly_wait(2)
+                        if sdriver(*promptmessage).text == u'评论成功！':
+                            sdriver(*okButton).click()
+                            return {'result': True, 'describtion': 'review goods success'}
                         else:
-                            return error.error_user_defined(driver, 'apply return failed!')
+                            sdriver(*okButton).click()
+                            return error.error_user_defined(driver, 'review goods failed!')
 
-                #实现翻页功能，以达到遍历的目的
+                #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
-                sdriver(*inputpagenumber).clear()
-                sdriver(*inputpagenumber).send_keys(str(int(i)+2))
-                sdriver(*gobutton).click()
+                sdriver(*nextpage).click()
         except:
             return error.error_auto(driver)
 
@@ -368,11 +363,12 @@ if __name__ == '__main__':
     d = webdriver.Chrome()
     d.maximize_window()
     #testcase = dict(goodsname='', goodsstatus='', startdate='', enddate='' )
-    testcase = dict(ordernumber='101813556241000237',returnreason='01', returndescription='1234567890', returnnumber='1')
+    testcase = dict(ordernumber='101708787837000237',reviewgrade=u'好评', reviewdetail='1234567890', ifanonymity='YES')
     d.get('http://www.company.com')
     slogin.Login(d).login('15000000237', '888888', '111')
     info = ManageShopping(d)
-    print info.apply_return(**testcase)
+    print info.review_good(**testcase)
+    #print info.apply_return(**testcase)
     #print info.order_query(**testcase)
     #print info.del_address(**testcase)
     time.sleep(3)

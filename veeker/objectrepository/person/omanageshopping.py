@@ -26,7 +26,8 @@ stringoforder = (By.CSS_SELECTOR, 'td.order_titlee')
 totalpagenumber = (By.CSS_SELECTOR, 'div.page_yemal p')
 
 #下一页
-nextpage = (By.CSS_SELECTOR, 'a.page_a u:contains('+u'下一页'+')')
+#nextpage = (By.CSS_SELECTOR, u"a.page_a u:contains('下一页')".encode('utf-8'))
+nextpage = (By.LINK_TEXT, u"下一页")
 
 #输入页码
 inputpagenumber = (By.ID, 'go1')
@@ -43,8 +44,7 @@ deleteorder = (By.LINK_TEXT, u'删除')
 #确认收货
 confirmreceipt = (By.CSS_SELECTOR, "a[href^='javascript:cusOrder.confirmReceiptOrder']")
 
-#退货链接
-applyreturn =(By.CSS_SELECTOR, "a[href^='javascript:cusOrder.applyRefund']")
+#***********************申请退货***********************#
 
 #退货原因
 returnreason = (By.ID, 'reasonId')
@@ -58,6 +58,21 @@ returnnumber = (By.NAME, 'replaceGoodsDTO.goodsNum')
 #申请退货已发出文字
 returnsucceed = (By.CSS_SELECTOR, "div.thBox ul li h3")
 
+#***********************评价链接***********************#
+
+#评价等级（01：好评， 02：中评， 03差评）
+reviewgrade_01 = (By.CSS_SELECTOR, "input[value='01']")
+reviewgrade_02 = (By.CSS_SELECTOR, "input[value='02']")
+reviewgrade_03 = (By.CSS_SELECTOR, "input[value='03']")
+
+#评价内容
+reviewdetail = (By.ID, 'myarea')
+
+#是否匿名
+ifanonymity = (By.NAME, 'commentDTO.commentType')
+
+#提示消息
+promptmessage = (By.ID, 'popup_message')
 
 #***********************我的收藏***********************#
 #我的收藏链接
