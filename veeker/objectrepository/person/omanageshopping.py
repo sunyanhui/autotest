@@ -26,7 +26,6 @@ stringoforder = (By.CSS_SELECTOR, 'td.order_titlee')
 totalpagenumber = (By.CSS_SELECTOR, 'div.page_yemal p')
 
 #下一页
-#nextpage = (By.CSS_SELECTOR, u"a.page_a u:contains('下一页')".encode('utf-8'))
 nextpage = (By.LINK_TEXT, u"下一页")
 
 #输入页码

@@ -57,19 +57,13 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-
-        #建立匹配总订单数与总页数的规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-
-        #建立匹配订单号的规则
-        pattern2 = re.compile(r'\d{18}')
-
         try:
             #把所有订单号收集到orderlist列表里
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            #orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*stringoforder):
-                    orderlist.append(pattern2.search(j.text).group())
+                    orderlist.append(re.compile(r'\d{18}').search(j.text).group())
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
@@ -101,16 +95,12 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-        #建立匹配规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-        pattern2 = re.compile(w['ordernumber'])
-
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*confirmreceipt):
-                    if pattern2.search(j.get_attribute('href')):
+                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
@@ -140,16 +130,13 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-        #建立匹配规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-        pattern2 = re.compile(w['ordernumber'])
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*deleteorder):
-                    if pattern2.search(j.get_attribute('href')):
+                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
@@ -178,16 +165,12 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-        #建立匹配规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-        pattern2 = re.compile(w['ordernumber'])
-
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*undoorder):
-                    if pattern2.search(j.get_attribute('href')):
+                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
@@ -218,14 +201,11 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-        #建立匹配规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-        pattern2 = re.compile(w['ordernumber'])
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
@@ -234,7 +214,7 @@ class ManageShopping():
                 for j in driver.find_elements(*deleteorder):
 
                     #判断其链接中是否包含指定订单号
-                    if pattern2.search(j.get_attribute('href')):
+                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
                         href = publicmethod.gethref(driver.page_source, w['ordernumber'], u'申请退货')
@@ -291,14 +271,10 @@ class ManageShopping():
         except:
             return error.error_auto(driver)
 
-        #建立匹配规则
-        pattern1 = re.compile(r'(\d{1,3}).+(\d{1,3})')
-        pattern2 = re.compile(w['ordernumber'])
-
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
@@ -307,7 +283,7 @@ class ManageShopping():
                 for j in driver.find_elements(*deleteorder):
 
                     #判断其链接中是否包含指定订单号
-                    if pattern2.search(j.get_attribute('href')):
+                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
                         href = publicmethod.gethref(driver.page_source, w['ordernumber'], u'评论')
@@ -362,14 +338,14 @@ if __name__ == '__main__':
     import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    #testcase = dict(goodsname='', goodsstatus='', startdate='', enddate='' )
-    testcase = dict(ordernumber='101708787837000237',reviewgrade=u'好评', reviewdetail='1234567890', ifanonymity='YES')
+    testcase = dict(goodsname='', goodsstatus='', startdate='', enddate='' )
+    #testcase = dict(ordernumber='101708787837000237',reviewgrade=u'好评', reviewdetail='1234567890', ifanonymity='YES')
     d.get('http://www.company.com')
     slogin.Login(d).login('15000000237', '888888', '111')
     info = ManageShopping(d)
-    print info.review_good(**testcase)
+    #print info.review_good(**testcase)
     #print info.apply_return(**testcase)
-    #print info.order_query(**testcase)
+    print info.order_query(**testcase)
     #print info.del_address(**testcase)
     time.sleep(3)
 

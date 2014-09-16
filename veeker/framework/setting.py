@@ -9,3 +9,4 @@
 URL = 'http://www.company.com'
 BROWSER = 'Chrome'
 ERRORIMGPATH = 'D:/errorimg/'
+HOSTIP = '192.168.0.235'

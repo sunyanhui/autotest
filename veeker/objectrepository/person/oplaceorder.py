@@ -27,9 +27,18 @@ totalpagenumber = (By.CSS_SELECTOR, 'div.page_yemal p')
 #商品链接
 goodlink = (By.CSS_SELECTOR, 'td+a+img')
 
+#下一页
+nextpage = (By.LINK_TEXT, u"下一页")
+
 #***********************商品详情***********************#
 
-#商品详情页面
+#商品规格
+goodsoption = (By.CSS_SELECTOR, "a[onclick^='argument1(this']")
+
+#商品数量
+goodsnum = (By.ID, 'goodsNum')
+
+#立即购买
 buynow = (By.CSS_SELECTOR, "input[onclick^=shopping]")
 
 #加入到购物车
@@ -38,6 +47,40 @@ addtochat = (By.CSS_SELECTOR, "input[onclick^=addShopCart]")
 #加入收藏
 collect = (By.LINK_TEXT, u"收藏商品")
 
+#*****************第一次新增收货地址的表单*****************#
+nulladressform = (By.ID, 'nullAdressForm')
+
+#第一次新增——省市县
+province_null = (By.ID, 'province')
+city_null = (By.ID, 'addNuCity')
+country_null = (By.ID, 'addNuCounty')
+
+#详细地址
+detailaddress = (By.NAME, 'receiveAddDTO.addDetail')
+
+#邮政编码
+zipcode = (By.NAME, 'receiveAddDTO.zipCode')
+
+#收货人
+receivename = (By.NAME, 'receiveAddDTO.revicerName')
+
+#手机号码
+mobilenumber = (By.NAME, 'receiveAddDTO.mobile')
+
+#电话号码
+telephonenumber = (By.NAME, 'receiveAddDTO.telPhone')
+
+#是否设为默认收货地址
+ifdefaultaddress = (By.NAME, 'receiveAddDTO.isDefault')
+
+#第一次新增按钮
+button_null = (By.ID, 'addButton')
+
+#有了再新增
+addreciveadress = (By.ID, 'AddReciveAdress')
+
+#编辑收货地址
+updatereciveadress_null = (By.ID, 'updateReciveAdress')
 
 #***********************订单结算页面***********************#
 

@@ -1,7 +1,9 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from BeautifulSoup import  BeautifulSoup
+from framework import setting
 import sys
+import re
 
 def gethref(page, num, linkname):
     u'''
@@ -34,7 +36,39 @@ def gethref(page, num, linkname):
     return False
 
 
+def get_orderpage(text):
+    u'''
+    该函数用来提取字符串中的数字组，
+    如： “共210条，共11页”，提取出来的结果为['210','11']
+    :param text: 需要匹配出数字列表的字符串
+    :return:匹配结果
+    '''
+    return re.compile(r'\d{1,4}').findall(text)
+
+
+def modify_host(url):
+    u'''
+    该函数用于判断一个URL是不是在HOST里，如在则添加进去，HOSTIP 在setting里配置
+    用于解决进入商品详情或者商家页面时，因HOST没有配置而没法打开的问题
+    :param url:商家商城URL
+    :param hostip:WEB服务器IP
+    :return:添加结果
+    '''
+    hostfile = r'C:\Windows\System32\drivers\etc\hosts'
+    try:
+        with open(hostfile, 'r') as f:
+            if url in f.read():
+                return True
+
+        with open(hostfile,'a') as f:
+            f.write('\n' + setting.HOSTIP + ' ' + url)
+    except:
+        return False
+
+    return True
 
 if __name__ == '__main__':
-    print gethref(open('1.html').read(), '101828509841000237', u'评论')
+    #print gethref(open('1.html').read(), '101828509841000237', u'评论')
+    #print modify_host('www.sunyanhui1.com', '192.168.0.235')
+    print get_orderpage('123我是123我4234')
 

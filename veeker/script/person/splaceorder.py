@@ -3,6 +3,8 @@
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support.select import Select
 from objectrepository.person.omycenter import *
 from objectrepository.person.oplaceorder import *
 from framework import error, publicmethod
@@ -44,47 +46,118 @@ class PlaceOrder():
 
             sdriver(*searchButtonForFindgoods).click()
         except:
-            error.error_auto(driver)
+            return error.error_auto(driver)
 
         #建立匹配规则
         pattern = re.compile(r'\d{1,4}')
 
         #goodspage为总商品数量与总页数，列表结构，0：总数量，1：总页数
+        goodspage = []
+
         try:
-            goodspage = pattern.findall(sdriver(*totalpagenumber).text)
+            goodspage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
         except NoSuchElementException:
             goodspage = [0, 0]
         except:
-            error.error_auto(driver)
+            return error.error_auto(driver)
 
         return {'result': True, 'goodspage':goodspage, 'describtion': 'find goods Success'}
 
     def open_goodsdetail(self, **w):
         driver = self.driver
         sdriver = driver.find_element
+        onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] +"','" + w['enterid'] + "'"
+
+        #判断MAILURL是不是在HOST里，如不在则添加进去
+        publicmethod.modify_host(w['mailurl'])
 
         try:
-            onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] +"','" + w['enterid'] + "'"
-            driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="'+onclick+'"]')[0].click()
+            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
+            for i in range(int(orderpage[1])):
+                if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="'+onclick+'"]'):
+                    driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="'+onclick+'"]')[0].click()
+                    driver.switch_to_default_content()
+                    driver.switch_to_window(driver.window_handles[1])
+                    time.sleep(3)
+                    return {'result': True, 'describtion': 'open goodsdetail Success'}
+                if i == (int(orderpage[1])-1):break
+                sdriver(*nextpage).click()
         except:
-            error.error_auto(driver)
+            return error.error_auto(driver)
 
-        driver.switch_to_default_content()
-        time.sleep(3)
-        driver.switch_to_window(driver.window_handles[1])
-        return {'result': True, 'describtion': 'open goodsdetail Success'}
+        return error.error_user_defined(driver, 'not find the goods')
 
-    def collect_goods(self, **w):
-        pass
+    def collect_goods(self):
+        driver = self.driver
+        sdriver = driver.find_element
+
+        try:
+            sdriver(*collect).click()
+            time.sleep(3)
+        except:
+            return error.error_auto(driver)
+
+        try:
+            alerttext = Alert(driver).text
+            Alert(driver).accept()
+        except:
+            return error.error_auto(driver)
+
+        return {'result': True, 'alerttext':alerttext, 'describtion': 'collect goods Success'}
 
     def add_to_cart(self, **w):
         pass
 
-    def buy_it_now(self, **w):
-        pass
+
+    def buy_it_now(self):
+        u'''
+        还需完善
+        :return:
+        '''
+        driver = self.driver
+        sdriver = driver.find_element
+
+        options = driver.find_elements(*goodsoption)
+
+        if options:
+            for i in options:
+                i.click()
+
+        sdriver(*goodsnum).clear()
+        sdriver(*goodsnum).send_keys('1')
+
+        sdriver(*buynow).click()
+
 
     def order_settlement(self, **w):
-        pass
+        driver = self.driver
+        sdriver = driver.find_element
+        sdrivers = driver.find_elements
+        time.sleep(3)
+
+        if sdriver(*nulladressform).is_displayed():
+            try:
+                Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
+                Select(sdriver(*city_null)).select_by_visible_text(w['city'])
+                Select(sdriver(*country_null)).select_by_visible_text(w['country'])
+                sdriver(*nulladressform).find_element(*detailaddress).clear()
+                sdriver(*nulladressform).find_element(*detailaddress).send_keys(w['address'])
+                sdriver(*nulladressform).find_element(*zipcode).clear()
+                sdriver(*nulladressform).find_element(*zipcode).send_keys(w['zipcode'])
+                sdriver(*nulladressform).find_element(*receivename).clear()
+                sdriver(*nulladressform).find_element(*receivename).send_keys(w['name'])
+                sdriver(*nulladressform).find_element(*mobilenumber).clear()
+                sdriver(*nulladressform).find_element(*mobilenumber).send_keys(w['mobile'])
+                sdriver(*nulladressform).find_element(*telephonenumber).clear()
+                sdriver(*nulladressform).find_element(*telephonenumber).send_keys(w['telephone'])
+                if w['isdefault'].upper() == 'YES':
+                    sdriver(*nulladressform).find_element(*ifdefaultaddress).click()
+                sdriver(*nulladressform).find_element(*button_null).click()
+            except:
+                return error.error_auto(driver)
+        else:
+            pass
+
 
 
 if __name__ == '__main__':
@@ -95,13 +168,16 @@ if __name__ == '__main__':
     d = webdriver.Chrome()
     d.maximize_window()
     testcase = dict(ordernumber='101708787837000237',goodname='', startprice='', endprice='',selectindustry='',
-                    mailurl='www.fssy.com',goodid='327',enterid='13')
+                    mailurl='www.fssy.com', goodid='384',enterid='13',
+                    province=u'河南省',city=u'许昌市',country=u'鄢陵县',address='123123123123',zipcode='461200',name=u'孙彦辉',
+                    mobile='15902165607',telephone='0371-7127556',isdefault='YES' )
     d.get('http://www.company.com')
-    slogin.Login(d).login('15000000237', '888888', '111')
+    slogin.Login(d).login('15000001002', '888888', '111')
     info = PlaceOrder(d)
     print info.find_goods(**testcase)
     print info.open_goodsdetail(**testcase)
+    print info.buy_it_now()
+    print info.order_settlement(**testcase)
 
     time.sleep(3)
-
     d.quit()
