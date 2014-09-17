@@ -5,11 +5,12 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 sys.path.append('\TestSuite')
-from testsuite import *
+sys.path.append('\TestSuite\person')
+from testsuite.person import testorder
 
 
 testunit = unittest.TestSuite()
-testunit.addTest(unittest.makeSuite(testlogin.TestLogin))
+testunit.addTest(unittest.makeSuite(testorder.TestOrder))
 
 filename = 'd:/1.html'
 fp = open(filename,'wb')

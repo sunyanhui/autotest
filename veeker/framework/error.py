@@ -3,12 +3,13 @@
 import setting
 import sys
 import time
+import traceback
 
 def error_auto(driver):
     imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
     driver.get_screenshot_as_file(imgpath)
     return {'result': False,
-            'describtion': sys.exc_info()[1],
+            'describtion': traceback.format_exc(),
             'errorimg': imgpath
     }
 

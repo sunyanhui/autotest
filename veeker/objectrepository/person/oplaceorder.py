@@ -44,11 +44,15 @@ buynow = (By.CSS_SELECTOR, "input[onclick^=shopping]")
 #加入到购物车
 addtochat = (By.CSS_SELECTOR, "input[onclick^=addShopCart]")
 
+#去购物车结算
+gotosettle = (By.CSS_SELECTOR, "input[onclick^='goAccounts']")
+
 #加入收藏
 collect = (By.LINK_TEXT, u"收藏商品")
 
 #*****************第一次新增收货地址的表单*****************#
-nulladressform = (By.ID, 'nullAdressForm')
+
+nulladressform = (By.ID, "AddNullReciveAdress")
 
 #第一次新增——省市县
 province_null = (By.ID, 'province')
@@ -88,6 +92,9 @@ updatereciveadress_null = (By.ID, 'updateReciveAdress')
 invoice_yes = (By.CSS_SELECTOR, "input[value='01'][name='orderDTO.isNeedInvoice']")
 invoice_no = (By.CSS_SELECTOR, "input[value='02'][name='orderDTO.isNeedInvoice']")
 
+#发票抬头
+invoice_title = (By.ID, 'invoiceChequeTextId')
+
 #备注
 remark = (By.ID, 'mallmemoid')
 
@@ -99,3 +106,6 @@ usecoupon = (By.CSS_SELECTOR, "input[onclick='showCusCoupon('cusCouponListId');'
 
 #提交订单
 submitorder = (By.CSS_SELECTOR, "input[onclick='submitOrders()']")
+
+#订单号码
+ordernumber = (By.XPATH, "//div[@id='wraper']/div/div[1]/p/b[1]")

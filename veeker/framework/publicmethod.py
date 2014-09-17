@@ -67,8 +67,29 @@ def modify_host(url):
 
     return True
 
+def is_element_present(driver, *ele):
+    try: driver.find_element(*ele)
+    except: return False
+    return True
+
+def is_element_displayed(driver, *ele):
+    try: see = driver.find_element(*ele).is_displayed()
+    except: return False
+    return see
+
+
+
 if __name__ == '__main__':
     #print gethref(open('1.html').read(), '101828509841000237', u'评论')
     #print modify_host('www.sunyanhui1.com', '192.168.0.235')
-    print get_orderpage('123我是123我4234')
+    #print get_orderpage('123我是123我4234')
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    d = webdriver.Chrome()
+    logininput = (By.ID, 'userAccount')
+    d.get('http://www.company.com')
+    print is_element_displayed(d, *logininput)
+    d.quit()
+
+
 

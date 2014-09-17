@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.ologin import *
-from framework import setting
+from framework import setting, error
 import time, sys
 
 
@@ -88,7 +88,7 @@ class Login():
         }
 
 
-    def login(self, u, p, v, r='no'):
+    def login(self, **w):
         '''
         该方法用于普通流程登录
         :param u:用户名
@@ -108,24 +108,19 @@ class Login():
 
         #输入用户名、密码、验证码，然后点击登录按钮
         try:
-            driver.find_element(username[0], username[1]).clear()
-            driver.find_element(username[0], username[1]).send_keys(u)
-            driver.find_element(password[0], password[1]).click()
-            driver.find_element(password1[0], password1[1]).clear()
-            driver.find_element(password1[0], password1[1]).send_keys(p)
-            driver.find_element(vertifycode[0], vertifycode[1]).clear()
-            driver.find_element(vertifycode[0], vertifycode[1]).send_keys(v)
-            if r.upper() == 'YES':
-                driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).click()
-            driver.find_element(submit[0], submit[1]).click()
+            driver.find_element(*username).clear()
+            driver.find_element(*username).send_keys(w['username'])
+            driver.find_element(*password).click()
+            driver.find_element(*password1).clear()
+            driver.find_element(*password1).send_keys(w['password'])
+            driver.find_element(*vertifycode).clear()
+            driver.find_element(*vertifycode).send_keys('1234')
+            if w['ifremeberusername'].upper() == 'YES':
+                driver.find_element(*rememberuseraccount).click()
+            driver.find_element(*submit).click()
 
         except:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':sys.exc_info()[1],
-                    'errorimg':imgpath
-            }
+            return error.error_auto(driver)
 
         #判断是否登录成功，成功返回True，失败返回False
         try:
@@ -138,19 +133,9 @@ class Login():
             }
 
         except:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':sys.exc_info()[1],
-                    'errorimg':imgpath
-            }
+            return error.error_auto(driver)
         else:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':'submint button still in , login fail',
-                    'errorimg':imgpath
-            }
+            return error.error_user_defined(driver, 'submint button still in , login fail')
 
 if __name__ == '__main__':
 
