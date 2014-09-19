@@ -2,187 +2,146 @@
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.select import Select
 from objectrepository.oregister import *
-from framework import setting
-import time, urllib2, re, json, sys
+from framework import setting, output, publicmethod
+import time, sys, re
 
 
 class Regist():
     u'''
-    定义一些与注册相关的方法
-    用法：初始化时需传入浏览器句柄
+    该类包含与注册相关的所有操作
+    1、submit_information：注册信息填写页面
+    2、regist：注册提交页面
     '''
 
     def __init__(self, driver):
+        u'''
+        @初始化Regist对象需传入浏览器对象driver
+        '''
         self.driver = driver
-        #self.driver = webdriver.Ie()
 
-
-    def submit_information_fortest(self, n, p, c):
+    def submit_information_fortest(self, **w):
+        u'''
+        @该方法后期完善，暂时先用submit_information
+        @后期目标：完善页面错误判断并输入至TESTCASE
         '''
-        该方法后期完善，暂时先用submit_information
-        后期目标：完善页面错误判断并输入至TESTCASE
-        :param n:
-        :param p:
-        :param c:
-        :return:
-        '''
-        driver = self.driver
-        driver.find_element(registerlink[0], registerlink[1]).click()
-        driver.implicitly_wait(3)
-        driver.find_element(province[0], province[1]).find_element_by_xpath(province[2]).click()
-        driver.find_element(city[0], city[1]).find_element_by_xpath(city[2]).click()
-        driver.find_element(nickname[0], nickname[1]).clear()
-        driver.find_element(nickname[0], nickname[1]).send_keys(n)
-        driver.find_element(password[0], password[1]).clear()
-        driver.find_element(password[0], password[1]).send_keys(p)
-        driver.find_element(confirmpassword[0], confirmpassword[1]).clear()
-        driver.find_element(confirmpassword[0], confirmpassword[1]).send_keys(c)
-        driver.find_element(checkbox[0], checkbox[1]).click()
-        driver.find_element(registerbutton[0], registerbutton[1]).click()
+        pass
 
 
 
-    def submit_information(self, n='random', p='888888', c='888888'):
-        '''
-        该方法用于注册填写个人信息页面，主要用来执行业务流程，不做具体的页面错误获取判断
-        最终结果输入执行结果状态、错误信息以及截图即可
-        :param n:昵称
-        :param p:密码
-        :param c:密码确认
-        :return:｛执行结果，错误信息，错误截图路径｝
+    def submit_information(self, **w):
+        u'''
+        @该方法作用于注册信息提交页面
+
+        @所传字典参数必须包含如下KEY
+        KEY:province        省份（键值为汉字，不能输入错误）
+        KEY:city            地级市（键值为汉字，不能输入错误）
+        KEY:nickname        昵称
+        KEY:password        密码
+        KEY:confirmpassword 密码确认
+
+        @返回数据
+        返回如下字典格式数据
+        {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
         driver = self.driver
         try:
-            driver.find_element(registerlink[0], registerlink[1]).click()
+            driver.find_element(*registerlink).click()
             driver.implicitly_wait(3)
-            driver.find_element(province[0], province[1]).find_element_by_xpath(province[2]).click()
-            driver.find_element(city[0], city[1]).find_element_by_xpath(city[2]).click()
-            driver.find_element(nickname[0], nickname[1]).clear()
-            if n=='random': n = str(int(time.time()*100))   #如果昵称为random，则把昵称重置为由时间生成的
-            driver.find_element(nickname[0], nickname[1]).send_keys(n)
-            driver.find_element(password[0], password[1]).clear()
-            driver.find_element(password[0], password[1]).send_keys(p)
-            driver.find_element(confirmpassword[0], confirmpassword[1]).clear()
-            driver.find_element(confirmpassword[0], confirmpassword[1]).send_keys(c)
-            driver.find_element(checkbox[0], checkbox[1]).click()
-            driver.find_element(registerbutton[0], registerbutton[1]).click()
+            Select(driver.find_element(*province)).select_by_visible_text(w['province'])
+            Select(driver.find_element(*city)).select_by_visible_text(w['city'])
+            driver.find_element(*nickname).clear()
+            if w['nickname']=='random':
+                n = str(int(time.time()*100))   #如果昵称为random，则把昵称重置为由时间生成的
+                driver.find_element(*nickname).send_keys(n)
+            else:
+                driver.find_element(*nickname).send_keys(w['nickname'])
+
+            driver.find_element(*password).clear()
+            driver.find_element(*password).send_keys(w['password'])
+            driver.find_element(*confirmpassword).clear()
+            driver.find_element(*confirmpassword).send_keys(w['confirmpassword'])
+            driver.find_element(*checkbox).click()
+            driver.find_element(*registerbutton).click()
             driver.implicitly_wait(3)
-            driver.find_element(email[0], email[1]) #判断有没有email输入框
+            #判断有没有email输入框
+            driver.find_element(*email)
 
         except:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':sys.exc_info()[1],
-                    'errorimg':imgpath
-            }
+            return output.error_auto(driver)
 
         else:
-            return {'result':True,
-                    'describtion':'Run ok~!',
-            }
+            return output.pass_user_defined(driver, 'submit information success')
 
 
-    def regist_fortest(self, emailid='random', vertifycode='autoget' ):
+    def regist_fortest(self, **w):
+        u'''
+        @该方法后期再优化，暂时不用
         '''
-        @后期再优化
-        :param emailid:
-        :param vertifycode:
-        :return:
-        '''
-        driver = self.driver
+        pass
 
-        if emailid == 'random':emailid = int(time.time()*100)
-        driver.find_element(email[0], email[1]).clear()
-        driver.find_element(email[0], email[1]).send_keys(emailid)
-        driver.find_element(getmailcode[0], getmailcode[1]).click()
-        if vertifycode == 'autoget': vertifycode = self.__getvertifycode(emailid)
-        driver.find_element(emailcode[0], emailcode[1]).clear()
-        driver.find_element(emailcode[0], emailcode[1]).send_keys(vertifycode)
-        driver.find_element(submit[0], submit[1]).submit()
 
-    def regist(self, emailid='random', vertifycode='autoget' ):
-        '''
-        @注册账号，提交页面脚本
-        :param emailid:可选参数，如不填写，则使用随机生成的MAIL ID
-        :param vertifycode:可选参数，如不填写，自动获取验证码
-        :return:返回结果字典
+    def regist(self, **w):
+        u'''
+        @该方法作用于注册最终提交页面
+
+        @所传字典参数必须包含如下KEY
+        KEY:email        邮件地址，如填写random，则由程序随机生成
+        KEY:vertifycode  验证码，如填写autoget，则由程序自动获取
+
+        @返回数据
+        返回如下字典格式数据
+        {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
         driver = self.driver
 
         #生成随机mail id
-        if emailid == 'random':emailid = str(int(time.time()*100))
+        if w['email'] == 'random':w['email'] = str(int(time.time()*100))
 
         #填写EMAIL, 然后点击获取验证码
         try:
-            driver.find_element(email[0], email[1]).clear()
-            driver.find_element(email[0], email[1]).send_keys(emailid+'@mailinator.com')
-            driver.find_element(getmailcode[0], getmailcode[1]).click()
+            driver.find_element(*email).clear()
+            driver.find_element(*email).send_keys(w['email']+'@mailinator.com')
+            driver.find_element(*getmailcode).click()
         except:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':sys.exc_info()[1],
-                    'errorimg':imgpath
-            }
+            return output.error_auto(driver)
 
         #调用获取验证码的函数并赋值
-        if vertifycode == 'autoget': vertifycode = self.__getvertifycode(emailid)
+        if w['vertifycode'] == 'autoget': w['vertifycode'] = publicmethod.getvertifycode(w['email'])
 
-        #判断验证码的值，有问题即返回
-        if vertifycode == False:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':'can not get vertifycode',
-                    'errorimg':imgpath
-            }
+        #判断验证码的值，False返回
+        if w['vertifycode'] == False:
+            return output.error_auto(driver)
 
 
         #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
         try:
-            driver.find_element(emailcode[0], emailcode[1]).clear()
-            driver.find_element(emailcode[0], emailcode[1]).send_keys(vertifycode)
-            driver.find_element(submit[0], submit[1]).click()
-            driver.implicitly_wait(3)
-            driver.find_element(backtologin[0], backtologin[1])
+            driver.find_element(*emailcode).clear()
+            driver.find_element(*emailcode).send_keys(w['vertifycode'])
+            driver.find_element(*submit).click()
+            time.sleep(5)
 
         except:
-            imgpath = setting.ERRORIMGPATH+str(int(time.time()*100))+'.jpg'
-            driver.get_screenshot_as_file(imgpath)
-            return {'result':False,
-                    'describtion':sys.exc_info()[1],
-                    'errorimg':imgpath
-            }
+            return output.error_auto(driver)
 
+        driver.implicitly_wait(5)
+        registtext = driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/p[1]').text
+        num = re.compile(r'\d{11}').findall(registtext)
+
+        if num:
+            return output.pass_user_defined(driver, 'regist succeed', useraccount=num[0])
         else:
-            return {'result':True,
-                    'describtion':'regist succeed'
-            }
-
-
-    #获取验证码函数
-    def __getvertifycode(self, towho):
-
-        time.sleep(10) #等待10S，以确保能收到邮件
-
-        #利用mailinator.com的匿名邮件功能收取验证码
-        try:
-            getidurl = 'https://api.mailinator.com/api/inbox?to='+towho+'&token=a65b978467f54e559c028dff740c9621'
-            s = json.loads(str(urllib2.urlopen(getidurl).read()))
-            mailurl = 'https://www.mailinator.com/rendermail.jsp?msgid='+s['messages'][0]['id']+'&time='+'1409663495288'
-            mail = urllib2.urlopen(mailurl)
-            return re.compile(r'\d{6}').search(mail.read()).group()
-        except:
-            return False
+            return output.error_user_defined(driver, 'register fialed')
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.get('http://www.wiki168.com')
     regist = Regist(driver)
-    print regist.submit_information('asdfasdfasdf7', '111111', '111111')
-    print  regist.regist()
+    testcase = {'province':u'河南省', 'city':u'许昌市', 'nickname':'hgbacjjjji8', 'password':'111111', 'confirmpassword':'111111',
+                'email':'random','vertifycode':'autoget'}
+
+    a= regist.submit_information(**testcase)
+    print a['msg']
+    print  regist.regist(**testcase)
     time.sleep(5)
-    driver.quit()

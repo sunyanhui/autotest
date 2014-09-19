@@ -4,10 +4,13 @@ from BeautifulSoup import  BeautifulSoup
 from framework import setting
 import sys
 import re
+import urllib2
+import time
+import json
 
 def gethref(page, num, linkname):
     u'''
-    该方法通过输入当前页面的源码 以及订单号 所要查找的链接名，返回最终的链接属性,如下结构的HTML:
+    @该方法通过输入当前页面的源码 以及订单号 所要查找的链接名，返回最终的链接属性,如下结构的HTML:
 
     <td width="73" rowspan="1" align="center" class="order_rt">
 	<p><a href="javascript:cusOrder.orderDetails('101828509841000237');">订单详情</a></p>
@@ -18,10 +21,14 @@ def gethref(page, num, linkname):
 	<p></p>
 	<p><a href="javascript:cusOrder.reviewOrder('923');">评论</a><br /></td>
 
-    :param page:页面源码
-    :param num:订单号码
-    :param linkname:所需查找的链接中文名称
-    :return:链接属性
+    @参数结构
+    page:页面源码
+    num:订单号码
+    linkname:所需查找的链接中文名称
+
+    @返回数据
+    PASS：返回链接字符串
+    FAIL：返回FALSE
     '''
     try:
         href = "javascript:cusOrder.delOrder('"+ num +"');"
@@ -41,7 +48,7 @@ def get_orderpage(text):
     该函数用来提取字符串中的数字组，
     如： “共210条，共11页”，提取出来的结果为['210','11']
     :param text: 需要匹配出数字列表的字符串
-    :return:匹配结果
+    :return:匹配结果元组
     '''
     return re.compile(r'\d{1,4}').findall(text)
 
@@ -68,16 +75,49 @@ def modify_host(url):
     return True
 
 def is_element_present(driver, *ele):
-    try: driver.find_element(*ele)
-    except: return False
+    u'''
+    该函数用来判断元素是否存在
+    :param driver:浏览器对象
+    :param ele: 元素定位元组
+    :return:判断结果
+    '''
+    try:
+        driver.implicitly_wait(10)
+        driver.find_element(*ele)
+    except:
+        return False
     return True
 
 def is_element_displayed(driver, *ele):
-    try: see = driver.find_element(*ele).is_displayed()
-    except: return False
+    u'''
+    该函数用来判断元素是否可见
+    :param driver:浏览器对象
+    :param ele:元素定位元组
+    :return:判断结果
+    '''
+    try:
+        driver.implicitly_wait(10)
+        see = driver.find_element(*ele).is_displayed()
+    except:
+        return False
     return see
 
+def getvertifycode(towho):
+    u'''
+    该函数利用mailinator.com的匿名邮件功能收取验证码
+    :param towho:邮件地址的ID，不包括后缀
+    :return: 1、PASS:验证码  2、FAIL:FALSE
+    '''
 
+    time.sleep(10)
+    try:
+        getidurl = 'https://api.mailinator.com/api/inbox?to=%s&token=a65b978467f54e559c028dff740c9621'%towho
+        s = json.loads(str(urllib2.urlopen(getidurl).read()))
+        mailurl = 'https://www.mailinator.com/rendermail.jsp?msgid='+s['messages'][0]['id']+'&time='+'1409663495288'
+        mail = urllib2.urlopen(mailurl)
+        return re.compile(r'\d{6}').search(mail.read()).group()
+    except:
+        return False
 
 if __name__ == '__main__':
     #print gethref(open('1.html').read(), '101828509841000237', u'评论')

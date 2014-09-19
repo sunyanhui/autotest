@@ -16,3 +16,9 @@ ERRORIMGPATH = 'D:/errorimg/'
 
 #WEB主机IP
 HOSTIP = '192.168.0.235'
+
+#测试用例脚本目录
+TESTSUITEDIR = 'D:/autotest/veeker/testsuite'
+
+#测试报告目录
+REPORTDIR = 'D:/report/'

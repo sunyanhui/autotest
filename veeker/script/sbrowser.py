@@ -10,12 +10,13 @@ class Browser():
     '''
 
     def __init__(self):
-        self.__browser = setting.BROWSER #传入浏览器对象
-        self.__URL = setting.URL  #传入要打开的网址
+        self.browser = setting.BROWSER #传入浏览器对象
+        self.URL = setting.URL  #传入要打开的网址
 
+    @property
     def openbrowser(self):
-        browser = self.__browser
-        URL = str(self.__URL)
+        browser = self.browser
+        URL = str(self.URL)
 
         if browser.upper() == 'IE': driver = webdriver.Ie()
         elif browser.upper() == 'CHROME': driver = webdriver.Chrome()
@@ -27,8 +28,7 @@ class Browser():
 
         return driver
 
-
 if __name__ == '__main__':
 
     b = Browser()
-    b.openbrowser()
+    b.openbrowser

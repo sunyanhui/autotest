@@ -7,10 +7,10 @@ from selenium.webdriver.common.by import By
 registerlink = (By.LINK_TEXT, u'免费注册')
 
 #选择地区省级组定位
-province = (By.ID, 'provinceAreaCode', "//option[@value='007041']")
+province = (By.ID, 'provinceAreaCode')
 
 #选择地区市级组定位
-city = (By.ID, 'juniorAreaList', "//option[@value='007041001']")
+city = (By.ID, 'juniorAreaList')
 
 #选择地区错误提示
 areaprompt = (By.ID, 'checkProvinceAreaCode')

@@ -3,7 +3,7 @@
 
 from objectrepository.person.omycenter import *
 from objectrepository.person.oinfocenter import *
-from framework import error
+from framework import output
 import time
 import re
 
@@ -35,7 +35,7 @@ class InfoCenter():
             driver.find_element(*passwordSubmit).click()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
 
     def add_address(self, **w):
@@ -89,13 +89,13 @@ class InfoCenter():
             driver.switch_to_default_content()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #判断ADD前后数字变化是否为1，是则ADD 成功，否则失败
         if (int(numberchanged)-int(numberbefore)) == 1:
-            return {'result': True,'describtion': 'Add address Success',}
+            return output.pass_user_defined(driver, 'Add address Success')
         else:
-            return error.error_user_defined(driver,'Add address failed')
+            return output.error_user_defined(driver,'Add address failed')
 
     def modify_address(self, **w):
 
@@ -116,7 +116,8 @@ class InfoCenter():
             numberbefore = re.compile(r'\d{1}').search(addressnumbertext).group()
 
             #如果收货地址数量为0，则返回错误
-            if numberbefore == 0 :return error.error_user_defined(driver, 'No address to modify')
+            if numberbefore == 0 :
+                return output.error_user_defined(driver, 'No address to modify')
             driver.find_element(*mdaddressLink).click()
 
             #恢复到默认状态
@@ -158,13 +159,13 @@ class InfoCenter():
             driver.switch_to_default_content()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #判断MD前后数字变化是否为1，是则ADD 成功，否则失败
         if (int(numberchanged)-int(numberbefore)) == 0:
-            return {'result': True, 'describtion': 'Modify address Success'}
+            return output.pass_user_defined(driver, 'Modify address Success')
         else:
-            return error.error_user_defined(driver, 'Modify address failed')
+            return output.error_user_defined(driver, 'Modify address failed')
 
     def del_address(self, **w):
 
@@ -184,7 +185,8 @@ class InfoCenter():
             #匹配出数字
             numberbefore = re.compile(r'\d{1}').search(addressnumbertext).group()
 
-            if numberbefore == 0 :return error.error_user_defined(driver, 'No address to delete')
+            if numberbefore == 0 :
+                return output.error_user_defined(driver, 'No address to delete')
 
             driver.find_element(*deladdressLink).click()
             time.sleep(1)
@@ -204,13 +206,13 @@ class InfoCenter():
             driver.switch_to_default_content()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #判断DEL前后数字变化是否为-1，是则DEL 成功，否则失败
         if (int(numberchanged)-int(numberbefore)) == -1:
-            return {'result': True,'describtion': 'Delete address Success'}
+            return output.pass_user_defined(driver, 'Delete address Success')
         else:
-            return error.error_user_defined(driver, 'Delete address failed')
+            return output.error_user_defined(driver, 'Delete address failed')
 
 if __name__ == '__main__':
     import sys, os

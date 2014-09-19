@@ -7,19 +7,13 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from objectrepository.person.omycenter import *
 from objectrepository.person.oplaceorder import *
-from framework import error, publicmethod
+from framework import output, publicmethod
 import time
 import re
 
-#DEBUG = 'YES'
-
 class PlaceOrder():
-
-
-
     def __init__(self, driver):
         self.driver = driver
-        #if DEBUG == 'NO':self.driver = webdriver.Ie()
 
     def find_goods(self, **w):
         driver = self.driver
@@ -46,27 +40,24 @@ class PlaceOrder():
 
             sdriver(*searchButtonForFindgoods).click()
         except:
-            return error.error_auto(driver)
-
-        #建立匹配规则
-        pattern = re.compile(r'\d{1,4}')
+            return output.error_auto(driver)
 
         #goodspage为总商品数量与总页数，列表结构，0：总数量，1：总页数
-        goodspage = []
+        goodspages = []
 
         try:
-            goodspage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
+            goodspages = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
         except NoSuchElementException:
-            goodspage = [0, 0]
+            goodspages = [0, 0]
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return {'result': True, 'goodspage':goodspage, 'describtion': 'find goods Success'}
+        return output.pass_user_defined(driver, 'find goods Success', goodspage=goodspages)
 
     def open_goodsdetail(self, **w):
         driver = self.driver
         sdriver = driver.find_element
-        onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] +"','" + w['enterid'] + "'"
+        onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] + "','" + w['enterid'] + "'"
 
         #判断MAILURL是不是在HOST里，如不在则添加进去
         publicmethod.modify_host(w['mailurl'])
@@ -74,18 +65,18 @@ class PlaceOrder():
         try:
             orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
-                if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="'+onclick+'"]'):
-                    driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="'+onclick+'"]')[0].click()
+                if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]'):
+                    driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]')[0].click()
                     driver.switch_to_default_content()
                     driver.switch_to_window(driver.window_handles[1])
                     time.sleep(3)
-                    return {'result': True, 'describtion': 'open goodsdetail Success'}
-                if i == (int(orderpage[1])-1):break
+                    return output.pass_user_defined(driver, 'open goodsdetail Success')
+                if i == (int(orderpage[1]) - 1): break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not find the goods')
+        return output.error_user_defined(driver, 'not find the goods')
 
     def collect_goods(self):
         driver = self.driver
@@ -95,15 +86,15 @@ class PlaceOrder():
             sdriver(*collect).click()
             time.sleep(3)
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         try:
-            alerttext = Alert(driver).text
+            text = Alert(driver).text
             Alert(driver).accept()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return {'result': True, 'alerttext':alerttext, 'describtion': 'collect goods Success'}
+        return output.pass_user_defined(driver, 'collect goods Success', alerttext=text)
 
     def add_to_cart(self, **w):
         driver = self.driver
@@ -118,16 +109,18 @@ class PlaceOrder():
             sdriver(*goodsnum).clear()
             sdriver(*goodsnum).send_keys(w['goodsnumber'])
             sdriver(*addtochat).click()
-            try:Alert(driver).accept()
-            except:pass
+            try:
+                Alert(driver).accept()
+            except:
+                pass
             sdriver(*gotosettle).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         if publicmethod.is_element_present(driver, buynow):
-            return error.error_user_defined(driver, 'add to cart failed')
+            return output.error_user_defined(driver, 'add to cart failed')
         else:
-            return {'result': True, 'describtion': 'add to cart Success'}
+            return output.pass_user_defined(driver, 'add to cart Success')
 
 
     def buy_it_now(self, **w):
@@ -146,15 +139,17 @@ class PlaceOrder():
             sdriver(*goodsnum).clear()
             sdriver(*goodsnum).send_keys(w['goodsnumber'])
             sdriver(*buynow).click()
-            try:Alert(driver).accept()
-            except:pass
+            try:
+                Alert(driver).accept()
+            except:
+                pass
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         if publicmethod.is_element_present(driver, *buynow):
-            return error.error_user_defined(driver, 'buy it now failed')
+            return output.error_user_defined(driver, 'buy it now failed')
         else:
-            return {'result': True, 'describtion': 'but it now Success'}
+            return output.pass_user_defined(driver, 'but it now Success')
 
 
     def order_settlement(self, **w):
@@ -183,7 +178,7 @@ class PlaceOrder():
                 sdriver(*nulladressform).find_element(*button_null).click()
                 time.sleep(3)
             except:
-                return error.error_auto(driver)
+                return output.error_auto(driver)
         else:
             pass
 
@@ -208,27 +203,30 @@ class PlaceOrder():
             sdriver(*submitorder).click()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         try:
             newordernumber = sdriver(*ordernumber).text
         except:
-            error.error_user_defined(driver, 'splace order fail~!')
+            return output.error_user_defined(driver, 'splace order fail~!')
 
-        return {'result':True, 'ordernumber':newordernumber,'describtion': 'splace order success'}
+        return output.pass_user_defined(driver, 'splace order success', ordernumber=newordernumber)
+
 
 if __name__ == '__main__':
     import sys, os
+
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
     import slogin
+
     DEBUG = 'NO'
     d = webdriver.Chrome()
     d.maximize_window()
-    testcase = dict(ordernumber='101708787837000237',goodname='', startprice='', endprice='',selectindustry='',
-                    mailurl='www.fssy.com', goodid='384',enterid='13',
-                    province=u'河南省',city=u'许昌市',country=u'鄢陵县',address='123123123123',zipcode='461200',name=u'孙彦辉',
-                    mobile='15902165607',telephone='0371-7127556',isdefault='YES',invoice='yes',
-                    payondelivery='yes',remark='1234567890', goodsnumber='5' )
+    testcase = dict(ordernumber='101708787837000237', goodname='', startprice='', endprice='', selectindustry='',
+                    mailurl='www.fssy.com', goodid='384', enterid='13',
+                    province=u'河南省', city=u'许昌市', country=u'鄢陵县', address='123123123123', zipcode='461200', name=u'孙彦辉',
+                    mobile='15902165607', telephone='0371-7127556', isdefault='YES', invoice='yes',
+                    payondelivery='yes', remark='1234567890', goodsnumber='5')
     d.get('http://www.company.com')
     slogin.Login(d).login('15000001002', '888888', '111')
     info = PlaceOrder(d)

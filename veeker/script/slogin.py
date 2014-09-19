@@ -2,30 +2,27 @@
 #coding=utf-8
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.ologin import *
-from framework import setting, error
+from framework import setting, output, publicmethod
 import time, sys
 
 
 
 class Login():
-    '''
+    u'''
     登录类定义所有与登录相关的操作
     '''
 
     def __init__(self, driver):
-        #self.driver = webdriver.Ie()
+        u'''
+        @初始化Login对象需传入浏览器对象driver
+        '''
         self.driver = driver
 
     def login_for_test(self, u, p, v, r):
         '''
-        @@@该方法暂未完成，后期完善，暂时TESTCASE先使用lonin()
-        :param u:用户名
-        :param p:密码
-        :param v:验证码
-        :return:返回登录状态字典
+        @该方法暂未完成，后期完善
         '''
         driver = self.driver
 
@@ -42,8 +39,8 @@ class Login():
         driver.find_element(password[0], password[1]).click()
         driver.find_element(password1[0], password1[1]).clear()
         driver.find_element(password1[0], password1[1]).send_keys(p)
-        driver.find_element(vertifycode[0], vertifycode[1]).clear()
-        driver.find_element(vertifycode[0], vertifycode[1]).send_keys(v)
+        driver.find_element(verifycode[0], verifycode[1]).clear()
+        driver.find_element(verifycode[0], verifycode[1]).send_keys(v)
 
         if r.upper() == 'YES':
             driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).click()
@@ -89,13 +86,17 @@ class Login():
 
 
     def login(self, **w):
-        '''
-        该方法用于普通流程登录
-        :param u:用户名
-        :param p:密码
-        :param v:验证码
-        :param r:是否记住密码，默认为no，如需记住，请赋值为yes
-        :return:返回状态字典
+        u'''
+        @该方法作用于用户登录页面
+
+        @所传字典参数必须包含如下KEY
+        KEY:username          用户名
+        KEY:password          密码
+        KEY:ifrememberusername 是否记住用户名
+
+        @返回数据
+        返回如下字典格式数据
+        {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
         driver = self.driver
 
@@ -113,29 +114,45 @@ class Login():
             driver.find_element(*password).click()
             driver.find_element(*password1).clear()
             driver.find_element(*password1).send_keys(w['password'])
-            driver.find_element(*vertifycode).clear()
-            driver.find_element(*vertifycode).send_keys('1234')
-            if w['ifremeberusername'].upper() == 'YES':
+            driver.find_element(*verifycode).clear()
+            driver.find_element(*verifycode).send_keys(w['verifycode'])
+            if w['ifrememberusername'].upper() == 'YES':
                 driver.find_element(*rememberuseraccount).click()
             driver.find_element(*submit).click()
-
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #判断是否登录成功，成功返回True，失败返回False
         try:
-            time.sleep(1)
-            driver.find_element(submit[0], submit[1])
-
-        except NoSuchElementException:
-            return {'result':True,
-                    'describtion':'not find submit button, login succeed'
-            }
-
+            driver.implicitly_wait(10)
+            driver.find_element(*logoutlink)
         except:
-            return error.error_auto(driver)
+            return output.error_user_defined(driver, 'submint button still in , login fail')
         else:
-            return error.error_user_defined(driver, 'submint button still in , login fail')
+            return output.pass_user_defined(driver, 'login succeed')
+
+    def logout(self):
+        u'''
+        @该方法作用于用户退出登录
+
+        @返回数据
+        返回如下字典格式数据
+        {'result':True|False ,'msg':msg,['errorimg':imgpath]}
+        '''
+
+        driver = self.driver
+        try:
+            driver.find_element(*logoutlink).click()
+            driver.implicitly_wait(3)
+            driver.find_element(*logoutbutton).click()
+        except:
+            output.error_auto(driver)
+
+        if publicmethod.is_element_present(driver, *submit):
+            return output.pass_user_defined(driver, 'logout succeed')
+        else:
+            return output.error_user_defined(driver, 'logout failed')
+
 
 if __name__ == '__main__':
 
@@ -143,7 +160,8 @@ if __name__ == '__main__':
 
     driver.get('http://www.company.com')
     login = Login(driver)
-    log = login.login('15000000258','888888','123','yes')
+    log = login.login(username='15000000258',password='888888',verifycode='123',ifrememberusername='yes')
+    print login.logout()
     time.sleep(3)
     driver.quit()
     print log

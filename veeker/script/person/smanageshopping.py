@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.person.omycenter import *
 from objectrepository.person.omanageshopping import *
-from framework import error, publicmethod
+from framework import output, publicmethod
 import time
 import re
 
@@ -55,7 +55,7 @@ class ManageShopping():
             sdriver(*searchButtonFororder).click()
 
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         try:
             #把所有订单号收集到orderlist列表里
@@ -67,16 +67,16 @@ class ManageShopping():
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         finally:
             driver.switch_to_default_content()
 
         #如果收集到的情形页面显示的总数不一致，则返回错误
         if len(orderlist)==int(orderpage[0]):
-            return {'result': True, 'orderlist':orderlist, 'describtion': 'order query Success'}
+            return output.pass_user_defined(driver, 'order query Success', orderlist=orderlist)
         else:
-            return error.error_user_defined(driver, 'order number is error, please check it')
+            return output.error_user_defined(driver, 'order number is error, please check it')
 
     def confirm_receipt(self, **w):
         u'''
@@ -93,7 +93,7 @@ class ManageShopping():
             sdriver(*orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -104,13 +104,13 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        return {'result': True, 'describtion': 'confirm receipt success'}
+                        return output.pass_user_defined(driver, 'confirm receipt success')
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not fount the order to confirm')
+        return output.error_user_defined(driver, 'not fount the order to confirm')
 
 
     def delete_order(self, **w):
@@ -128,7 +128,7 @@ class ManageShopping():
             sdriver(*orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
@@ -140,13 +140,13 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        return {'result': True, 'describtion': 'delete order success'}
+                        return output.pass_user_defined(driver, 'delete order success')
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not fount the order to delete')
+        return output.error_user_defined(driver, 'not fount the order to delete')
 
     def undo_order(self, **w):
         u'''
@@ -163,7 +163,7 @@ class ManageShopping():
             sdriver(*orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -174,13 +174,13 @@ class ManageShopping():
                         j.click()
                         driver.switch_to_default_content()
                         sdriver(*okButton).click()
-                        return {'result': True, 'describtion': 'undo order success'}
+                        return output.pass_user_defined(driver, 'undo order success')
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not fount the order to undo')
+        return output.error_user_defined(driver, 'not fount the order to undo')
 
 
 
@@ -199,7 +199,7 @@ class ManageShopping():
             sdriver(*orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
@@ -221,7 +221,7 @@ class ManageShopping():
 
                         #如果href为False，返回没找到订单
                         if href==False:
-                            return error.error_user_defined(driver, 'not fount the order to apply')
+                            return output.error_user_defined(driver, 'not fount the order to apply')
 
                         #点击申请退货-- 填写退货表单，而后提交
                         driver.find_element_by_css_selector('a[href="'+href+'"]').click()
@@ -236,9 +236,9 @@ class ManageShopping():
                         driver.implicitly_wait(5)
                         if u'申请退货已发出' in sdriver(*returnsucceed).text:
                             driver.switch_to_default_content()
-                            return {'result': True, 'describtion': 'apply return success'}
+                            return output.pass_user_defined(driver, 'apply return success')
                         else:
-                            return error.error_user_defined(driver, 'apply return failed!')
+                            return output.error_user_defined(driver, 'apply return failed!')
 
                 #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
@@ -247,9 +247,9 @@ class ManageShopping():
                 #sdriver(*inputpagenumber).send_keys(str(int(i)+2))
                 #sdriver(*gobutton).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not fount the order to apply')
+        return output.error_user_defined(driver, 'not fount the order to apply')
 
     def order_status(self, **w):
         pass
@@ -269,7 +269,7 @@ class ManageShopping():
             sdriver(*orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
@@ -290,7 +290,7 @@ class ManageShopping():
 
                         #如果href为False，返回没找到订单
                         if href==False:
-                            return error.error_user_defined(driver, 'not fount the order to review')
+                            return output.error_user_defined(driver, 'not fount the order to review')
 
                         #点击评价-- 填写评价表单，而后提交
                         driver.find_element_by_css_selector('a[href="'+href+'"]').click()
@@ -316,18 +316,18 @@ class ManageShopping():
                         driver.implicitly_wait(2)
                         if sdriver(*promptmessage).text == u'评论成功！':
                             sdriver(*okButton).click()
-                            return {'result': True, 'describtion': 'review goods success'}
+                            return output.pass_user_defined(driver, 'review goods success')
                         else:
                             sdriver(*okButton).click()
-                            return error.error_user_defined(driver, 'review goods failed!')
+                            return output.error_user_defined(driver, 'review goods failed!')
 
                 #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
                 sdriver(*nextpage).click()
         except:
-            return error.error_auto(driver)
+            return output.error_auto(driver)
 
-        return error.error_user_defined(driver, 'not fount the order to review')
+        return output.error_user_defined(driver, 'not fount the order to review')
 
 
 
