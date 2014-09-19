@@ -1,7 +1,7 @@
 #!/usr/bin/python3.3 
 # -*- coding: utf-8 -*-
 
-from objectrepository.person.omycenter import *
+from objectrepository.person.omy_center import *
 from objectrepository.person.oinfocenter import *
 from framework import output
 import time

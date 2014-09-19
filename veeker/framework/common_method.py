@@ -2,11 +2,40 @@
 # -*- coding: utf-8 -*-
 from BeautifulSoup import  BeautifulSoup
 from framework import setting
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import smtplib
 import sys
 import re
 import urllib2
 import time
 import json
+
+def sendmail(filepath, tolist):
+    u'''
+    @该函数用来在测试完成后发送测试报告
+    filepath: 报告完整路径
+    tolist:   接收邮件列表 可以使用setting.REPORTTOLIST参数的设置
+    '''
+    msg = MIMEMultipart()
+    att1 = MIMEText(open(filepath, 'rb').read(), 'base64', 'utf-8')
+    att1["Content-Type"] = 'application/octet-stream'
+    att1["Content-Disposition"] = 'attachment; filename="test.html"'
+    msg.attach(att1)
+    msg['from'] = 'veeker_test_report@163.com'
+    msg['to'] = 'hgbac@163.com'
+    msg['Subject'] = u'测试报告'
+
+    try:
+        server = smtplib.SMTP('smtp.163.com')
+        server.login('veeker_test_report','7127556')
+        server.sendmail(msg['from'], tolist, msg.as_string())
+        server.quit()
+    except:
+         return False
+    else:
+         return True
+
 
 def gethref(page, num, linkname):
     u'''
@@ -45,21 +74,29 @@ def gethref(page, num, linkname):
 
 def get_orderpage(text):
     u'''
-    该函数用来提取字符串中的数字组，
+    @该函数用来提取字符串中的数字组，
     如： “共210条，共11页”，提取出来的结果为['210','11']
-    :param text: 需要匹配出数字列表的字符串
-    :return:匹配结果元组
+
+    @参数
+    text: 需要匹配出数字列表的字符串
+
+    @返回数据
+    返回匹配结果元组
     '''
     return re.compile(r'\d{1,4}').findall(text)
 
 
 def modify_host(url):
     u'''
-    该函数用于判断一个URL是不是在HOST里，如在则添加进去，HOSTIP 在setting里配置
+    @该函数用于判断一个URL是不是在HOST里，如在则添加进去，HOSTIP 在setting里配置
     用于解决进入商品详情或者商家页面时，因HOST没有配置而没法打开的问题
-    :param url:商家商城URL
-    :param hostip:WEB服务器IP
-    :return:添加结果
+
+    @参数
+    url:商家商城URL
+    hostip:WEB服务器IP
+
+    @返回数据
+    添加状态
     '''
     hostfile = r'C:\Windows\System32\drivers\etc\hosts'
     try:
@@ -76,10 +113,14 @@ def modify_host(url):
 
 def is_element_present(driver, *ele):
     u'''
-    该函数用来判断元素是否存在
-    :param driver:浏览器对象
-    :param ele: 元素定位元组
-    :return:判断结果
+    @该函数用来判断元素是否存在
+
+    @参数
+    driver:浏览器对象
+    ele: 元素定位元组
+
+    @返回数据
+    返回判断结果 True False
     '''
     try:
         driver.implicitly_wait(10)
@@ -90,10 +131,14 @@ def is_element_present(driver, *ele):
 
 def is_element_displayed(driver, *ele):
     u'''
-    该函数用来判断元素是否可见
-    :param driver:浏览器对象
-    :param ele:元素定位元组
-    :return:判断结果
+    @该函数用来判断元素是否可见
+
+    @参数
+    driver:浏览器对象
+    ele:元素定位元组
+
+    @返回数据
+    返回判断结果
     '''
     try:
         driver.implicitly_wait(10)
@@ -104,9 +149,13 @@ def is_element_displayed(driver, *ele):
 
 def getvertifycode(towho):
     u'''
-    该函数利用mailinator.com的匿名邮件功能收取验证码
-    :param towho:邮件地址的ID，不包括后缀
-    :return: 1、PASS:验证码  2、FAIL:FALSE
+    @该函数利用mailinator.com的匿名邮件功能收取验证码
+
+    @参数
+    towho:邮件地址的ID，不包括后缀
+
+    @返回数据
+    1、PASS:验证码  2、FAIL:FALSE
     '''
 
     time.sleep(10)
@@ -123,13 +172,17 @@ if __name__ == '__main__':
     #print gethref(open('1.html').read(), '101828509841000237', u'评论')
     #print modify_host('www.sunyanhui1.com', '192.168.0.235')
     #print get_orderpage('123我是123我4234')
-    from selenium import webdriver
-    from selenium.webdriver.common.by import By
-    d = webdriver.Chrome()
-    logininput = (By.ID, 'userAccount')
-    d.get('http://www.company.com')
-    print is_element_displayed(d, *logininput)
-    d.quit()
+
+    #from selenium import webdriver
+    #from selenium.webdriver.common.by import By
+    #d = webdriver.Chrome()
+    #logininput = (By.ID, 'userAccount')
+    #d.get('http://www.company.com')
+    #print is_element_displayed(d, *logininput)
+    #d.quit()
+
+
+    sendmail(r'D:\report\141109118717.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
 
 
 

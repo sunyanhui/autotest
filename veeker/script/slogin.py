@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.ologin import *
-from framework import setting, output, publicmethod
+from framework import setting, output, common_method
 import time, sys
 
 
@@ -148,7 +148,7 @@ class Login():
         except:
             output.error_auto(driver)
 
-        if publicmethod.is_element_present(driver, *submit):
+        if common_method.is_element_present(driver, *submit):
             return output.pass_user_defined(driver, 'logout succeed')
         else:
             return output.error_user_defined(driver, 'logout failed')

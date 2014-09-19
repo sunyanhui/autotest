@@ -2,7 +2,7 @@
 import unittest
 import HTMLTestRunner
 import sys, time
-from framework import setting
+from framework import setting, common_method
 
 def create_test_unit():
     u'''
@@ -28,3 +28,4 @@ if __name__ == '__main__':
     testunit = create_test_unit()
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='only a test', description='only a tset')
     runner.run(testunit)
+    common_method.sendmail(filename, setting.REPORTTOLIST)

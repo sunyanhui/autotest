@@ -22,3 +22,6 @@ TESTSUITEDIR = 'D:/autotest/veeker/testsuite'
 
 #测试报告目录
 REPORTDIR = 'D:/report/'
+
+#报告邮件接收人
+REPORTTOLIST = ['382893256@qq.com', '912622568@qq.com', '517287147@qq.com', 'hgbac@qq.com']

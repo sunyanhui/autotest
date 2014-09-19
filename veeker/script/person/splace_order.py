@@ -5,11 +5,9 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
-from objectrepository.person.omycenter import *
-from objectrepository.person.oplaceorder import *
-from framework import output, publicmethod
+from objectrepository.person.oplace_order import *
+from framework import output, common_method
 import time
-import re
 
 class PlaceOrder():
     def __init__(self, driver):
@@ -46,7 +44,7 @@ class PlaceOrder():
         goodspages = []
 
         try:
-            goodspages = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
+            goodspages = common_method.get_orderpage(sdriver(*totalpagenumber).text)
         except NoSuchElementException:
             goodspages = [0, 0]
         except:
@@ -60,10 +58,10 @@ class PlaceOrder():
         onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] + "','" + w['enterid'] + "'"
 
         #判断MAILURL是不是在HOST里，如不在则添加进去
-        publicmethod.modify_host(w['mailurl'])
+        common_method.modify_host(w['mailurl'])
 
         try:
-            orderpage = publicmethod.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]'):
                     driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]')[0].click()
@@ -117,7 +115,7 @@ class PlaceOrder():
         except:
             return output.error_auto(driver)
 
-        if publicmethod.is_element_present(driver, buynow):
+        if common_method.is_element_present(driver, buynow):
             return output.error_user_defined(driver, 'add to cart failed')
         else:
             return output.pass_user_defined(driver, 'add to cart Success')
@@ -146,7 +144,7 @@ class PlaceOrder():
         except:
             return output.error_auto(driver)
 
-        if publicmethod.is_element_present(driver, *buynow):
+        if common_method.is_element_present(driver, *buynow):
             return output.error_user_defined(driver, 'buy it now failed')
         else:
             return output.pass_user_defined(driver, 'but it now Success')
@@ -158,7 +156,7 @@ class PlaceOrder():
         sdrivers = driver.find_elements
         time.sleep(3)
 
-        if publicmethod.is_element_displayed(driver, *nulladressform):
+        if common_method.is_element_displayed(driver, *nulladressform):
             try:
                 Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
                 Select(sdriver(*city_null)).select_by_visible_text(w['city'])

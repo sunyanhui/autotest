@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from objectrepository.oregister import *
-from framework import setting, output, publicmethod
+from framework import setting, output, common_method
 import time, sys, re
 
 
@@ -108,7 +108,7 @@ class Regist():
             return output.error_auto(driver)
 
         #调用获取验证码的函数并赋值
-        if w['vertifycode'] == 'autoget': w['vertifycode'] = publicmethod.getvertifycode(w['email'])
+        if w['vertifycode'] == 'autoget': w['vertifycode'] = common_method.getvertifycode(w['email'])
 
         #判断验证码的值，False返回
         if w['vertifycode'] == False:
@@ -136,12 +136,18 @@ class Regist():
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
-    driver.get('http://www.wiki168.com')
+    driver.get('http://www.company.com')
+    try:
+        driver.implicitly_wait(2)
+        driver.find_element_by_id("popup_ok").click()
+    except:
+        pass
     regist = Regist(driver)
-    testcase = {'province':u'河南省', 'city':u'许昌市', 'nickname':'hgbacjjjji8', 'password':'111111', 'confirmpassword':'111111',
+    testcase = {'province':u'河南省', 'city':u'许昌市', 'nickname':'random', 'password':'111111', 'confirmpassword':'111111',
                 'email':'random','vertifycode':'autoget'}
 
     a= regist.submit_information(**testcase)
     print a['msg']
     print  regist.regist(**testcase)
     time.sleep(5)
+    driver.quit()
