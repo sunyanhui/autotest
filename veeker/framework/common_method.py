@@ -37,7 +37,7 @@ def sendmail(filepath, tolist):
          return True
 
 
-def gethref(page, num, linkname):
+def get_href_review_order(page, num, linkname):
     u'''
     @该方法通过输入当前页面的源码 以及订单号 所要查找的链接名，返回最终的链接属性,如下结构的HTML:
 
@@ -70,6 +70,38 @@ def gethref(page, num, linkname):
         return False
 
     return False
+
+def get_href_undo_myfavorite(page, onclick, linkname):
+    u'''
+    @该方法通过输入当前页面的源码 以及订单号 所要查找的链接名，返回最终的链接属性,如下结构的HTML:
+
+    <td width="73" rowspan="1" align="center" class="order_rt">
+	<p><a href="javascript:cusOrder.orderDetails('101828509841000237');">订单详情</a></p>
+	<p><a href="javascript:cusOrder.delOrder('101828509841000237');">删除</a></p></td>
+
+	<td width="92" valign="middle" class="order_bd">
+	<p><a href="javascript:queryOrderReplace(923);">查看退货</a></p>
+	<p></p>
+	<p><a href="javascript:cusOrder.reviewOrder('923');">评论</a><br /></td>
+
+    @参数结构
+    page:页面源码
+    num:订单号码
+    linkname:所需查找的链接中文名称
+
+    @返回数据
+    PASS：返回链接字符串
+    FAIL：返回FALSE
+    '''
+    try:
+        soup = BeautifulSoup(''.join(page))
+        a = soup.find("a", {'onclick':onclick,'class':'jrgw'}).findParent('td')('a')[1]
+        if a.string == linkname:
+            return a['href']
+        else:
+            return False
+    except:
+        return False
 
 
 def get_orderpage(text):

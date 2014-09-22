@@ -3,14 +3,14 @@
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from objectrepository.person.omy_center import *
-from objectrepository.person.omanage_shopping import *
+from objectrepository.person.omycenter import *
+from objectrepository.person.oorder_query import *
 from framework import output, common_method
 import time
 import re
 
 
-class ManageShopping():
+class OrderQuery():
     '''
     该类集成了购物管理下相关操作
     @订单查询
@@ -59,7 +59,6 @@ class ManageShopping():
 
         try:
             #把所有订单号收集到orderlist列表里
-            #orderpage = pattern1.search(sdriver(*totalpagenumber).text).groups()
             orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*stringoforder):
@@ -217,7 +216,7 @@ class ManageShopping():
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
-                        href = common_method.gethref(driver.page_source, w['ordernumber'], u'申请退货')
+                        href = common_method.get_href_review_order(driver.page_source, w['ordernumber'], u'申请退货')
 
                         #如果href为False，返回没找到订单
                         if href==False:
@@ -286,7 +285,7 @@ class ManageShopping():
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
-                        href = common_method.gethref(driver.page_source, w['ordernumber'], u'评论')
+                        href = common_method.get_href_review_order(driver.page_source, w['ordernumber'], u'评论')
 
                         #如果href为False，返回没找到订单
                         if href==False:
@@ -342,7 +341,7 @@ if __name__ == '__main__':
     #testcase = dict(ordernumber='101708787837000237',reviewgrade=u'好评', reviewdetail='1234567890', ifanonymity='YES')
     d.get('http://www.company.com')
     slogin.Login(d).login('15000000237', '888888', '111')
-    info = ManageShopping(d)
+    info = OrderQuery(d)
     #print info.review_good(**testcase)
     #print info.apply_return(**testcase)
     print info.order_query(**testcase)

@@ -220,18 +220,19 @@ if __name__ == '__main__':
     DEBUG = 'NO'
     d = webdriver.Chrome()
     d.maximize_window()
-    testcase = dict(ordernumber='101708787837000237', goodname='', startprice='', endprice='', selectindustry='',
-                    mailurl='www.fssy.com', goodid='384', enterid='13',
+    testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
+                    ordernumber='101708787837000237', goodname='', startprice='', endprice='', selectindustry='',
+                    mailurl='www.qinyu01.com', goodid='271', enterid='229',
                     province=u'河南省', city=u'许昌市', country=u'鄢陵县', address='123123123123', zipcode='461200', name=u'孙彦辉',
                     mobile='15902165607', telephone='0371-7127556', isdefault='YES', invoice='yes',
                     payondelivery='yes', remark='1234567890', goodsnumber='5')
     d.get('http://www.company.com')
-    slogin.Login(d).login('15000001002', '888888', '111')
+    slogin.Login(d).login(**testcase)
     info = PlaceOrder(d)
     print info.find_goods(**testcase)
     print info.open_goodsdetail(**testcase)
-    print info.add_to_cart(**testcase)
+    #print info.add_to_cart(**testcase)
     #print info.order_settlement(**testcase)
 
     time.sleep(3)
-    d.quit()
+    #d.quit()

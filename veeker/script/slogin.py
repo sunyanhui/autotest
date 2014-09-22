@@ -90,8 +90,9 @@ class Login():
         @该方法作用于用户登录页面
 
         @所传字典参数必须包含如下KEY
-        KEY:username          用户名
-        KEY:password          密码
+        KEY:username           用户名
+        KEY:password           密码
+        KEY:verifycode         验证码
         KEY:ifrememberusername 是否记住用户名
 
         @返回数据
