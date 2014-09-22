@@ -10,6 +10,7 @@ import re
 import urllib2
 import time
 import json
+import traceback
 
 def sendmail(filepath, tolist):
     u'''
@@ -95,7 +96,7 @@ def get_href_undo_myfavorite(page, onclick, linkname):
     '''
     try:
         soup = BeautifulSoup(''.join(page))
-        a = soup.find("a", {'onclick':onclick,'class':'jrgw'}).findParent('td')('a')[1]
+        a = soup.find("a", {'onclick':onclick.rstrip(),'class':'jrgw'}).findParent('td')('a')[1]
         if a.string == linkname:
             return a['href']
         else:

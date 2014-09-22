@@ -1,42 +1,19 @@
 #!/usr/bin/python3.3 
 # -*- coding: utf-8 -*-
 
-from objectrepository.person.omycenter import *
-from objectrepository.person.oinfocenter import *
+from objectrepository.person.oaddress import *
 from framework import output
+from script.sbase import Base
 import time
 import re
 
-class InfoCenter():
+class InfoCenter(Base):
     u'''
     个人中心 【信息中心】 下相关功能模块
     @1、密码修改
     @2、基本信息修改
     @3、收货地址
     '''
-    def __init__(self, driver):
-        self.driver = driver
-        #self.driver = webdriver.Ie()
-
-
-    def modify_password(self, o, n ,c, **w):
-
-        driver = self.driver
-
-        try:
-            driver.find_element(*modifyPassword).click()
-            driver.switch_to_frame('iframe')
-            driver.find_element(*oldPasswordInput).clear()
-            driver.find_element(*oldPasswordInput).send_keys(o)
-            driver.find_element(*newPasswordInput).clear()
-            driver.find_element(*newPasswordInput).send_keys(n)
-            driver.find_element(*confirmPasswordInput).clear()
-            driver.find_element(*confirmPasswordInput).send_keys(c)
-            driver.find_element(*passwordSubmit).click()
-
-        except:
-            return output.error_auto(driver)
-
 
     def add_address(self, **w):
 
