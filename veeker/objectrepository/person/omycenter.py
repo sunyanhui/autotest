@@ -34,8 +34,7 @@ mySuggest = (By.LINK_TEXT, u'我的建议')
 myComplain = (By.LINK_TEXT, u'我的投诉')
 
 #***********************我的建议***********************#
-#开店申请查询
-shopQuery = (By.LINK_TEXT, u'开店申请查询')
+
 
 #分销商申请查询
 distributorQuery = (By.LINK_TEXT, u'分销商申请查询')

@@ -3,7 +3,7 @@
 from selenium.webdriver.common.by import By
 
 #基本信息链接
-basicinFormation = (By.LINK_TEXT, u'基本信息')
+basicinfo = (By.LINK_TEXT, u'基本信息')
 
 #真实姓名
 realname = (By.ID, 'personName')
