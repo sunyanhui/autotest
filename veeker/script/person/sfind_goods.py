@@ -48,16 +48,23 @@ class FindGoods(Base):
             goodspages = [0, 0]
         except:
             return output.error_auto(driver)
+        finally:
+            driver.switch_to_default_content()
 
-        return output.pass_user_defined(driver, 'find goods Success', goodspage=goodspages)
+        return output.pass_user_defined(driver, 'find goods Success', page=goodspages)
 
     def open_goodsdetail(self, **w):
         driver = self.driver
         sdriver = driver.find_element
-        onclick = "findGoods('" + w['mailurl'] + "','" + w['goodid'] + "','" + w['enterid'] + "'"
+        onclick = "findGoods('" + w['mallurl'] + "','" + w['goodid'] + "','" + w['enterid'] + "'"
+
+        try:
+            driver.switch_to_frame('iframe')
+        except:
+            return  output.error_auto(driver)
 
         #判断MAILURL是不是在HOST里，如不在则添加进去
-        common_method.modify_host(w['mailurl'])
+        common_method.modify_host(w['mallurl'])
 
         try:
             orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)

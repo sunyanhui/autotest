@@ -99,36 +99,53 @@ class ApplyAgency(Base):
         sdriver = driver.find_element
 
         try:
+            sdriver(*agency_account).clear()
             sdriver(*agency_account).send_keys(w['agency_account'])
-            Select(sdriver(*bank)).select_by_visible_text(w['bank'])
+            sdriver(*bank_address).clear()
             sdriver(*bank_address).send_keys(w['bank_address'])
+
+            Select(sdriver(*bank)).select_by_visible_text(w['bank'])
             Select(sdriver(*bound_province)).select_by_visible_text(w['bound_province'])
             Select(sdriver(*bound_city)).select_by_visible_text(w['bound_city'])
-            sdriver(*remark).send_keys(w['remark'])
 
+            sdriver(*remark).clear()
+            sdriver(*remark).send_keys(w['remark'])
+            sdriver(*agency_name).clear()
             sdriver(*agency_name).send_keys(w['agency_name'])
+            sdriver(*agency_address).clear()
             sdriver(*agency_address).send_keys((w['agency_address']))
             Select(sdriver(*education)).select_by_visible_text(w['education'])
+            sdriver(*weixin).clear()
             sdriver(*weixin).send_keys(w['weixin'])
-            imghtml_weixin = self.generate_html(w['weixin_img_path'])
-            imghtml_idcard_zm = self.generate_html(w['idcard_zm_img_path'])
-            imghtml_idcard_fm = self.generate_html(w['idcard_fm_img_path'])
 
-            driver.execute_script\
-                ('''var element= document.getElementById("%s");
-                element.innerHTML='%s';'''%(weixin_QR[1], imghtml_weixin))
+            sdriver(*weixin_QR).click()
+            time.sleep(1)
+            if not self.upload_photo(driver, w['weixin_img_path']):
+                return output.error_user_defined(driver, 'upload weinxin img failed')
+            time.sleep(1)
 
-            driver.execute_script\
-                ('''var element= document.getElementById("%s");
-                element.innerHTML='%s';'''%(idcard_zm[1], imghtml_idcard_zm))
+            sdriver(*idcard_zm).click()
+            time.sleep(1)
+            if not self.upload_photo(driver, w['idcard_zm_img_path']):
+                return output.error_user_defined(driver, 'upload idcard_zm img failed')
+            time.sleep(1)
 
-            driver.execute_script\
-                ('''var element= document.getElementById("%s");
-                element.innerHTML='%s';'''%(idcard_fm[1], imghtml_idcard_fm))
+            sdriver(*idcard_fm).click()
+            time.sleep(1)
+            if not self.upload_photo(driver, w['idcard_fm_img_path']):
+                return output.error_user_defined(driver, 'upload idcard_fm img failed')
+            time.sleep(1)
 
             sdriver(*submit).click()
+            driver.implicitly_wait(15)
+            titletext = sdriver(*title).text
         except:
             return output.error_auto(driver)
+
+        if titletext != u'分销商申请':
+            return output.error_user_defined(driver, "apply agency failed")
+        else:
+            return output.pass_user_defined(driver, 'apply agency pass~!')
 
 if __name__ == '__main__':
     import sys, os
@@ -143,8 +160,8 @@ if __name__ == '__main__':
                     industryid='24',enterid='561',id='263',
                     agency_account='1234567890098765432',bank=u'中国银行',bound_province=u'河南省',bank_address='adsfasdfa',
                     bound_city=u'许昌市',remark='234567890-9876543',agency_name=u'晓晓',agency_address=u'湖北湖北',
-                    education=u'本科',weixin='123456',weixin_img_path='d:/Tulips.jpg',
-                    idcard_zm_img_path='d:/Tulips.jpg',idcard_fm_img_path='d:/Tulips.jpg',
+                    education=u'本科',weixin='123456',weixin_img_path='d:\\Tulips.jpg',
+                    idcard_zm_img_path='d:\\Tulips.jpg',idcard_fm_img_path='d:\\Tulips.jpg',
                     )
     print  slogin.Login(d).login(**testcase)
     info = ApplyAgency(d)

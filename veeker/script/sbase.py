@@ -1,11 +1,10 @@
 #!/usr/bin/python3.3 
 # -*- coding: utf-8 -*-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
 from selenium.common.exceptions import NoSuchElementException
 from watsup.winGuiAuto import findControl,setEditText, findTopWindow,clickButton
 import base64
+import os
+import traceback
 
 class Base():
 
@@ -27,14 +26,37 @@ class Base():
         imghtml = '''<img width="100px" height="100px" src="data:image/jpeg;base64,%s">'''%str
         return imghtml
 
-    def upload_photo(self, imgpath):
-        form=findTopWindow(wantedText=u'文件上传'.encode("gb2312"))
-        button=findControl(form,wantedText=u'取消'.encode("gb2312"))
-        editbox=findControl(form,wantedClass='TEdit')
-        #setEditText(editbox,[imgpath])
-        clickButton(button)
+    def upload_photo(self, driver, imgpath):
+        u'''
+        @处理图片上传WINDOWS窗口问题
+
+        @使用方法：传入图片路，格式为：r'Ｘ:\XX\XX.XXX'
+        '''
+        if not os.path.exists(imgpath):
+            return False
+
+        if driver.name == 'chrome':
+            title = u'打开'
+        elif driver.name == 'Firefox':
+            title = u'文件上传'
+        elif driver.name == 'internet explorer':
+            title = u'打开'
+        else:
+            title = u'打开'
+        try:
+            form=findTopWindow(wantedText=title.encode("gb2312"))
+            button=findControl(form,wantedText=u'打开'.encode("gb2312"))
+            editbox=findControl(form,wantedClass='Edit')
+            setEditText(editbox,[imgpath])
+            clickButton(button)
+        except:
+            return False
+        else:
+            return True
+
 
 if __name__ == '__main__':
+    #from . import sbrowser
     a =1
-    print Base(a).upload_photo('c:\\img.jpg')
+    Base(a).upload_photo1('d:\\Tulips.jpg')
     #generate_html('d:/Tulips.jpg')
