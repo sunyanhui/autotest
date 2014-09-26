@@ -3,11 +3,11 @@
 
 from objectrepository.person.oaddress import *
 from framework import output
-from script.sbase import Base
+from script.page import Page
 import time
 import re
 
-class InfoCenter(Base):
+class InfoCenter(Page):
     u'''
     个人中心 【信息中心】 下相关功能模块
     @1、密码修改

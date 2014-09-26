@@ -3,12 +3,12 @@
 
 from objectrepository.person.oshop_application_query import *
 from framework import output
-from script.sbase import Base
+from script.page import Page
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import time
 
-class ShopApplicationQuery(Base):
+class ShopApplicationQuery(Page):
 
     def search(self, **w):
         driver = self.driver

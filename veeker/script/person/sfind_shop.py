@@ -6,12 +6,12 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.select import Select
 from objectrepository.person.ofind_shop import *
 from framework import output, common_method
-from script.sbase import Base
+from script.page import Page
 import time
 import re
 
 
-class FindShops(Base):
+class FindShops(Page):
 
     def find_shop(self, **w):
         driver = self.driver

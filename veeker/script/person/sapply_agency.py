@@ -4,13 +4,13 @@
 from objectrepository.person.oapply_agency import *
 from framework import output, common_method
 from framework.output import BreakException
-from script.sbase import Base
+from script.page import Page
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import traceback
 import time
 
-class ApplyAgency(Base):
+class ApplyAgency(Page):
 
     def search(self, **w):
         driver = self.driver

@@ -6,13 +6,14 @@ import base64
 import os
 import traceback
 
-class Base():
+
+class Page():
 
     def __init__(self, driver):
         self.driver = driver
 
-    def is_element_present(self, driver, *ele):
-        try: driver.find_element(*ele)
+    def is_element_present(self, *ele):
+        try: self.driver.find_element(*ele)
         except NoSuchElementException, e: return False
         return True
 
@@ -58,5 +59,5 @@ class Base():
 if __name__ == '__main__':
     #from . import sbrowser
     a =1
-    Base(a).upload_photo1('d:\\Tulips.jpg')
+    Page(a).upload_photo1('d:\\Tulips.jpg')
     #generate_html('d:/Tulips.jpg')

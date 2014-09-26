@@ -105,7 +105,7 @@ class Login():
         try:
             driver.implicitly_wait(2)
             driver.find_element_by_id("popup_ok").click()
-        except NoSuchElementException:
+        except:
             pass
 
         #输入用户名、密码、验证码，然后点击登录按钮

@@ -7,10 +7,10 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from objectrepository.person.oplace_order import *
 from framework import output, common_method
-from script.sbase import Base
+from script.page import Page
 import time
 
-class PlaceOrder(Base):
+class PlaceOrder(Page):
     def collect_goods(self):
         driver = self.driver
         sdriver = driver.find_element

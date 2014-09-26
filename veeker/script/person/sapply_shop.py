@@ -3,12 +3,12 @@
 
 from objectrepository.person.oapply_shop import *
 from framework import output
-from script.sbase import Base
+from script.page import Page
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import time
 
-class ApplyShop(Base):
+class ApplyShop(Page):
 
     def apply_shop(self, **w):
         driver = self.driver

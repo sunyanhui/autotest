@@ -5,12 +5,12 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.person.ofind_goods import *
 from framework import output, common_method
-from script.sbase import Base
+from script.page import Page
 import time
 import re
 
 
-class FindGoods(Base):
+class FindGoods(Page):
 
     def find_goods(self, **w):
         driver = self.driver

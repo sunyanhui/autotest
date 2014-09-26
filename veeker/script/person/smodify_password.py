@@ -3,10 +3,10 @@
 
 from objectrepository.person.omodify_password import *
 from framework import output
-from script.sbase import Base
+from script.page import Page
 import time
 
-class InfoCenter(Base):
+class InfoCenter(Page):
     u'''
     个人中心 【修改密码】 下相关功能模块
     '''

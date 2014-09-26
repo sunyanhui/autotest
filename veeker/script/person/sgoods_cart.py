@@ -5,18 +5,15 @@ from selenium import webdriver
 from BeautifulSoup import  BeautifulSoup
 from objectrepository.person.ogoods_cart import *
 from framework import output, common_method
+from script.page import Page
 import time
 import re
 
 
-class GoodsCart():
-    def __init__(self, driver):
-        self.driver = driver
-
+class GoodsCart(Page):
 
     def add_to_myfavorite(self, **w):
         driver = self.driver
-        #driver = webdriver.Ie()
         sdriver = driver.find_element
         onclick = "shoppingCartAdd('%s','%s'" %(w['goodid'],w['enterid'])
 
@@ -65,7 +62,7 @@ class GoodsCart():
         except:
             return output.error_auto(driver)
 
-    def goto_settlement_single(self, **w):
+    def select_single(self, **w):
         driver = self.driver
         #driver = webdriver.Ie()
         sdriver = driver.find_element
@@ -80,6 +77,69 @@ class GoodsCart():
             driver.find_element_by_id(checkbox_id).click()
         except:
             return output.error_auto(driver)
+        else:
+            return output.pass_user_defined(driver, 'select single pass~!')
+
+    def select_more(self, **w):
+        driver = self.driver
+        #driver = webdriver.Ie()
+        sdriver = driver.find_element
+
+        try:
+            sdriver(*goodscart).click()
+            driver.switch_to_frame('iframe')
+            for i in w['goodsidlist']:
+                onclick = "shoppingCartAdd('%s','%s'" %(i, w['enterid'])
+                checkbox_id = self.__get_href(driver.page_source, onclick, 'select_single')
+                if checkbox_id == False:
+                    return output.error_user_defined(driver, "can't find the checkbox")
+                driver.find_element_by_id(checkbox_id).click()
+        except:
+            return output.error_auto(driver)
+        else:
+            return output.pass_user_defined(driver, 'select more pass~!')
+
+    def select_all(self, **w):
+        driver = self.driver
+        #driver = webdriver.Ie()
+        sdriver = driver.find_element
+        onclick = "shoppingCartAdd('%s','%s'" %(w['goodsid'],w['enterid'])
+
+        try:
+            sdriver(*goodscart).click()
+            driver.switch_to_frame('iframe')
+            #获取第一个TR的ID,以及TR的数量，以确定最后一个TR
+            trid = self.__get_href(driver.page_source, onclick, 'settlement')
+            driver.find_element_by_xpath(
+                "//tr[@id='%s']/td[1]/input[1]"%(trid)).click()
+        except:
+            return output.error_auto(driver)
+        else:
+            return output.pass_user_defined(driver, 'select all pass~!')
+
+    def settlement(self, **w):
+        driver = self.driver
+        #driver = webdriver.Ie()
+        sdriver = driver.find_element
+        onclick = "shoppingCartAdd('%s','%s'" %(w['goodsid'],w['enterid'])
+
+        try:
+            #获取第一个TR的ID,以及TR的数量，以确定最后一个TR
+            trid = self.__get_href(driver.page_source, onclick, 'settlement')
+            driver.find_element_by_xpath(
+                "//tr[@id='%s']/parent::tbody/tr[@name='accounts']/td[2]/div"%(trid)).click()
+            driver.switch_to_default_content()
+            prompttext = sdriver(*prompt).text
+            if prompttext == u'确定结算吗？':
+                sdriver(*okButton).click()
+                driver.switch_to_window(driver.window_handles[1])
+                return output.pass_user_defined(driver, 'goto settlement pass')
+            else:
+                sdriver(*okButton).click()
+                return output.error_user_defined(driver, 'goto settlement failed~!')
+        except:
+            return output.error_user_defined(driver, 'goto settlement failed~')
+
 
     def goto_settlement_all(self):
         pass
@@ -114,6 +174,10 @@ class GoodsCart():
                 if select_single_link['type'] == 'checkbox':return select_single_link['id']
                 else:return False
 
+            elif item == 'settlement':
+                trid = \
+                    soup.find("a", onclick=re.compile(r"%s.*"%onclick)).findParent('tbody')('tr')[0]['id']
+                return trid
             else:
                 return False
         except:
@@ -125,10 +189,11 @@ if __name__ == '__main__':
     d.maximize_window()
     d.get('http://www.company.com')
     testcase = dict(username='15000000237',password='888888',verifycode='1111',ifrememberusername='no',
-                    goodid='362',enterid='11',)
+                    goodsid='255',enterid='229',goodsidlist=['255','259','269'])
     print  slogin.Login(d).login(**testcase)
     info = GoodsCart(d)
-    res =  info.goto_settlement_single(**testcase)
+    res =  info.select_all(**testcase)
     print res['msg']
+    print info.settlement(**testcase)
     #time.sleep(4)
     #d.quit()

@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 from objectrepository.person.obasic_info import *
 from framework import output
-from script.sbase import Base
+from script.page import Page
 from selenium.webdriver.support.select import Select
 import time
 
-class Basic_Info(Base):
+class Basic_Info(Page):
     def edit(self, **w):
         driver = self.driver
         #driver = webdriver.Ie()
