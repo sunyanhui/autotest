@@ -4,13 +4,16 @@
 from selenium import webdriver
 from BeautifulSoup import  BeautifulSoup
 from objectrepository.person.ogoods_cart import *
-from framework import output, common_method
+from framework import output
 from script.page import Page
 import time
 import re
 
 
 class GoodsCart(Page):
+    '''
+
+    '''
 
     def add_to_myfavorite(self, **w):
         driver = self.driver
@@ -195,5 +198,5 @@ if __name__ == '__main__':
     res =  info.select_all(**testcase)
     print res['msg']
     print info.settlement(**testcase)
-    #time.sleep(4)
+    time.sleep(4)
     #d.quit()

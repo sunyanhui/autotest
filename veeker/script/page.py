@@ -55,9 +55,27 @@ class Page():
         else:
             return True
 
+    def get_line_from_file(self, filename):
+        u'''
+        输入文件，从文件中读出第一行，然后删除第一行
+        '''
+        filelist = []
+        with open(filename, 'r') as gg:
+            for i in gg:
+                filelist.append(i)
+
+        with open(filename, 'w') as gg:
+            for i in filelist[1:]:
+                gg.write(i)
+
+        if filelist:
+            return filelist[0].strip()
+        else:
+            return False
+
 
 if __name__ == '__main__':
     #from . import sbrowser
     a =1
-    Page(a).upload_photo1('d:\\Tulips.jpg')
+    Page(a).upload_photo('d:\\Tulips.jpg')
     #generate_html('d:/Tulips.jpg')

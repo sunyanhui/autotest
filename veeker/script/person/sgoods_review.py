@@ -9,7 +9,7 @@ from objectrepository.person.oplace_order import *
 from framework import output, common_method
 import time
 
-class GoodsValuation():
+class GoodsReview():
     def __init__(self, driver):
         self.driver = driver
 

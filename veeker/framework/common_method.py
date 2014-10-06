@@ -159,7 +159,7 @@ def is_element_displayed(driver, *ele):
         return False
     return see
 
-def getvertifycode(towho):
+def getvertifycode2(towho):
     u'''
     @该函数利用mailinator.com的匿名邮件功能收取验证码
 
@@ -180,6 +180,18 @@ def getvertifycode(towho):
     except:
         return False
 
+def getvertifycode(towho):
+
+    try:
+        r = urllib2.urlopen('http://mailcatch.com/en/temporary-inbox?box=%s'%towho)
+        soup = BeautifulSoup(r.read())
+        id= soup.find('input', id='first_mail_id')['value']
+#c= soup.find('tr', {'class':'mail'})('td', {'class':'subject'})[0]('strong')[0]('a')[0]['href']
+        mail = urllib2.urlopen('http://mailcatch.com/en/temporary-mail-content?box=%s=mailcatch.com=mailcatch.com&show=%s'%(towho,id))
+        return re.compile(r'\d{6}').search(mail.read()).group()
+    except:
+        return False
+
 if __name__ == '__main__':
     #print gethref(open('1.html').read(), '101828509841000237', u'评论')
     #print modify_host('www.sunyanhui1.com', '192.168.0.235')
@@ -192,8 +204,6 @@ if __name__ == '__main__':
     #d.get('http://www.company.com')
     #print is_element_displayed(d, *logininput)
     #d.quit()
-
-
     sendmail(r'D:\report\141109118717.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
 
 

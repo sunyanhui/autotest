@@ -15,3 +15,11 @@ state = (By.ID, 'state')
 #搜索按钮
 search_button = (By.ID, 'btnApplyLong btnanniu')
 
+#总条数+总页数 字符串
+page_number = (By.CSS_SELECTOR, 'div.page_yemal p')
+
+#下一页
+nextpage = (By.LINK_TEXT, u'下一页')
+
+#OK按钮
+okButton = (By.ID, 'popup_ok')

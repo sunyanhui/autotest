@@ -4,86 +4,16 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from objectrepository.ologin import *
+from script.page import Page
 from framework import setting, output, common_method
 import time, sys
 
 
 
-class Login():
+class Login(Page):
     u'''
     登录类定义所有与登录相关的操作
     '''
-
-    def __init__(self, driver):
-        u'''
-        @初始化Login对象需传入浏览器对象driver
-        '''
-        self.driver = driver
-
-    def login_for_test(self, u, p, v, r):
-        '''
-        @该方法暂未完成，后期完善
-        '''
-        driver = self.driver
-
-        #判断登录页面是否有弹窗，有的话点一下
-        try:
-            driver.implicitly_wait(2)
-            driver.find_element_by_id("popup_ok").click()
-        except NoSuchElementException:
-            pass
-
-        #输入用户名、密码、验证码，然后点击登录按钮
-        driver.find_element(username[0], username[1]).clear()
-        driver.find_element(username[0], username[1]).send_keys(u)
-        driver.find_element(password[0], password[1]).click()
-        driver.find_element(password1[0], password1[1]).clear()
-        driver.find_element(password1[0], password1[1]).send_keys(p)
-        driver.find_element(verifycode[0], verifycode[1]).clear()
-        driver.find_element(verifycode[0], verifycode[1]).send_keys(v)
-
-        if r.upper() == 'YES':
-            driver.find_element(rememberuseraccount[0],rememberuseraccount[1]).click()
-        driver.find_element(submit[0], submit[1]).click()
-
-        #判断是否登录成功，成功为True，失败为False
-        try:
-            time.sleep(1)
-            driver.find_element(submit[0], submit[1])
-            result = False
-        except NoSuchElementException:
-            result = True
-
-        #取用户名输入框的提示语，没有为None
-        try:
-            ausernameprompt = driver.find_element(usernameprompt[0], usernameprompt[1]).text
-            if len(ausernameprompt) < 2: ausernameprompt = None
-        except NoSuchElementException:
-            ausernameprompt = None
-
-        #取密码输入框的提示语，没有为None
-        try:
-            apasswordprompt = driver.find_element(passwordprompt[0], passwordprompt[1]).text
-            if len(apasswordprompt) < 2 : apasswordprompt = None
-        except NoSuchElementException:
-            apasswordprompt = None
-
-        #取验证码输入框的提示语，没有为None
-        try:
-            averifycodeprompt = driver.find_element(verifycodeprompt[0], verifycodeprompt[1]).text
-            if len(averifycodeprompt) < 2 : averifycodeprompt = None
-        except NoSuchElementException:
-            averifycodeprompt = None
-
-
-        #把登录状态返回一个字典
-        return {
-            'result':result,
-            'usernameprompt':ausernameprompt,
-            'passwordprompt':apasswordprompt,
-            'vertifycodeprompt':averifycodeprompt,
-        }
-
 
     def login(self, **w):
         u'''
@@ -100,6 +30,8 @@ class Login():
         {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
         driver = self.driver
+        sdriver = driver.find_element
+
 
         #判断登录页面是否有弹窗，有的话点一下
         try:
@@ -110,27 +42,27 @@ class Login():
 
         #输入用户名、密码、验证码，然后点击登录按钮
         try:
-            driver.find_element(*username).clear()
-            driver.find_element(*username).send_keys(w['username'])
-            driver.find_element(*password).click()
-            driver.find_element(*password1).clear()
-            driver.find_element(*password1).send_keys(w['password'])
-            driver.find_element(*verifycode).clear()
-            driver.find_element(*verifycode).send_keys(w['verifycode'])
+            sdriver(*username).clear()
+            sdriver(*username).send_keys(w['username'])
+            sdriver(*password).click()
+            sdriver(*password1).clear()
+            sdriver(*password1).send_keys(w['password'])
+            sdriver(*verifycode).clear()
+            sdriver(*verifycode).send_keys(w['verifycode'])
             if w['ifrememberusername'].upper() == 'YES':
-                driver.find_element(*rememberuseraccount).click()
-            driver.find_element(*submit).click()
+                sdriver(*rememberuseraccount).click()
+            sdriver(*submit).click()
         except:
             return output.error_auto(driver)
 
         #判断是否登录成功，成功返回True，失败返回False
         try:
-            driver.implicitly_wait(10)
+            driver.implicitly_wait(5)
             driver.find_element(*logoutlink)
         except:
             return output.error_user_defined(driver, 'submint button still in , login fail')
         else:
-            return output.pass_user_defined(driver, 'login succeed')
+            return output.pass_user_defined(driver, 'login succeed', title = driver.title)
 
     def logout(self):
         u'''

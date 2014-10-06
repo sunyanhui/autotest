@@ -102,12 +102,13 @@ class Regist():
         #填写EMAIL, 然后点击获取验证码
         try:
             driver.find_element(*email).clear()
-            driver.find_element(*email).send_keys(w['email']+'@mailinator.com')
+            driver.find_element(*email).send_keys(w['email']+'@mailcatch.com')
             driver.find_element(*getmailcode).click()
         except:
             return output.error_auto(driver)
 
         #调用获取验证码的函数并赋值
+        time.sleep(15)
         if w['vertifycode'] == 'autoget': w['vertifycode'] = common_method.getvertifycode(w['email'])
 
         #判断验证码的值，False返回
@@ -148,6 +149,7 @@ if __name__ == '__main__':
 
     a= regist.submit_information(**testcase)
     print a['msg']
-    print  regist.regist(**testcase)
+    b= regist.regist(**testcase)
+    print b['msg']
     time.sleep(5)
     driver.quit()
