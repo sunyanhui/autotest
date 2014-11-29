@@ -7,12 +7,12 @@ import unittest
 import time
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from script import slogin, sbrowser
+from action import slogin, sbrowser
 
 
 class TestSomeThing(unittest.TestCase):
     def setUp(self):
-        self.drive = sbrowser.Browser().openbrowser()
+        self.drive = sbrowser.Browser().open_browser()
 
     def tearDown(self):
         time.sleep(1)

@@ -7,35 +7,37 @@ import unittest
 import time
 
 #sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from script import slogin, sbrowser
-from script.person import splace_order
+from action import slogin, sbrowser
+from action.person import splace_order
 from testdata.dorder import *
 
 
 class TestOrder(unittest.TestCase):
     def setUp(self):
-        self.drive = sbrowser.Browser().openbrowser
+        self.login = slogin.Login()
+        self.place_order =splace_order.PlaceOrder()
+        self.login.open_browser("http://www.wiki100.cn")
 
     def tearDown(self):
         time.sleep(1)
-        self.drive.quit()
+        self.login.quit()
+
 
     def test_order_case1(self):
-        driver = self.drive
 
-        loginresult = slogin.Login(driver).login(**test_order_case1)
+        loginresult = self.login.login(**test_order_case1)
         self.assertEqual(True, loginresult['result'], loginresult['msg'])
 
-        findgoodsresult = splace_order.PlaceOrder(driver).find_goods(**test_order_case1)
+        findgoodsresult = self.place_order.find_goods(**test_order_case1)
         self.assertEqual(True, findgoodsresult['result'], findgoodsresult['msg']+'\n'+findgoodsresult['img'])
 
-        opengoodsdetailresult = splace_order.PlaceOrder(driver).open_goodsdetail(**test_order_case1)
+        opengoodsdetailresult = self.place_order.open_goodsdetail(**test_order_case1)
         self.assertEqual(True, opengoodsdetailresult['result'], opengoodsdetailresult['msg']+'\n'+opengoodsdetailresult['img'])
 
-        buyitnowdetailresult = splace_order.PlaceOrder(driver).buy_it_now(**test_order_case1)
+        buyitnowdetailresult = self.place_order.buy_it_now(**test_order_case1)
         self.assertEqual(True, buyitnowdetailresult['result'], buyitnowdetailresult['msg']+'\n'+buyitnowdetailresult['img'])
 
-        settlementresult = splace_order.PlaceOrder(driver).order_settlement(**test_order_case1)
+        settlementresult = self.place_order.order_settlement(**test_order_case1)
         self.assertEqual(True, settlementresult['result'], settlementresult['msg']+'\n'+settlementresult['img'])
         #print settlementresult['ordernumber']
 
