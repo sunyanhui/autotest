@@ -20,4 +20,4 @@ ERRORIMGPATH = 'D:/errorimg/'
 # HOSTIP = '192.168.0.235'
 
 #报告邮件接收人
-REPORTTOLIST = ['382893256@qq.com', '912622568@qq.com', '517287147@qq.com', 'hgbac@qq.com']
+REPORT_RECEIVE_LIST = ['382893256@qq.com', '912622568@qq.com', '517287147@qq.com', 'hgbac@qq.com', '447461795@qq.com']

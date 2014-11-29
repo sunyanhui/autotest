@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from element.person.omycenter import *
 from element.person.oorder_query import *
-from common import output, common_method
+from common import output, common
 import time
 import re
 
@@ -59,7 +59,7 @@ class OrderQuery():
 
         try:
             #把所有订单号收集到orderlist列表里
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*stringoforder):
                     orderlist.append(re.compile(r'\d{18}').search(j.text).group())
@@ -96,7 +96,7 @@ class OrderQuery():
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*confirmreceipt):
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
@@ -132,7 +132,7 @@ class OrderQuery():
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*deleteorder):
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
@@ -166,7 +166,7 @@ class OrderQuery():
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 for j in driver.find_elements(*undoorder):
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
@@ -204,7 +204,7 @@ class OrderQuery():
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
@@ -216,7 +216,7 @@ class OrderQuery():
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
-                        href = common_method.get_href_review_order(driver.page_source, w['ordernumber'], u'申请退货')
+                        href = common.get_href_review_order(driver.page_source, w['ordernumber'], u'申请退货')
 
                         #如果href为False，返回没找到订单
                         if href==False:
@@ -273,7 +273,7 @@ class OrderQuery():
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
@@ -285,7 +285,7 @@ class OrderQuery():
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
 
                         #根据删除链接定位到申请退货链接，
-                        href = common_method.get_href_review_order(driver.page_source, w['ordernumber'], u'评论')
+                        href = common.get_href_review_order(driver.page_source, w['ordernumber'], u'评论')
 
                         #如果href为False，返回没找到订单
                         if href==False:

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from element.person.oshop_application_query import *
-from common import output, common_method
+from common import output, common
 from action.basepage import BasePage
 from selenium.webdriver.support.select import Select
 
@@ -21,7 +21,7 @@ class ShopApplicationQuery(BasePage):
             sdriver(*end_date).send_keys(w['enddate'])
             Select(sdriver(*state)).select_by_visible_text(w['state'])
             sdriver(*search_button).click()
-            page = common_method.get_orderpage(sdriver(*page_number).text)
+            page = common.get_orderpage(sdriver(*page_number).text)
         except:
             return output.error_auto(driver)
         else:

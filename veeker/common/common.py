@@ -5,23 +5,20 @@ from common import config
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
-import sys
 import re
 import urllib2
-import time
-import json
-import traceback
+import logging
 
-def sendmail(filepath, tolist):
+def send_mail(file_path, tolist):
     u'''
     @该函数用来在测试完成后发送测试报告
-    filepath: 报告完整路径
+    file_path: 报告完整路径
     tolist:   接收邮件列表 可以使用setting.REPORTTOLIST参数的设置
     '''
     msg = MIMEMultipart()
-    att1 = MIMEText(open(filepath, 'rb').read(), 'base64', 'utf-8')
+    att1 = MIMEText(open(file_path, 'rb').read(), 'base64', 'utf-8')
     att1["Content-Type"] = 'application/octet-stream'
-    att1["Content-Disposition"] = 'attachment; filename="test.html"'
+    att1["Content-Disposition"] = 'attachment; filename=%s'%file_path
     msg.attach(att1)
     msg['from'] = 'hgbac@163.com'
     msg['to'] = 'hgbac@163.com'
@@ -31,13 +28,13 @@ def sendmail(filepath, tolist):
         server = smtplib.SMTP('smtp.163.com')
         server.login('hgbac','hgbac123abc')
         server.sendmail(msg['from'], tolist, msg.as_string())
-        print 'ok~!'
+        logging.info(u'邮件发送成功~!')
         server.quit()
-    except:
-        print sys.exc_info()
-        return False
-    else:
         return True
+    except:
+        logging.error(u'邮件发送失败~!')
+        return False
+
 
 
 def get_href_review_order(page, num, linkname):
@@ -184,7 +181,7 @@ if __name__ == '__main__':
     #d.get('http://www.company.com')
     #print is_element_displayed(d, *logininput)
     #d.quit()
-    sendmail(r'D:\report\141109118717.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
+    send_mail(r'D:\report\141109118717.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
 
 
 

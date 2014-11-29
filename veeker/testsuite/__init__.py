@@ -1,1 +1,1 @@
-import test_login_olsm
+from testsuite.olsm import test_login

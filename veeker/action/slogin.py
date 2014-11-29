@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from element.ologin import *
 from action.basepage import BasePage
-from common import config, output, common_method
+from common import config, output, common
 import time, sys
 
 
@@ -58,9 +58,9 @@ class Login(BasePage):
             driver.implicitly_wait(5)
             driver.find_element(*logoutlink)
         except:
-            return output.error_user_defined(driver, 'submint button still in , login fail')
+            return output.error_user_defined(driver, u'登录按钮还在，登录失败~!')
         else:
-            return output.pass_user_defined(driver, 'login succeed', title = driver.title)
+            return output.pass_user_defined(driver, u'登录成功', title = driver.title)
 
     def logout(self):
         u'''
@@ -79,10 +79,10 @@ class Login(BasePage):
         except:
             output.error_auto(driver)
 
-        if common_method.is_element_present(driver, *submit):
-            return output.pass_user_defined(driver, 'logout succeed')
+        if common.is_element_present(driver, *submit):
+            return output.pass_user_defined(driver, u'登出成功')
         else:
-            return output.error_user_defined(driver, 'logout failed')
+            return output.error_user_defined(driver, u'登出失败')
 
 
 if __name__ == '__main__':

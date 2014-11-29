@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from element.person.oapply_agency import *
-from common import output, common_method
+from common import output, common
 from common.output import BreakException
 from action.basepage import BasePage
 from selenium import webdriver
@@ -30,7 +30,7 @@ class ApplyAgency(BasePage):
             return output.error_auto(driver)
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
         except:
             return output.error_user_defined(driver, "can't find the page")
 
@@ -55,7 +55,7 @@ class ApplyAgency(BasePage):
             return output.error_auto(driver)
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
         except:
             return output.error_user_defined(driver, "can't find the page")
 

@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from element.person.ofind_goods import *
-from common import output, common_method
+from common import output, common
 from action.basepage import BasePage
 import time
 import re
@@ -43,7 +43,7 @@ class FindGoods(BasePage):
         goodspages = []
 
         try:
-            goodspages = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            goodspages = common.get_orderpage(sdriver(*totalpagenumber).text)
         except NoSuchElementException:
             goodspages = [0, 0]
         except:
@@ -64,10 +64,10 @@ class FindGoods(BasePage):
             return  output.error_auto(driver)
 
         #判断MAILURL是不是在HOST里，如不在则添加进去
-        common_method.modify_host(w['mallurl'])
+        common.modify_host(w['mallurl'])
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]'):
                     driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]')[0].click()

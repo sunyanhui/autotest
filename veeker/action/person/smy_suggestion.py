@@ -6,7 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from element.person.oplace_order import *
-from common import output, common_method
+from common import output, common
 import time
 
 class MySuggestion():

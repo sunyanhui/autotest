@@ -7,7 +7,7 @@ from selenium.common.exceptions import InvalidSwitchToTargetException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from element.person.omy_favorite import *
-from common import output, common_method
+from common import output, common
 import time
 
 class MyFavorite():
@@ -38,7 +38,7 @@ class MyFavorite():
             return output.error_user_defined(driver, "can't find the myfavorites link")
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
         except:
             return output.error_user_defined(driver, "can't find the goods page")
 
@@ -84,7 +84,7 @@ class MyFavorite():
             return output.error_user_defined(driver, "can't find the myfavorites link")
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
         except:
             return output.error_user_defined(driver, "can't find the goods page")
 
@@ -93,7 +93,7 @@ class MyFavorite():
                 #获取带有所指定LINK的对象组
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick):
                     oc = driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick)[1].get_attribute('onclick')
-                    href = common_method.get_href_undo_myfavorite(driver.page_source, oc, u'取消收藏')
+                    href = common.get_href_undo_myfavorite(driver.page_source, oc, u'取消收藏')
                     if not href:
                         return output.error_user_defined(driver, "can't not find the undolink")
                     sdriver(By.CSS_SELECTOR, 'a[href="%s"]'%href).click()
@@ -126,12 +126,12 @@ class MyFavorite():
             sdriver(*myFavorites).click()
             driver.switch_to_frame('iframe')
             sdriver(*shopscollect).click()
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 #获取带有所指定LINK的对象组
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick):
                     oc = driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick)[1].get_attribute('onclick')
-                    href = common_method.get_href_undo_myfavorite(driver.page_source, oc, u'取消收藏')
+                    href = common.get_href_undo_myfavorite(driver.page_source, oc, u'取消收藏')
                     if not href:
                         return output.error_user_defined(driver, "1. can't not find the undolink")
                     sdriver(By.CSS_SELECTOR, 'a[href="%s"]'%href).click()
@@ -165,7 +165,7 @@ class MyFavorite():
             sdriver(*myFavorites).click()
             driver.switch_to_frame('iframe')
             sdriver(*shopscollect).click()
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick):
                     driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="%s"]'%onclick)[0].click()

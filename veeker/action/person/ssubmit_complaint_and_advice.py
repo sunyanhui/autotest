@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from element.person.oapply_agency import *
-from common import output, common_method
+from common import output, common
 from common.output import BreakException
 from action.basepage import BasePage
 from selenium import webdriver

@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.select import Select
 from element.person.ofind_shop import *
-from common import output, common_method
+from common import output, common
 from action.basepage import BasePage
 import time
 import re
@@ -30,7 +30,7 @@ class FindShops(BasePage):
             return output.error_auto(driver)
 
         try:
-            shoppages = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            shoppages = common.get_orderpage(sdriver(*totalpagenumber).text)
         except NoSuchElementException:
             shoppages = [0, 0]
         except:
@@ -51,10 +51,10 @@ class FindShops(BasePage):
             return  output.error_auto(driver)
 
         #判断MAILURL是不是在HOST里，如不在则添加进去
-        common_method.modify_host(w['mallurl'])
+        common.modify_host(w['mallurl'])
 
         try:
-            orderpage = common_method.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
             for i in range(int(orderpage[1])):
                 if driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]'):
                     driver.find_elements(By.CSS_SELECTOR, 'a[onclick^="' + onclick + '"]')[1].click()

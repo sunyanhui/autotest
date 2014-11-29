@@ -7,7 +7,7 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from element.person.omy_complaint import *
 from action.basepage import BasePage
-from common import output, common_method
+from common import output, common
 import time
 
 class MyComplaint(BasePage):
@@ -26,7 +26,7 @@ class MyComplaint(BasePage):
             sdriver(*end_date).send_keys(w['end_date'])
             Select(sdriver(*state)).select_by_visible_text(w['state'])
             sdriver(*search_button).click()
-            page = common_method.get_orderpage(sdriver(*page_number).text)
+            page = common.get_orderpage(sdriver(*page_number).text)
         except:
             return output.error_auto(driver)
         else:

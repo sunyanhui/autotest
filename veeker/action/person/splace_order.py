@@ -6,7 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from element.person.oplace_order import *
-from common import output, common_method
+from common import output, common
 from action.basepage import BasePage
 import time
 
@@ -50,7 +50,7 @@ class PlaceOrder(BasePage):
         except:
             return output.error_auto(driver)
 
-        if common_method.is_element_present(driver, buynow):
+        if common.is_element_present(driver, buynow):
             return output.error_user_defined(driver, 'add to cart failed')
         else:
             return output.pass_user_defined(driver, 'add to cart Success')
@@ -79,7 +79,7 @@ class PlaceOrder(BasePage):
         except:
             return output.error_auto(driver)
 
-        if common_method.is_element_present(driver, *buynow):
+        if common.is_element_present(driver, *buynow):
             return output.error_user_defined(driver, 'buy it now failed')
         else:
             return output.pass_user_defined(driver, 'but it now Success')
@@ -91,7 +91,7 @@ class PlaceOrder(BasePage):
         sdrivers = driver.find_elements
         time.sleep(3)
 
-        if common_method.is_element_displayed(driver, *nulladressform):
+        if common.is_element_displayed(driver, *nulladressform):
             try:
                 Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
                 Select(sdriver(*city_null)).select_by_visible_text(w['city'])

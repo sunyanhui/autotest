@@ -4,31 +4,17 @@
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from element.oregister import *
-from common import config, output, common_method
+from common import config, output, common
+from basepage import BasePage
 import time, sys, re
 
 
-class Regist():
+class Regist(BasePage):
     u'''
     该类包含与注册相关的所有操作
     1、submit_information：注册信息填写页面
     2、regist：注册提交页面
     '''
-
-    def __init__(self, driver):
-        u'''
-        @初始化Regist对象需传入浏览器对象driver
-        '''
-        self.driver = driver
-
-    def submit_information_fortest(self, **w):
-        u'''
-        @该方法后期完善，暂时先用submit_information
-        @后期目标：完善页面错误判断并输入至TESTCASE
-        '''
-        pass
-
-
 
     def submit_information(self, **w):
         u'''
@@ -97,7 +83,8 @@ class Regist():
         driver = self.driver
 
         #生成随机mail id
-        if w['email'] == 'random':w['email'] = str(int(time.time()*100))
+        # if w['email'] == 'random':
+        w['email'] = str(int(time.time()*100))
 
         #填写EMAIL, 然后点击获取验证码
         try:
@@ -109,31 +96,34 @@ class Regist():
 
         #调用获取验证码的函数并赋值
         time.sleep(15)
-        if w['vertifycode'] == 'autoget': w['vertifycode'] = common_method.getvertifycode(w['email'])
+        # if w['vertifycode'] == 'autoget':
+        w['vertifycode'] = common.getvertifycode(w['email'])
 
         #判断验证码的值，False返回
         if w['vertifycode'] == False:
-            return output.error_auto(driver)
-
-
-        #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
-        try:
-            driver.find_element(*emailcode).clear()
-            driver.find_element(*emailcode).send_keys(w['vertifycode'])
-            driver.find_element(*submit).click()
-            time.sleep(5)
-
-        except:
-            return output.error_auto(driver)
-
-        driver.implicitly_wait(5)
-        registtext = driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/p[1]').text
-        num = re.compile(r'\d{11}').findall(registtext)
-
-        if num:
-            return output.pass_user_defined(driver, 'regist succeed', useraccount=num[0])
+            return output.error_user_defined(driver, u"验证码获取失败")
         else:
-            return output.error_user_defined(driver, 'register fialed')
+            return output.pass_user_defined(driver, u"验证码获取成功")
+
+
+        # #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
+        # try:
+        #     driver.find_element(*emailcode).clear()
+        #     driver.find_element(*emailcode).send_keys(w['vertifycode'])
+        #     driver.find_element(*submit).click()
+        #     time.sleep(5)
+        #
+        # except:
+        #     return output.error_auto(driver)
+        #
+        # driver.implicitly_wait(5)
+        # registtext = driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/p[1]').text
+        # num = re.compile(r'\d{11}').findall(registtext)
+        #
+        # if num:
+        #     return output.pass_user_defined(driver, 'regist succeed', useraccount=num[0])
+        # else:
+        #     return output.error_user_defined(driver, 'register fialed')
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
