@@ -1,9 +1,9 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
-from BeautifulSoup import  BeautifulSoup
-from common import config
+from BeautifulSoup import BeautifulSoup
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import config
 import smtplib
 import re
 import urllib2
@@ -18,7 +18,7 @@ def send_mail(file_path, tolist):
     msg = MIMEMultipart()
     att1 = MIMEText(open(file_path, 'rb').read(), 'base64', 'utf-8')
     att1["Content-Type"] = 'application/octet-stream'
-    att1["Content-Disposition"] = 'attachment; filename=%s'%file_path
+    att1["Content-Disposition"] = 'attachment; filename=%s'%file_path.split("\\")[-1]
     msg.attach(att1)
     msg['from'] = 'hgbac@163.com'
     msg['to'] = 'hgbac@163.com'

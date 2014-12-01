@@ -2,7 +2,8 @@
 import unittest
 import HTMLTestRunner
 import time, os
-from common import config, common
+from common import config
+from common import common
 
 def create_test_unit(TEST_SUITE_DIR):
     u'''
@@ -26,4 +27,4 @@ if __name__ == '__main__':
     testunit = create_test_unit(".\\testsuite")
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'测试报告', description=u'测试报告')
     runner.run(testunit)
-    common.send_mail(filename, config.REPORT_RECEIVE_LIST)
+    #common.send_mail(filename, config.REPORT_RECEIVE_LIST)

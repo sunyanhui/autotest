@@ -2,39 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b66a84-bf8c-422d-b2d5-941139ab71cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/olsm/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/osms/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testdata/dlogin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-11-29-15_57_18.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-11-29-15_59_03.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/osms/person/test_regist.py" />
-      <change type="DELETED" beforePath="D:\autotest\veeker\testsuite\temptestlogin.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/__init__.py" afterPath="$PROJECT_DIR$/testsuite/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/config.py" afterPath="$PROJECT_DIR$/common/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sagency_application_query.py" afterPath="$PROJECT_DIR$/action/person/sagency_application_query.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sapply_agency.py" afterPath="$PROJECT_DIR$/action/person/sapply_agency.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sfind_goods.py" afterPath="$PROJECT_DIR$/action/person/sfind_goods.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sfind_shop.py" afterPath="$PROJECT_DIR$/action/person/sfind_shop.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sgoods_review.py" afterPath="$PROJECT_DIR$/action/person/sgoods_review.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ghostdriver.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-08_57_15.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-09_56_53.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_32_09.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_41_12.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_44_34.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_14_40.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_23_50.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_28_34.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.py" afterPath="$PROJECT_DIR$/common/common.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/slogin.py" afterPath="$PROJECT_DIR$/action/slogin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/company/smodify_info.py" afterPath="$PROJECT_DIR$/action/company/smodify_info.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/smy_complaint.py" afterPath="$PROJECT_DIR$/action/person/smy_complaint.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/smy_coupon.py" afterPath="$PROJECT_DIR$/action/person/smy_coupon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/smy_favorite.py" afterPath="$PROJECT_DIR$/action/person/smy_favorite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/smy_suggestion.py" afterPath="$PROJECT_DIR$/action/person/smy_suggestion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sorder_query.py" afterPath="$PROJECT_DIR$/action/person/sorder_query.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/splace_order.py" afterPath="$PROJECT_DIR$/action/person/splace_order.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/sregist.py" afterPath="$PROJECT_DIR$/action/sregist.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sshop_application_query.py" afterPath="$PROJECT_DIR$/action/person/sshop_application_query.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/ssubmit_complaint_and_advice.py" afterPath="$PROJECT_DIR$/action/person/ssubmit_complaint_and_advice.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testall.py" afterPath="$PROJECT_DIR$/testall.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\common\common_method.py" afterPath="$PROJECT_DIR$/common/common.py" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\testsuite\person\__init__.py" afterPath="$PROJECT_DIR$/testsuite/osms/person/__init__.py" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\testsuite\person\testorder.py" afterPath="$PROJECT_DIR$/testsuite/osms/person/testorder.py" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\testsuite\test_login_olsm.py" afterPath="$PROJECT_DIR$/testsuite/olsm/test_login.py" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\testsuite\test_login_osms.py" afterPath="$PROJECT_DIR$/testsuite/osms/test_login.py" />
-      <change type="MOVED" beforePath="D:\autotest\veeker\testsuite\test_regist.py" afterPath="$PROJECT_DIR$/testsuite/olsm/test_regist.py" />
     </list>
     <ignored path="veeker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,18 +41,40 @@
       <file leaf-file-name="test_regist.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testsuite/osms/person/test_regist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="480">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_login.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="test_login.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1300">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.5273834" vertical-offset="240" max-vertical-offset="1380">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+              <folding>
+                <element signature="e#36#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="case.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://C:/Python27/Lib/unittest/case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2771" max-vertical-offset="21380">
+              <caret line="163" column="37" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exceptions.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/exceptions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="18020">
+              <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -81,21 +83,9 @@
       <file leaf-file-name="slogin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/slogin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="2000">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2000">
+              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sregist.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/action/sregist.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8023256" vertical-offset="0" max-vertical-offset="3000">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding>
-                <element signature="e#47#77#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -103,9 +93,11 @@
       <file leaf-file-name="basepage.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/basepage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="2020">
-              <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2100">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,8 +105,8 @@
       <file leaf-file-name="testall.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testall.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="700">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding>
                 <element signature="e#15#30#0" expanded="true" />
               </folding>
@@ -125,10 +117,10 @@
       <file leaf-file-name="common.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3860">
-              <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3860">
+              <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
               <folding>
-                <element signature="e#45#85#0" expanded="true" />
+                <element signature="e#45#84#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,18 +129,8 @@
       <file leaf-file-name="output.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/output.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="860">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
+              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -172,10 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/script/person/sapply_shop.py" />
-        <option value="$PROJECT_DIR$/script/person/sapply_distributor.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/oapply_distributor.py" />
-        <option value="$PROJECT_DIR$/script/person/ssubmit_complaint_and_advice.py" />
         <option value="$PROJECT_DIR$/objectrepository/person/osubmit_complaint_and_advice.py" />
         <option value="$PROJECT_DIR$/script/person/splace_order.py" />
         <option value="$PROJECT_DIR$/objectrepository/person/ofind_goods.py" />
@@ -216,13 +194,17 @@
         <option value="$PROJECT_DIR$/testsuite/test_login.py" />
         <option value="$PROJECT_DIR$/testsuite/test_login_osms.py" />
         <option value="$PROJECT_DIR$/testdata/data_login_olsm.py" />
-        <option value="$PROJECT_DIR$/action/basepage.py" />
         <option value="$PROJECT_DIR$/element/person/oaddress.py" />
-        <option value="$PROJECT_DIR$/testall.py" />
         <option value="$PROJECT_DIR$/common/common_method.py" />
         <option value="$PROJECT_DIR$/common/config.py" />
-        <option value="$PROJECT_DIR$/action/slogin.py" />
         <option value="$PROJECT_DIR$/action/sregist.py" />
+        <option value="$PROJECT_DIR$/common/function.py" />
+        <option value="$PROJECT_DIR$/action/basepage.py" />
+        <option value="$PROJECT_DIR$/common/common.py" />
+        <option value="$PROJECT_DIR$/testall.py" />
+        <option value="$PROJECT_DIR$/common/output.py" />
+        <option value="$PROJECT_DIR$/action/slogin.py" />
+        <option value="$PROJECT_DIR$/testsuite/olsm/test_login.py" />
       </list>
     </option>
   </component>
@@ -274,6 +256,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -316,13 +299,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="testsuite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="olsm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="action" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -654,7 +668,11 @@
       <created>1417245107044</created>
       <updated>1417245107044</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="for online">
+      <created>1417253217193</created>
+      <updated>1417253217193</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -681,24 +699,24 @@
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933334" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1713198" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17829949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.396" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24873096" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.324" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26104417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26104417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -737,20 +755,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/result/result_2014-11-29-12_54_32.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.103448" vertical-offset="4380" max-vertical-offset="7480">
-          <caret line="238" column="22" selection-start-line="238" selection-start-column="22" selection-end-line="238" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testdata/data_login_osms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="21" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testdata/data_login_olsm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
@@ -1024,42 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/osms/person/test_regist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="480">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="860">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3860">
-          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-          <folding>
-            <element signature="e#45#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#15#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
@@ -1068,36 +1036,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_login.py">
+    <entry file="file://$PROJECT_DIR$/action/sregist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1300">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2261" max-vertical-offset="3000">
+          <caret line="129" column="40" selection-start-line="129" selection-start-column="40" selection-end-line="129" selection-end-column="40" />
+          <folding>
+            <element signature="e#47#77#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/slogin.py">
+    <entry file="file://$PROJECT_DIR$/common/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="2000">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="140">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/action/basepage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1092" max-vertical-offset="2020">
-          <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2100">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2771" max-vertical-offset="21380">
+          <caret line="163" column="37" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/sregist.py">
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8023256" vertical-offset="0" max-vertical-offset="3000">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="18020">
+          <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/osms/person/test_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="700">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding>
-            <element signature="e#47#77#0" expanded="true" />
+            <element signature="e#15#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3860">
+          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+          <folding>
+            <element signature="e#45#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/output.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/slogin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2000">
+          <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5273834" vertical-offset="240" max-vertical-offset="1380">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding>
+            <element signature="e#36#74#0" expanded="true" />
           </folding>
         </state>
       </provider>

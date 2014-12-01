@@ -58,9 +58,9 @@ class Login(BasePage):
             driver.implicitly_wait(5)
             driver.find_element(*logoutlink)
         except:
-            return output.error_user_defined(driver, u'登录按钮还在，登录失败~!')
+            return output.error_user_defined(driver, '登录按钮还在，登录失败~!')
         else:
-            return output.pass_user_defined(driver, u'登录成功', title = driver.title)
+            return output.pass_user_defined(driver, '登录成功', title = driver.title)
 
     def logout(self):
         u'''
@@ -80,9 +80,9 @@ class Login(BasePage):
             output.error_auto(driver)
 
         if common.is_element_present(driver, *submit):
-            return output.pass_user_defined(driver, u'登出成功')
+            return output.pass_user_defined(driver, '登出成功')
         else:
-            return output.error_user_defined(driver, u'登出失败')
+            return output.error_user_defined(driver, '登出失败')
 
 
 if __name__ == '__main__':
