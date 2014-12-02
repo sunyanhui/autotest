@@ -58,14 +58,7 @@ class Regist(BasePage):
             return output.error_auto(driver)
 
         else:
-            return output.pass_user_defined(driver, 'submit information success')
-
-
-    def regist_fortest(self, **w):
-        u'''
-        @该方法后期再优化，暂时不用
-        '''
-        pass
+            return output.pass_user_defined(driver, '信息提交成功')
 
 
     def regist(self, **w):
@@ -101,9 +94,9 @@ class Regist(BasePage):
 
         #判断验证码的值，False返回
         if w['vertifycode'] == False:
-            return output.error_user_defined(driver, u"验证码获取失败")
+            return output.error_user_defined(driver, "验证码获取失败")
         else:
-            return output.pass_user_defined(driver, u"验证码获取成功")
+            return output.pass_user_defined(driver, "验证码获取成功")
 
 
         # #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
@@ -133,7 +126,7 @@ if __name__ == '__main__':
         driver.find_element_by_id("popup_ok").click()
     except:
         pass
-    regist = Regist(driver)
+    regist = Regist()
     testcase = {'province':u'河南省', 'city':u'许昌市', 'nickname':'random', 'password':'111111', 'confirmpassword':'111111',
                 'email':'random','vertifycode':'autoget'}
 

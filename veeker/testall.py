@@ -1,9 +1,9 @@
 # coding=utf-8
-import unittest
-import HTMLTestRunner
-import time, os
+from common import HTMLTestRunner
 from common import config
 from common import common
+import unittest
+import time, os
 
 def create_test_unit(TEST_SUITE_DIR):
     u'''
@@ -17,7 +17,6 @@ def create_test_unit(TEST_SUITE_DIR):
     return testunit
 
 if __name__ == '__main__':
-
     #获取系统当前时间
     now = time.strftime('%Y-%m-%d-%H_%M_%S', time.localtime(time.time()))
 
@@ -27,4 +26,5 @@ if __name__ == '__main__':
     testunit = create_test_unit(".\\testsuite")
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'测试报告', description=u'测试报告')
     runner.run(testunit)
-    #common.send_mail(filename, config.REPORT_RECEIVE_LIST)
+    fp.close()
+    common.send_mail(filename, config.REPORT_RECEIVE_LIST)

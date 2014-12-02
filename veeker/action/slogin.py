@@ -55,7 +55,7 @@ class Login(BasePage):
 
         #判断是否登录成功，成功返回True，失败返回False
         try:
-            driver.implicitly_wait(5)
+            driver.implicitly_wait(10)
             driver.find_element(*logoutlink)
         except:
             return output.error_user_defined(driver, '登录按钮还在，登录失败~!')

@@ -59,6 +59,12 @@ updatereciveadress_null = (By.ID, 'updateReciveAdress')
 
 #***********************订单结算页面***********************#
 
+#商品总价
+total_price = (By.NAME, 'price')
+
+#应付总额
+should_pay_price = (By.ID, 'J_ActualFee')
+
 #是否开发票
 invoice_yes = (By.CSS_SELECTOR, "input[value='01'][name='orderDTO.isNeedInvoice']")
 invoice_no = (By.CSS_SELECTOR, "input[value='02'][name='orderDTO.isNeedInvoice']")
@@ -79,4 +85,4 @@ usecoupon = (By.CSS_SELECTOR, "input[onclick='showCusCoupon('cusCouponListId');'
 submitorder = (By.CSS_SELECTOR, "input[onclick='submitOrders()']")
 
 #订单号码
-ordernumber = (By.XPATH, "//div[@id='wraper']/div/div[1]/p/b[1]")
+ordernumber = (By.XPATH, "//div[@class='ordersuccess']/p/b[1]")

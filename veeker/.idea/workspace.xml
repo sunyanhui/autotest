@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49b66a84-bf8c-422d-b2d5-941139ab71cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ghostdriver.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-08_57_15.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-09_56_53.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_32_09.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_41_12.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-14_44_34.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_14_40.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_23_50.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-01-15_28_34.html" />
+    <list default="true" id="49b66a84-bf8c-422d-b2d5-941139ab71cc" name="Default" comment="for online">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/common/HTMLTestRunner.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/action/supermarket/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/element/supermarket/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/action/supermarket/customer_order_settlement.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testdata/data_login.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testdata/data_order.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/element/supermarket/order_query.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-10_41_32.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-10_53_49.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-11_11_22.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-11_21_08.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-11_29_24.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-11_39_03.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-11_47_15.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-14_21_40.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/result_2014-12-02-17_35_32.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/osms/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/osms/test_order.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testsuite/osms/test_regist.py" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testdata\data_login_osms.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testdata\dlogin.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testdata\dorder.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testsuite\osms\person\__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testsuite\osms\person\test_regist.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\autotest\veeker\testsuite\osms\person\testorder.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/basepage.py" afterPath="$PROJECT_DIR$/action/basepage.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/common.py" afterPath="$PROJECT_DIR$/common/common.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/element/person/oplace_order.py" afterPath="$PROJECT_DIR$/element/person/oplace_order.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sfind_goods.py" afterPath="$PROJECT_DIR$/action/person/sfind_goods.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/slogin.py" afterPath="$PROJECT_DIR$/action/slogin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/sorder_query.py" afterPath="$PROJECT_DIR$/action/person/sorder_query.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/person/splace_order.py" afterPath="$PROJECT_DIR$/action/person/splace_order.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/sregist.py" afterPath="$PROJECT_DIR$/action/sregist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/temp.py" afterPath="$PROJECT_DIR$/common/temp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/olsm/test_login.py" afterPath="$PROJECT_DIR$/testsuite/olsm/test_login.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/osms/test_login.py" afterPath="$PROJECT_DIR$/testsuite/osms/test_login.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsuite/olsm/test_regist.py" afterPath="$PROJECT_DIR$/testsuite/olsm/test_regist.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testall.py" afterPath="$PROJECT_DIR$/testall.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\autotest\veeker\testdata\data_login_olsm.py" afterPath="$PROJECT_DIR$/testdata/data_regist.py" />
     </list>
     <ignored path="veeker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,44 +65,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_regist.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testsuite/osms/person/test_regist.py">
+      <file leaf-file-name="test_order.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testsuite/osms/test_order.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_login.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_login.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5273834" vertical-offset="240" max-vertical-offset="1380">
-              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="1400">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
-                <element signature="e#36#74#0" expanded="true" />
+                <element signature="e#45#78#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="case.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Python27/Lib/unittest/case.py">
+      <file leaf-file-name="testall.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testall.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2771" max-vertical-offset="21380">
-              <caret line="163" column="37" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="1.3122172" vertical-offset="0" max-vertical-offset="700">
+              <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+              <folding>
+                <element signature="e#15#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exceptions.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-762174762/exceptions.py">
+      <file leaf-file-name="sfind_goods.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/person/sfind_goods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="18020">
-              <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="566" max-vertical-offset="2080">
+              <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="61" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sorder_query.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/person/sorder_query.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="7480">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splace_order.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/person/splace_order.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3720">
+              <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +128,40 @@
       <file leaf-file-name="slogin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/slogin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2000">
-              <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1132" max-vertical-offset="2000">
+              <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_query.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/element/supermarket/order_query.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customer_order_settlement.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/action/supermarket/customer_order_settlement.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="800">
+              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_order.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testdata/data_order.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -93,44 +170,8 @@
       <file leaf-file-name="basepage.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/action/basepage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2100">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#46#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testall.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testall.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="700">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="e#15#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/common.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3860">
-              <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-              <folding>
-                <element signature="e#45#84#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="output.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/output.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="2140">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -154,22 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/objectrepository/person/osubmit_complaint_and_advice.py" />
-        <option value="$PROJECT_DIR$/script/person/splace_order.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/ofind_goods.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/oplace_order.py" />
-        <option value="$PROJECT_DIR$/script/person/sfind_shops.py" />
-        <option value="$PROJECT_DIR$/script/sbase.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/oapply_agency.py" />
-        <option value="$PROJECT_DIR$/script/person/sapply_agency.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/ofind_shop.py" />
-        <option value="$PROJECT_DIR$/script/person/sfind_goods.py" />
-        <option value="$PROJECT_DIR$/script/person/sfind_shop.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/ogoods_cart.py" />
-        <option value="$PROJECT_DIR$/script/person/sgoods_cart.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/oagency_application_query.py" />
-        <option value="$PROJECT_DIR$/objectrepository/person/oshop_application_query.py" />
-        <option value="$PROJECT_DIR$/script/person/sagency_application_query.py" />
         <option value="$PROJECT_DIR$/script/person/sshop_application_query.py" />
         <option value="$PROJECT_DIR$/objectrepository/person/omy_complaint.py" />
         <option value="$PROJECT_DIR$/script/person/smy_complaint.py" />
@@ -188,23 +213,39 @@
         <option value="$PROJECT_DIR$/script/page.py" />
         <option value="$PROJECT_DIR$/testdata/dorder.py" />
         <option value="$PROJECT_DIR$/action/sbrowser.py" />
-        <option value="$PROJECT_DIR$/common/temp.py" />
         <option value="$PROJECT_DIR$/testsuite/person/testorder.py" />
         <option value="$PROJECT_DIR$/testdata/dlogin.py" />
         <option value="$PROJECT_DIR$/testsuite/test_login.py" />
         <option value="$PROJECT_DIR$/testsuite/test_login_osms.py" />
-        <option value="$PROJECT_DIR$/testdata/data_login_olsm.py" />
         <option value="$PROJECT_DIR$/element/person/oaddress.py" />
         <option value="$PROJECT_DIR$/common/common_method.py" />
         <option value="$PROJECT_DIR$/common/config.py" />
-        <option value="$PROJECT_DIR$/action/sregist.py" />
         <option value="$PROJECT_DIR$/common/function.py" />
-        <option value="$PROJECT_DIR$/action/basepage.py" />
-        <option value="$PROJECT_DIR$/common/common.py" />
-        <option value="$PROJECT_DIR$/testall.py" />
         <option value="$PROJECT_DIR$/common/output.py" />
-        <option value="$PROJECT_DIR$/action/slogin.py" />
+        <option value="$PROJECT_DIR$/testsuite/osms/person/testorder.py" />
+        <option value="$PROJECT_DIR$/testdata/data_login_osms.py" />
+        <option value="$PROJECT_DIR$/testdata/data_login_olsm.py" />
+        <option value="$PROJECT_DIR$/testsuite/osms/test_login.py" />
         <option value="$PROJECT_DIR$/testsuite/olsm/test_login.py" />
+        <option value="$PROJECT_DIR$/testdata/data_login.py" />
+        <option value="C:/Python27/Lib/HTMLTestRunner.py" />
+        <option value="$PROJECT_DIR$/common/temp.py" />
+        <option value="$PROJECT_DIR$/common/common.py" />
+        <option value="$PROJECT_DIR$/action/slogin.py" />
+        <option value="$PROJECT_DIR$/testall.py" />
+        <option value="$PROJECT_DIR$/action/sregist.py" />
+        <option value="$PROJECT_DIR$/testdata/data_regist.py" />
+        <option value="$PROJECT_DIR$/testsuite/osms/test_regist.py" />
+        <option value="$PROJECT_DIR$/testsuite/olsm/test_regist.py" />
+        <option value="$PROJECT_DIR$/action/person/sfind_goods.py" />
+        <option value="$PROJECT_DIR$/element/person/oplace_order.py" />
+        <option value="$PROJECT_DIR$/action/person/splace_order.py" />
+        <option value="$PROJECT_DIR$/testdata/data_order.py" />
+        <option value="$PROJECT_DIR$/action/basepage.py" />
+        <option value="$PROJECT_DIR$/action/person/sorder_query.py" />
+        <option value="$PROJECT_DIR$/testsuite/osms/test_order.py" />
+        <option value="$PROJECT_DIR$/element/supermarket/order_query.py" />
+        <option value="$PROJECT_DIR$/action/supermarket/customer_order_settlement.py" />
       </list>
     </option>
   </component>
@@ -303,7 +344,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="osms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testsuite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="olsm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testdata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="element" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="supermarket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -332,6 +437,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="supermarket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,36 +497,19 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\autotest\veeker\testsuite\osms\person" />
+      <recent name="D:\autotest\veeker\testsuite\osms" />
+      <recent name="D:\autotest\veeker\testsuite\olsm" />
       <recent name="D:\autotest\veeker\testdata" />
+      <recent name="D:\autotest\veeker\testsuite\osms\person" />
       <recent name="D:\autotest\veeker\testsuite" />
-      <recent name="D:\autotest\veeker\TestSuite" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\autotest\veeker\testsuite\osms" />
       <recent name="D:\autotest\veeker\action" />
       <recent name="D:\autotest\veeker\testsuite\olsm" />
-      <recent name="D:\autotest\veeker\testsuite\osms" />
     </key>
   </component>
   <component name="RunManager" selected="Python.testall">
-    <configuration default="false" name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/framework" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="veeker" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/framework/temp.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="testall" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -417,24 +523,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="veeker" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testall.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="common_method" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="veeker" />
-      <option name="SCRIPT_NAME" value="D:\autotest\veeker\common\common.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -458,19 +546,55 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="test_login" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="test_regist" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testsuite" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testsuite/osms" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="veeker" />
-      <option name="SCRIPT_NAME" value="D:\autotest\veeker\testsuite\olsm\test_login.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testsuite/osms/test_regist.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="data_regist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testdata" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="veeker" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testdata/data_regist.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_order" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testsuite/osms" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="veeker" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testsuite/osms/test_order.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -598,19 +722,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.temp" />
-      <item index="1" class="java.lang.String" itemvalue="Python.testall" />
-      <item index="2" class="java.lang.String" itemvalue="Python.common_method" />
-      <item index="3" class="java.lang.String" itemvalue="Python.temp (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_login" />
+      <item index="0" class="java.lang.String" itemvalue="Python.testall" />
+      <item index="1" class="java.lang.String" itemvalue="Python.temp (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_regist" />
+      <item index="3" class="java.lang.String" itemvalue="Python.data_regist" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test_order" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.testall" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test_login" />
-        <item index="2" class="java.lang.String" itemvalue="Python.temp (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.common_method" />
-        <item index="4" class="java.lang.String" itemvalue="Python.temp" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_order" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_regist" />
+        <item index="3" class="java.lang.String" itemvalue="Python.data_regist" />
+        <item index="4" class="java.lang.String" itemvalue="Python.temp (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -672,10 +796,14 @@
       <created>1417253217193</created>
       <updated>1417253217193</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="for online">
+      <created>1417420258918</created>
+      <updated>1417420258918</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -699,24 +827,24 @@
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33065596" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32931727" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1713198" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17829949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23413706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.396" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24873096" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.324" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26104417" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15394913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -755,69 +883,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testdata/data_login_olsm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oaddress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.612904" vertical-offset="418" max-vertical-offset="1080">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oagency_application_query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.258064" vertical-offset="0" max-vertical-offset="620">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oapply_agency.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.096774" vertical-offset="120" max-vertical-offset="1660">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oapply_shop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0" vertical-offset="62" max-vertical-offset="980">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/obasic_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0" vertical-offset="62" max-vertical-offset="940">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/ofind_goods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.741936" vertical-offset="58" max-vertical-offset="720">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/ofind_shop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.16129" vertical-offset="0" max-vertical-offset="560">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/ogoods_cart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.096774" vertical-offset="0" max-vertical-offset="520">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/element/person/omy_suggestion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="693">
@@ -832,13 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oorder_query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.16129" vertical-offset="280" max-vertical-offset="2020">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/element/person/osubmit_complaint_and_advice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.35951662" vertical-offset="518" max-vertical-offset="1180">
@@ -850,13 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5438067" vertical-offset="0" max-vertical-offset="662">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/element/person/oplace_order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3546512" vertical-offset="1052" max-vertical-offset="1740">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -923,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/person/sfind_goods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0" vertical-offset="31" max-vertical-offset="1660">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action/person/sfind_shop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0" vertical-offset="31" max-vertical-offset="1700">
@@ -972,20 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/person/splace_order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3420">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/person/sorder_query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="7020">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/action/person/smy_suggestion.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="693">
@@ -1007,68 +1037,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/action/person/smy_favorite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8597734" vertical-offset="2333" max-vertical-offset="4060">
-          <caret line="154" column="11" selection-start-line="154" selection-start-column="11" selection-end-line="154" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/osms/test_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="1300">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_regist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/sregist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2261" max-vertical-offset="3000">
-          <caret line="129" column="40" selection-start-line="129" selection-start-column="40" selection-end-line="129" selection-end-column="40" />
-          <folding>
-            <element signature="e#47#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="140">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/basepage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2100">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2771" max-vertical-offset="21380">
-          <caret line="163" column="37" selection-start-line="163" selection-start-column="23" selection-end-line="163" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,60 +1048,237 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1811" max-vertical-offset="18020">
           <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/temp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="620">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testsuite/osms/person/test_regist.py">
+    <entry file="file://C:/Python27/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.5537791" vertical-offset="3351" max-vertical-offset="21380">
+          <caret line="234" column="8" selection-start-line="234" selection-start-column="8" selection-end-line="234" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testall.py">
+    <entry file="file://$PROJECT_DIR$/common/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="700">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#15#30#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testdata/data_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="220">
+          <caret line="5" column="92" selection-start-line="5" selection-start-column="92" selection-end-line="5" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/sregist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9622378" vertical-offset="1172" max-vertical-offset="2760">
+          <caret line="98" column="61" selection-start-line="98" selection-start-column="61" selection-end-line="98" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="3860">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3720">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ghostdriver.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="715">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/osms/test_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6363636" vertical-offset="165" max-vertical-offset="880">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding>
-            <element signature="e#45#84#0" expanded="true" />
+            <element signature="e#45#79#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action/slogin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2000">
-          <caret line="84" column="53" selection-start-line="84" selection-start-column="53" selection-end-line="84" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_login.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5273834" vertical-offset="240" max-vertical-offset="1380">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.6363636" vertical-offset="1145" max-vertical-offset="1860">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/osms/test_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37790698" vertical-offset="220" max-vertical-offset="1940">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="e#36#74#0" expanded="true" />
+            <element signature="e#36#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/olsm/test_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="740">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/output.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="287" max-vertical-offset="860">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element/person/oorder_query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2565445" vertical-offset="0" max-vertical-offset="2020">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element/person/oplace_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76666665" vertical-offset="1260" max-vertical-offset="1860">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/person/smy_favorite.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2333" max-vertical-offset="4060">
+          <caret line="145" column="44" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element/ologin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testdata/data_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/person/sfind_goods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="566" max-vertical-offset="2080">
+          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="61" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/basepage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="2140">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/person/splace_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="3720">
+          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/person/sorder_query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="7480">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/slogin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1132" max-vertical-offset="2000">
+          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testsuite/osms/test_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="707" max-vertical-offset="1400">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testdata/data_order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/element/supermarket/order_query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action/supermarket/customer_order_settlement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="800">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3122172" vertical-offset="0" max-vertical-offset="700">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="e#15#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

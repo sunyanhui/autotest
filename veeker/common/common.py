@@ -181,7 +181,7 @@ if __name__ == '__main__':
     #d.get('http://www.company.com')
     #print is_element_displayed(d, *logininput)
     #d.quit()
-    send_mail(r'D:\report\141109118717.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
+    send_mail(r'D:\autotest\veeker\result\result_2014-12-02-10_53_49.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])
 
 
 

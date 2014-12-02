@@ -14,6 +14,7 @@ class FindGoods(BasePage):
 
     def find_goods(self, **w):
         driver = self.driver
+        #driver = webdriver.Chrome()
         sdriver = driver.find_element
 
         #按输入要求搜索商品
@@ -39,19 +40,33 @@ class FindGoods(BasePage):
         except:
             return output.error_auto(driver)
 
-        #goodspage为总商品数量与总页数，列表结构，0：总数量，1：总页数
-        goodspages = []
+        try:
+            driver.find_element_by_link_text(w['goodname']).click()
+            driver.switch_to_default_content()
+        except:
+            driver.switch_to_default_content()
+            return output.error_user_defined(driver, '没找到指定商品')
 
         try:
-            goodspages = common.get_orderpage(sdriver(*totalpagenumber).text)
-        except NoSuchElementException:
-            goodspages = [0, 0]
+            driver.switch_to_window(driver.window_handles[1])
+            time.sleep(3)
         except:
-            return output.error_auto(driver)
-        finally:
-            driver.switch_to_default_content()
+            return output.error_user_defined(driver, '打开商品详情页面失败')
+        else:
+            return output.pass_user_defined(driver, '找到指定商品，并打开详情页面')
 
-        return output.pass_user_defined(driver, 'find goods Success', page=goodspages)
+        #goodspage为总商品数量与总页数，列表结构，0：总数量，1：总页数
+        # goodspages = []
+
+        # try:
+        #     goodspages = common.get_orderpage(sdriver(*totalpagenumber).text)
+        # except NoSuchElementException:
+        #     goodspages = [0, 0]
+        # except:
+        #     return output.error_auto(driver)
+        # finally:
+        #     driver.switch_to_default_content()
+        # return output.pass_user_defined(driver, 'find goods Success', page=goodspages)
 
     def open_goodsdetail(self, **w):
         driver = self.driver

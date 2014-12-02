@@ -5,13 +5,14 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from element.person.omycenter import *
 from element.person.oorder_query import *
+from action.basepage import BasePage
 from common import output, common
 import time
 import re
 
 
-class OrderQuery():
-    '''
+class OrderQuery(BasePage):
+    u'''
     该类集成了购物管理下相关操作
     @订单查询
      1.order_query:订单查询
@@ -25,9 +26,25 @@ class OrderQuery():
 
     '''
 
-    def __init__(self, driver):
-        self.driver = driver
-        #self.driver = webdriver.Ie()
+    def if_order_exist(self, orderNumber):
+        '''
+        判断订单是否存在
+        :return:True / False
+        '''
+        driver = self.driver
+
+        try:
+            #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
+            driver.find_element(*orderQuery).click()
+            driver.switch_to_frame('iframe')
+        except:
+            return output.error_auto(driver)
+
+        if u"订单编号：%s"%orderNumber in driver.page_source:
+            driver.switch_to_default_content()
+            return output.pass_user_defined(driver, '订单存在')
+        else:
+            return output.error_user_defined(driver, '订单不存在')
 
     def order_query(self, **w):
         u'''

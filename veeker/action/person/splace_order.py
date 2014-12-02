@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
 from element.person.oplace_order import *
@@ -11,6 +10,7 @@ from action.basepage import BasePage
 import time
 
 class PlaceOrder(BasePage):
+
     def collect_goods(self):
         driver = self.driver
         sdriver = driver.find_element
@@ -91,29 +91,29 @@ class PlaceOrder(BasePage):
         sdrivers = driver.find_elements
         time.sleep(3)
 
-        if common.is_element_displayed(driver, *nulladressform):
-            try:
-                Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
-                Select(sdriver(*city_null)).select_by_visible_text(w['city'])
-                Select(sdriver(*country_null)).select_by_visible_text(w['country'])
-                sdriver(*nulladressform).find_element(*detailaddress).clear()
-                sdriver(*nulladressform).find_element(*detailaddress).send_keys(w['address'])
-                sdriver(*nulladressform).find_element(*zipcode).clear()
-                sdriver(*nulladressform).find_element(*zipcode).send_keys(w['zipcode'])
-                sdriver(*nulladressform).find_element(*receivename).clear()
-                sdriver(*nulladressform).find_element(*receivename).send_keys(w['name'])
-                sdriver(*nulladressform).find_element(*mobilenumber).clear()
-                sdriver(*nulladressform).find_element(*mobilenumber).send_keys(w['mobile'])
-                sdriver(*nulladressform).find_element(*telephonenumber).clear()
-                sdriver(*nulladressform).find_element(*telephonenumber).send_keys(w['telephone'])
-                if w['isdefault'].upper() == 'YES':
-                    sdriver(*nulladressform).find_element(*ifdefaultaddress).click()
-                sdriver(*nulladressform).find_element(*button_null).click()
-                time.sleep(3)
-            except:
-                return output.error_auto(driver)
-        else:
-            pass
+        # if common.is_element_displayed(driver, *nulladressform):
+        #     try:
+        #         Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
+        #         Select(sdriver(*city_null)).select_by_visible_text(w['city'])
+        #         Select(sdriver(*country_null)).select_by_visible_text(w['country'])
+        #         sdriver(*nulladressform).find_element(*detailaddress).clear()
+        #         sdriver(*nulladressform).find_element(*detailaddress).send_keys(w['address'])
+        #         sdriver(*nulladressform).find_element(*zipcode).clear()
+        #         sdriver(*nulladressform).find_element(*zipcode).send_keys(w['zipcode'])
+        #         sdriver(*nulladressform).find_element(*receivename).clear()
+        #         sdriver(*nulladressform).find_element(*receivename).send_keys(w['name'])
+        #         sdriver(*nulladressform).find_element(*mobilenumber).clear()
+        #         sdriver(*nulladressform).find_element(*mobilenumber).send_keys(w['mobile'])
+        #         sdriver(*nulladressform).find_element(*telephonenumber).clear()
+        #         sdriver(*nulladressform).find_element(*telephonenumber).send_keys(w['telephone'])
+        #         if w['isdefault'].upper() == 'YES':
+        #             sdriver(*nulladressform).find_element(*ifdefaultaddress).click()
+        #         sdriver(*nulladressform).find_element(*button_null).click()
+        #         time.sleep(3)
+        #     except:
+        #         return output.error_auto(driver)
+        # else:
+        #     pass
 
         try:
             if w['invoice'].upper == 'YES':
@@ -132,6 +132,8 @@ class PlaceOrder(BasePage):
             else:
                 pass
 
+            totalPrice = sdriver(*total_price).text
+            shouldPayPrice = sdriver(*should_pay_price).text
             sdriver(*remark).send_keys(w['remark'])
             sdriver(*submitorder).click()
 
@@ -140,10 +142,16 @@ class PlaceOrder(BasePage):
 
         try:
             newordernumber = sdriver(*ordernumber).text
+            driver.close()
+            driver.switch_to_window(driver.window_handles[0])
+            time.sleep(1)
         except:
-            return output.error_user_defined(driver, 'splace order fail~!')
+            return output.error_user_defined(driver, '下订单失败')
 
-        return output.pass_user_defined(driver, 'splace order success', ordernumber=newordernumber)
+        return output.pass_user_defined(driver, '下订单成功',
+                                        ordernumber = newordernumber,
+                                        totalPrice = totalPrice,
+                                        shouldPayPrice = shouldPayPrice)
 
 
 if __name__ == '__main__':

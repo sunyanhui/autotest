@@ -45,6 +45,12 @@ class BasePage():
             logging.error(u"关闭浏览器失败")
             return False
 
+    def exit(self):
+        try:
+            self.driver.find_element_by_link_text(u'退出登录').click()
+            return True
+        except:
+            return False
 
     def upload_photo(self, imgpath):
         u'''

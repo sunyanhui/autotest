@@ -21,9 +21,6 @@ class a(base):
 class b(base):
     pass
 
-cc = webdriver.Chrome()
-cc.get()
-aa = cc
-cc.close()
-aa = None
-print cc
+
+filename=r'D:\autotest\veeker\result\result_2014-12-02-11_29_24.html'
+print(open(filename,'rb')).read()

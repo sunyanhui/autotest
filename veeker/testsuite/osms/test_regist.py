@@ -20,9 +20,10 @@ class TestRegist(unittest.TestCase):
         time.sleep(1)
         self.login.quit()
 
+
     def test_regist_case1(self):
-        u'''测试全国版注册页面，是否可收到验证码'''
-        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
+        u'''测试超市版注册页面，是否可收到验证码'''
+        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
         r1 = self.regist.submit_information(**test_regist_case1)
         self.assertTrue(r1['result'], r1['msg'])
         r2 = self.regist.regist(**test_regist_case1)
