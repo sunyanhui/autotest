@@ -41,7 +41,7 @@ class FindGoods(BasePage):
             return output.error_auto(driver)
 
         try:
-            driver.find_element_by_link_text(w['goodname']).click()
+            driver.find_element_by_partial_link_text(w['goodname'][:4]).click()
             driver.switch_to_default_content()
         except:
             driver.switch_to_default_content()

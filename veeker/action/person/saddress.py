@@ -200,7 +200,7 @@ if __name__ == '__main__':
     d.maximize_window()
     #testcase = dict(province='007041',city='007041001', country='007041001002', address='1234567', zipcode='123456',
      #               name='sunyanhui', mobile='15135417896',telephone='0371-7127556',isdefault='yes' )
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     print  slogin.Login(d).login('15000000372', '888888', '111')
     info = InfoCenter(d)
     print info.modify_password('888888', '888888', '888888')

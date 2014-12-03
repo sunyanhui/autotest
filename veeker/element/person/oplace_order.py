@@ -1,7 +1,7 @@
 #!/usr/bin/python2.7
 #coding=utf-8
 from selenium.webdriver.common.by import By
-#***********************商品详情***********************#
+#***********************普通商品详情***********************#
 
 #商品规格
 goodsoption = (By.CSS_SELECTOR, "a[onclick^='argument1(this']")
@@ -20,6 +20,17 @@ gotosettle = (By.CSS_SELECTOR, "input[onclick^='goAccounts']")
 
 #加入收藏
 collect = (By.LINK_TEXT, u"收藏商品")
+
+#***********************团购商品详情***********************#
+
+#马上团
+groupnow = (By.CSS_SELECTOR, "input[onclick='xianshi()']")
+
+#选择类型
+select_class = (By.CSS_SELECTOR, "input[type='checkbox']")
+
+#确定
+confirm = (By.CSS_SELECTOR, "input[onclick='buying()']")
 
 #*****************第一次新增收货地址的表单*****************#
 

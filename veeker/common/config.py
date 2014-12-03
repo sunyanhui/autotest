@@ -5,10 +5,17 @@
 该文档用来配置一些全局变量以及一些公共配置
 '''
 
-#系统域名
+#超市版域名
 OSMS_URL = 'http://www.wiki100.cn'
 
+#全国版域名
 OLMS_URL = 'http://www.wiki168.com'
+
+#超市商城
+OSMS_MALL_URL = "http://www.dayushangdu.com"
+
+#企业商城
+OLSM_MALL_URL = "http://www.shopp100.cn"
 
 #测试用的浏览器
 BROWSER = 'Chrome'

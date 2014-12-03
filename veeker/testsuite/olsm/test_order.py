@@ -3,13 +3,13 @@
 import unittest
 import time
 
-from testdata.osms.data_order import *
+from testdata.olsm.data_order import *
 from action.slogin import Login
 from action.person.sfind_goods import FindGoods
 from action.person.splace_order import PlaceOrder
 from action.person.sorder_query import OrderQuery
-from action.supermarket.customer_order_settlement import CustomerOrderSettlement
-from action.supermarket.mall_homepage import MallHomePage
+from action.enterprise.customer_order_settlement import CustomerOrderSettlement
+from action.enterprise.mall_homepage import MallHomePage
 from common import config
 
 
@@ -30,9 +30,9 @@ class TestOrder(unittest.TestCase):
         self.login.quit()
 
     def test_order_case1(self):
-        u'''验证下订单流程(超市商城正常商品、无联盟店)'''
+        u'''验证下订单流程(企业商城正常商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
 
         r1 = self.login.login(**test_order_case1_person)
         self.assertTrue(r1['result'], r1['msg'])
@@ -52,16 +52,16 @@ class TestOrder(unittest.TestCase):
         self.assertTrue(r5['result'], r5['msg'])
 
         self.login.logout()
-        r6 = self.login.login(**test_order_case1_supermarket)
+        r6 = self.login.login(**test_order_case1_enterprise)
         self.assertTrue(r6['result'], r6['msg'])
 
         r7 = self.customerOrderSettlement.if_order_exist(r4['ordernumber'])
         self.assertTrue(r7['result'], r7['msg'])
 
     def test_order_case2(self):
-        u'''验证下订单流程(超市商城团购商品、无联盟店)'''
+        u'''验证下订单流程(企业商城团购商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
 
         r1 = self.login.login(**test_order_case2_person)
         self.assertTrue(r1['result'], r1['msg'])
@@ -82,16 +82,16 @@ class TestOrder(unittest.TestCase):
         self.assertTrue(r5['result'], r5['msg'])
 
         self.login.logout()
-        r6 = self.login.login(**test_order_case2_supermarket)
+        r6 = self.login.login(**test_order_case2_enterprise)
         self.assertTrue(r6['result'], r6['msg'])
 
         r7 = self.customerOrderSettlement.if_order_exist(r4['ordernumber'])
         self.assertTrue(r7['result'], r7['msg'])
 
     def test_order_case3(self):
-        u'''验证下订单流程(超市商城打折商品、无联盟店)'''
+        u'''验证下订单流程(企业商城打折商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
 
         r1 = self.login.login(**test_order_case3_person)
         self.assertTrue(r1['result'], r1['msg'])
@@ -111,7 +111,7 @@ class TestOrder(unittest.TestCase):
         self.assertTrue(r5['result'], r5['msg'])
 
         self.login.logout()
-        r6 = self.login.login(**test_order_case3_supermarket)
+        r6 = self.login.login(**test_order_case3_enterprise)
         self.assertTrue(r6['result'], r6['msg'])
 
         r7 = self.customerOrderSettlement.if_order_exist(r4['ordernumber'])
@@ -119,12 +119,12 @@ class TestOrder(unittest.TestCase):
 
 
     def test_order_case4(self):
-        u'''验证超市商场首页今日订单和月订单功能'''
+        u'''验证企业商场首页今日订单和月订单功能'''
 
-        r0 = self.mallHomePage.order_number(config.OSMS_MALL_URL)
+        r0 = self.mallHomePage.order_number(config.OLSM_MALL_URL)
         self.assertTrue(r0['result'], r0['msg'])
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
 
         r1 = self.login.login(**test_order_case4)
         self.assertTrue(r1['result'], r1['msg'])
@@ -138,11 +138,10 @@ class TestOrder(unittest.TestCase):
         r4 = self.placeOrder.order_settlement(**test_order_case4)
         self.assertTrue(r4['result'], r4['msg'])
 
-        r5 = self.mallHomePage.order_number(config.OSMS_MALL_URL)
+        r5 = self.mallHomePage.order_number(config.OLSM_MALL_URL)
         self.assertTrue(r5['result'], r5['msg'])
 
-        self.assertEqual(int(r5['today_order']) - int(r0['today_order']), 1, u"日订单数量验证失败")
-        self.assertEqual(int(r5['month_order']) - int(r0['month_order']), 1, u"月订单数量验证失败")
+        self.assertEqual(int(r5['today_order']) - int(r0['today_order']), 1, u"今日订单数量验证失败")
 
 if __name__ == '__main__':
     #logging.basicConfig(level=logging.DEBUG)

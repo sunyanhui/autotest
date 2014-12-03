@@ -3,7 +3,7 @@
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from element.enterprise.order_query import *
+from element.supermarket.order_query import *
 from action.basepage import BasePage
 from common import output
 

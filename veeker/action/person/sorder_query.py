@@ -356,7 +356,7 @@ if __name__ == '__main__':
     d.maximize_window()
     testcase = dict(goodsname='', goodsstatus='', startdate='', enddate='' )
     #testcase = dict(ordernumber='101708787837000237',reviewgrade=u'好评', reviewdetail='1234567890', ifanonymity='YES')
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     slogin.Login(d).login('15000000237', '888888', '111')
     info = OrderQuery(d)
     #print info.review_good(**testcase)

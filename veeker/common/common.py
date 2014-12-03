@@ -178,7 +178,7 @@ if __name__ == '__main__':
     #from selenium.webdriver.common.by import By
     #d = webdriver.Chrome()
     #logininput = (By.ID, 'userAccount')
-    #d.get('http://www.company.com')
+    #d.get('http://www.enterprise.com')
     #print is_element_displayed(d, *logininput)
     #d.quit()
     send_mail(r'D:\autotest\veeker\result\result_2014-12-02-10_53_49.html', ['hgbac@qq.com', 'sunyanhui@foxmail.com'])

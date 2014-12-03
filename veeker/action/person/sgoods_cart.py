@@ -190,7 +190,7 @@ if __name__ == '__main__':
     from action import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     testcase = dict(username='15000000237',password='888888',verifycode='1111',ifrememberusername='no',
                     goodsid='255',enterid='229',goodsidlist=['255','259','269'])
     print  slogin.Login(d).login(**testcase)

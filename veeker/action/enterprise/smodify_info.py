@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.select import Select
-from element.company.omodify_info import *
+from element.enterprise.omodify_info import *
 from action.basepage import BasePage
 from common import config, output, common
 import time, sys
@@ -122,6 +122,6 @@ class ModifyInfo(BasePage):
             return output.error_auto(driver)
         else:
             if text == u'企业基本信息':
-                return output.pass_user_defined(driver, 'save company info pass~!')
+                return output.pass_user_defined(driver, 'save enterprise info pass~!')
             else:
-                return output.error_user_defined(driver, 'save company info fail')
+                return output.error_user_defined(driver, 'save enterprise info fail')

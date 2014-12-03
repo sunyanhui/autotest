@@ -83,7 +83,7 @@ class ApplyAgency(BasePage):
             if self.is_element_present(driver,*okButton):
                 time.sleep(1)
                 sdriver(*okButton).click()
-                return output.error_user_defined(driver, "can't not apply, beacause the company are unusual" )
+                return output.error_user_defined(driver, "can't not apply, beacause the enterprise are unusual" )
             driver.switch_to_frame('iframe')
             if sdriver(*title).text != u'分销商申请':
                 return output.error_user_defined(driver, "open the apply page failed")
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
                     mode=u'全部',grade=u'全部',companyname='',
                     industryid='24',enterid='561',id='263',

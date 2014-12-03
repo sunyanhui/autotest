@@ -72,7 +72,7 @@ if __name__ == '__main__':
     from action.slogin import Login
     d = webdriver.Chrome()
     d.maximize_window()
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     time.sleep(3)
     testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
                     realname='12345678',telephone='15154126587',birthday='1987-02-11',province=u'河南省',

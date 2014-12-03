@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
     driver = webdriver.Ie()
 
-    driver.get('http://www.company.com')
+    driver.get('http://www.enterprise.com')
     login = Login()
     log = login.login(username='15000000258',password='888888',verifycode='123',ifrememberusername='yes')
     print login.logout()

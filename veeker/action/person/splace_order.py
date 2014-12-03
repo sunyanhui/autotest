@@ -56,9 +56,9 @@ class PlaceOrder(BasePage):
             return output.pass_user_defined(driver, 'add to cart Success')
 
 
-    def buy_it_now(self, **w):
+    def buy_it_now_normal(self, **w):
         u'''
-        :return:
+        购买正常商品
         '''
         driver = self.driver
         sdriver = driver.find_element
@@ -77,12 +77,35 @@ class PlaceOrder(BasePage):
             except:
                 pass
         except:
-            return output.error_auto(driver)
-
-        if common.is_element_present(driver, *buynow):
-            return output.error_user_defined(driver, 'buy it now failed')
+            return output.error_user_defined(driver, '购买失败')
         else:
-            return output.pass_user_defined(driver, 'but it now Success')
+            return output.pass_user_defined(driver, '购买成功')
+
+
+    def buy_it_now_group(self, **w):
+        u'''
+        购买团购商品
+        '''
+        driver = self.driver
+        sdriver = driver.find_element
+
+        try:
+            sdriver(*groupnow).click()
+            time.sleep(3)
+            options = driver.find_elements(*select_class)
+            if options:
+                for i in options:
+                    i.click()
+            sdriver(*confirm).click()
+        except:
+            return output.error_user_defined(driver, '团购失败')
+        else:
+            return output.pass_user_defined(driver, '团购成功')
+
+        # if common.is_element_present(driver, *buynow):
+        #     return output.error_user_defined(driver, 'buy it now failed')
+        # else:
+        #     return output.pass_user_defined(driver, 'but it now Success')
 
 
     def order_settlement(self, **w):
@@ -169,7 +192,7 @@ if __name__ == '__main__':
                     province=u'河南省', city=u'许昌市', country=u'鄢陵县', address='123123123123', zipcode='461200', name=u'孙彦辉',
                     mobile='15902165607', telephone='0371-7127556', isdefault='YES', invoice='yes',
                     payondelivery='yes', remark='1234567890', goodsnumber='5')
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     slogin.Login(d).login(**testcase)
     info = PlaceOrder(d)
     print info.find_goods(**testcase)

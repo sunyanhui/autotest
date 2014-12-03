@@ -120,7 +120,7 @@ class Regist(BasePage):
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
-    driver.get('http://www.company.com')
+    driver.get('http://www.enterprise.com')
     try:
         driver.implicitly_wait(2)
         driver.find_element_by_id("popup_ok").click()

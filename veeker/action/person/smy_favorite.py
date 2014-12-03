@@ -195,7 +195,7 @@ if __name__ == '__main__':
                     province=u'河南省', city=u'许昌市', country=u'鄢陵县', address='123123123123', zipcode='461200', name=u'晓晓',
                     mobile='15902165607', telephone='0371-7127556', isdefault='YES', invoice='yes',
                     payondelivery='yes', remark='1234567890', goodsnumber='5')
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     slogin.Login(d).login(**testcase)
     info = MyFavorite(d)
     ss = info.undo_collection_shops(**testcase)

@@ -74,7 +74,7 @@ if __name__ == '__main__':
     from action import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
                     province=u'全部',city=u'全部',country=u'全部',industry=u'全部',mallurl='www.22323.com'
                     )

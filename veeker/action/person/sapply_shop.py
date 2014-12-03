@@ -63,7 +63,7 @@ if __name__ == '__main__':
     import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    d.get('http://www.company.com')
+    d.get('http://www.enterprise.com')
     testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
                     product = u'企业分销型网商系统商业版',type = u'商业',province_hezuo=u'河南省',city_hezuo=u'许昌市',
                     country_hezuo=u'鄢陵县',entername=u'无敌小蜜蜂',linkman=u'晓晓',weixin='hgbachgbac',qq='414746010',
