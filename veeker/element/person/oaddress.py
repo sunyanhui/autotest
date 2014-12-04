@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 #*********************收货地址************************#
 #选择省份
-province = (By.ID, 'province')
+province = (By.ID, 'area')
 
 #选择市
 city = (By.ID, 'city')

@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from element.enterprise.mall_homepage import *
+from element.supermarket.element_mall_homepage import *
 from action.basepage import BasePage
 from common import output
+import sys
 
 class MallHomePage(BasePage):
     u'''
@@ -23,11 +24,11 @@ class MallHomePage(BasePage):
             to = sdriver(*today_order).text
             mo = sdriver(*month_order).text
         except:
-            return output.error_user_defined(driver, "获取订单数量失败~！")
+            print sys.exc_info()
+            return output.error_user_defined(driver, "获取订单数量失败！")
         else:
-            return output.pass_user_defined(driver, "获取订单数量成功~！",today_order=to, month_order=mo)
+            return output.pass_user_defined(driver, "获取订单数量成功！",today_order=to, month_order=mo)
 
 if __name__ == '__main__':
     a = MallHomePage()
-    b = {'mall_url':"http://www.dayushangdu.com"}
-    print a.order_number(**b)
+    print a.order_number("http://www.dayushangdu.com")

@@ -3,7 +3,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
-from element.oregister import *
+from element.element_register import *
 from common import config, output, common
 from basepage import BasePage
 import time, sys, re
@@ -21,7 +21,7 @@ class Regist(BasePage):
         @该方法作用于注册信息提交页面
 
         @所传字典参数必须包含如下KEY
-        KEY:province        省份（键值为汉字，不能输入错误）
+        KEY:area        省份（键值为汉字，不能输入错误）
         KEY:city            地级市（键值为汉字，不能输入错误）
         KEY:nickname        昵称
         KEY:password        密码
@@ -35,7 +35,7 @@ class Regist(BasePage):
         try:
             driver.find_element(*registerlink).click()
             driver.implicitly_wait(3)
-            Select(driver.find_element(*province)).select_by_visible_text(w['province'])
+            Select(driver.find_element(*province)).select_by_visible_text(w['area'])
             Select(driver.find_element(*city)).select_by_visible_text(w['city'])
             driver.find_element(*nickname).clear()
             if w['nickname']=='random':
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     except:
         pass
     regist = Regist()
-    testcase = {'province':u'河南省', 'city':u'许昌市', 'nickname':'random', 'password':'111111', 'confirmpassword':'111111',
+    testcase = {'area':u'河南省', 'city':u'许昌市', 'nickname':'random', 'password':'111111', 'confirmpassword':'111111',
                 'email':'random','vertifycode':'autoget'}
 
     a= regist.submit_information(**testcase)

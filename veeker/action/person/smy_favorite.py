@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
     #sys.path.append(os.path.dirname(os.path.dirname(__file__)))
     #import slogin
-    from action import slogin
+    from action import action_login
     d = webdriver.Chrome()
     d.maximize_window()
     testcase = dict(username='15000001002',password='888888',ifrememberusername='YES',verifycode='1111',
@@ -196,7 +196,7 @@ if __name__ == '__main__':
                     mobile='15902165607', telephone='0371-7127556', isdefault='YES', invoice='yes',
                     payondelivery='yes', remark='1234567890', goodsnumber='5')
     d.get('http://www.enterprise.com')
-    slogin.Login(d).login(**testcase)
+    action_login.Login(d).login(**testcase)
     info = MyFavorite(d)
     ss = info.undo_collection_shops(**testcase)
     print ss['img']

@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
-from element.person.oplace_order import *
+from element.person.element_place_order import *
 from common import output, common
 from action.basepage import BasePage
 import time
@@ -64,13 +64,14 @@ class PlaceOrder(BasePage):
         sdriver = driver.find_element
 
         try:
-            options = driver.find_elements(*goodsoption)
-            if options:
-                for i in options:
-                    i.click()
-
-            sdriver(*goodsnum).clear()
-            sdriver(*goodsnum).send_keys(w['goodsnumber'])
+            #如下代码，以后再用
+            # options = driver.find_elements(*goodsoption)
+            # if options:
+            #     for i in options:
+            #         i.click()
+            #
+            # sdriver(*goodsnum).clear()
+            # sdriver(*goodsnum).send_keys(w['goodsnumber'])
             sdriver(*buynow).click()
             try:
                 Alert(driver).accept()
@@ -116,7 +117,7 @@ class PlaceOrder(BasePage):
 
         # if common.is_element_displayed(driver, *nulladressform):
         #     try:
-        #         Select(sdrivers(*province_null)[1]).select_by_visible_text(w['province'])
+        #         Select(sdrivers(*province_null)[1]).select_by_visible_text(w['area'])
         #         Select(sdriver(*city_null)).select_by_visible_text(w['city'])
         #         Select(sdriver(*country_null)).select_by_visible_text(w['country'])
         #         sdriver(*nulladressform).find_element(*detailaddress).clear()
@@ -169,6 +170,7 @@ class PlaceOrder(BasePage):
             driver.switch_to_window(driver.window_handles[0])
             time.sleep(1)
         except:
+            return output.error_auto(driver)
             return output.error_user_defined(driver, '下订单失败')
 
         return output.pass_user_defined(driver, '下订单成功',

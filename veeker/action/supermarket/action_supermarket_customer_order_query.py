@@ -1,13 +1,12 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from element.enterprise.order_query import *
 from action.basepage import BasePage
 from common import output
+import time
 
-class CustomerOrderSettlement(BasePage):
+class SupermarketCustomerOrderQuery(BasePage):
     '''
 
     '''
@@ -21,7 +20,7 @@ class CustomerOrderSettlement(BasePage):
 
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*customerOrderSettlement).click()
+            driver.find_element(*customerOrderQuery).click()
             driver.switch_to_frame('iframe')
             driver.find_element(*order_number).send_keys(orderNumber)
             driver.find_element(*search).click()

@@ -40,7 +40,7 @@ class InfoCenter(BasePage):
             driver.switch_to_frame('iframe')
 
             #填写表单并提交
-            driver.find_element(*province).find_element_by_xpath("//option[@value='"+w['province']+"']").click()
+            driver.find_element(*province).find_element_by_xpath("//option[@value='"+w['area']+"']").click()
             driver.find_element(*city).find_element_by_xpath("//option[@value='"+w['city']+"']").click()
             driver.find_element(*country).find_element_by_xpath("//option[@value='"+w['country']+"']").click()
             driver.find_element(*addressForMdAd).clear()
@@ -105,7 +105,7 @@ class InfoCenter(BasePage):
             driver.switch_to_frame('iframe')
 
             #填写表单并提交
-            driver.find_element(*province).find_element_by_xpath("//option[@value='"+w['province']+"']").click()
+            driver.find_element(*province).find_element_by_xpath("//option[@value='"+w['area']+"']").click()
             driver.find_element(*city).find_element_by_xpath("//option[@value='"+w['city']+"']").click()
             driver.find_element(*country).find_element_by_xpath("//option[@value='"+w['country']+"']").click()
             driver.find_element(*addressForMdAd).clear()
@@ -198,7 +198,7 @@ if __name__ == '__main__':
     import slogin
     d = webdriver.Chrome()
     d.maximize_window()
-    #testcase = dict(province='007041',city='007041001', country='007041001002', address='1234567', zipcode='123456',
+    #testcase = dict(area='007041',city='007041001', country='007041001002', address='1234567', zipcode='123456',
      #               name='sunyanhui', mobile='15135417896',telephone='0371-7127556',isdefault='yes' )
     d.get('http://www.enterprise.com')
     print  slogin.Login(d).login('15000000372', '888888', '111')

@@ -18,7 +18,7 @@ OSMS_MALL_URL = "http://www.dayushangdu.com"
 OLSM_MALL_URL = "http://www.shopp100.cn"
 
 #测试用的浏览器
-BROWSER = 'Chrome'
+BROWSER = 'chrome'
 
 #错误截图存在路径
 ERRORIMGPATH = 'D:/errorimg/'

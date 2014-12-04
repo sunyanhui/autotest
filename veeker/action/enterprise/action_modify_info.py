@@ -41,7 +41,7 @@ class ModifyInfo(BasePage):
             sdriver(*operate_range).send_keys(w['operate_range'])
 
             #选择省市县
-            Select(sdriver(*province)).select_by_visible_text(w['province'])
+            Select(sdriver(*province)).select_by_visible_text(w['area'])
             Select(sdriver(*city)).select_by_visible_text(w['city'])
             Select(sdriver(*country)).select_by_visible_text(w['country'])
 

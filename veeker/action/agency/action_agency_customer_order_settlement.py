@@ -1,13 +1,11 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from element.supermarket.order_query import *
+from element.agency.element_order_query import *
 from action.basepage import BasePage
 from common import output
 
-class CustomerOrderSettlement(BasePage):
+class AgencyCustomerOrderSettlement(BasePage):
     '''
 
     '''

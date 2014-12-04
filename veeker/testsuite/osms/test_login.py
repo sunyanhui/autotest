@@ -2,7 +2,7 @@
 #coding=utf-8
 
 from testdata.data_login import *
-from action.slogin import Login
+from action.action_login import Login
 import unittest
 import logging
 import time

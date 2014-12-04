@@ -1,8 +1,8 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from testdata.data_regist import *
-from action.slogin import Login
-from action.sregist import Regist
+from action.action_login import Login
+from action.action_regist import Regist
 from common import config
 import unittest
 import logging

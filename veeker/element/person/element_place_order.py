@@ -37,7 +37,7 @@ confirm = (By.CSS_SELECTOR, "input[onclick='buying()']")
 nulladressform = (By.ID, "AddNullReciveAdress")
 
 #第一次新增——省市县
-province_null = (By.ID, 'province')
+province_null = (By.ID, 'area')
 city_null = (By.ID, 'addNuCity')
 country_null = (By.ID, 'addNuCounty')
 

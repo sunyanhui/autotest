@@ -1,10 +1,8 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from element.person.omycenter import *
-from element.person.oorder_query import *
+from element.person.element_order_query import *
 from action.basepage import BasePage
 from common import output, common
 import time
@@ -45,6 +43,26 @@ class OrderQuery(BasePage):
             return output.pass_user_defined(driver, '订单存在')
         else:
             return output.error_user_defined(driver, '订单不存在')
+
+    def confirm_receipt(self, orderNumber):
+        u'''
+        该方法用于确认收货
+        '''
+
+        driver = self.driver
+        try:
+            #点击订单查询链接，然后切进 iframe
+            driver.find_element(*orderQuery).click()
+            driver.switch_to_frame('iframe')
+            driver.find_element_by_css_selector\
+                ('''a[href^="javascript:cusOrder.confirmReceiptOrder('%s"'''%orderNumber).click()
+            driver.switch_to_default_content()
+            driver.find_element(*okButton).click()
+        except:
+            return output.error_user_defined(driver, "确认收货失败")
+        else:
+            return output.pass_user_defined(driver, "确认收货成功")
+
 
     def order_query(self, **w):
         u'''
@@ -94,39 +112,39 @@ class OrderQuery(BasePage):
         else:
             return output.error_user_defined(driver, 'order number is error, please check it')
 
-    def confirm_receipt(self, **w):
-        u'''
-        该方法用于确认收货
-        :param kwargs:订单号码
-        :return:返回状态
-        '''
-
-        driver = self.driver
-        sdriver = driver.find_element
-
-        try:
-            #点击订单查询链接，然后切进 iframe
-            sdriver(*orderQuery).click()
-            driver.switch_to_frame('iframe')
-        except:
-            return output.error_auto(driver)
-
-        #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
-        try:
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
-            for i in range(int(orderpage[1])):
-                for j in driver.find_elements(*confirmreceipt):
-                    if re.compile(w['ordernumber']).search(j.get_attribute('href')):
-                        j.click()
-                        driver.switch_to_default_content()
-                        sdriver(*okButton).click()
-                        return output.pass_user_defined(driver, 'confirm receipt success')
-                if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
-        except:
-            return output.error_auto(driver)
-
-        return output.error_user_defined(driver, 'not fount the order to confirm')
+    # def confirm_receipt(self, **w):
+    #     u'''
+    #     该方法用于确认收货
+    #     :param kwargs:订单号码
+    #     :return:返回状态
+    #     '''
+    #
+    #     driver = self.driver
+    #     sdriver = driver.find_element
+    #
+    #     try:
+    #         #点击订单查询链接，然后切进 iframe
+    #         sdriver(*orderQuery).click()
+    #         driver.switch_to_frame('iframe')
+    #     except:
+    #         return output.error_auto(driver)
+    #
+    #     #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
+    #     try:
+    #         orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+    #         for i in range(int(orderpage[1])):
+    #             for j in driver.find_elements(*confirmreceipt):
+    #                 if re.compile(w['ordernumber']).search(j.get_attribute('href')):
+    #                     j.click()
+    #                     driver.switch_to_default_content()
+    #                     sdriver(*okButton).click()
+    #                     return output.pass_user_defined(driver, 'confirm receipt success')
+    #             if i == (int(orderpage[1])-1):break
+    #             sdriver(*nextpage).click()
+    #     except:
+    #         return output.error_auto(driver)
+    #
+    #     return output.error_user_defined(driver, 'not fount the order to confirm')
 
 
     def delete_order(self, **w):

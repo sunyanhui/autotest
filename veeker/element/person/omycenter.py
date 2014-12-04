@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 #************************公共对象************************#
 #选择省份
-province = (By.ID, 'province')
+province = (By.ID, 'area')
 
 #选择市
 city = (By.ID, 'city')

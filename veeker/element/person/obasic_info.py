@@ -27,7 +27,7 @@ birthday = (By.ID, 'birthday')
 address = (By.ID, 'address')
 
 #选择省份
-province = (By.ID, 'province')
+province = (By.ID, 'area')
 
 #选择市
 city = (By.ID, 'city')

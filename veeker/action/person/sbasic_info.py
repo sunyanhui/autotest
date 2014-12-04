@@ -28,7 +28,7 @@ class Basic_Info(BasePage):
             sdriver(*telephone).clear()
             sdriver(*telephone).send_keys(w['telephone'])
             sdriver(*birthday).send_keys(w['birthday'])
-            Select(sdriver(*province)).select_by_visible_text(w['province'])
+            Select(sdriver(*province)).select_by_visible_text(w['area'])
             Select(sdriver(*city)).select_by_visible_text(w['city'])
             Select(sdriver(*country)).select_by_visible_text(w['country'])
             sdriver(*address).clear()
@@ -52,7 +52,7 @@ class Basic_Info(BasePage):
             #    pass
             assert sdriver(*idcard).get_attribute('value') == w['idcard']
             assert sdriver(*telephone).get_attribute('value') == w['telephone']
-            #assert sdriver(*province).find_element_by_xpath("//option[@selected='selected']").text == w['province']
+            #assert sdriver(*area).find_element_by_xpath("//option[@selected='selected']").text == w['area']
             #assert sdriver(*city).find_element_by_xpath("//option[@selected='selected']").text == w['city']
             #assert sdriver(*country).find_element_by_xpath("//option[@selected='selected']").text == w['country']
             assert sdriver(*address).get_attribute('value') == w['address']
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     import sys, os
     sys.path.append(os.path.dirname(os.path.dirname(__file__)))
     from selenium import webdriver
-    from action.slogin import Login
+    from action.action_login import Login
     d = webdriver.Chrome()
     d.maximize_window()
     d.get('http://www.enterprise.com')

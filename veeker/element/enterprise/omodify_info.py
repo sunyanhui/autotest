@@ -19,7 +19,7 @@ operate_type = (By.ID, 'industryId')
 operate_range = (By.NAME, 'enterpriseDTO.businessScope')
 
 #区域-省
-province = (By.ID, 'province')
+province = (By.ID, 'area')
 
 #区域-市
 city = (By.ID, 'city')

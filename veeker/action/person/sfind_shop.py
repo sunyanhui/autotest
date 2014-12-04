@@ -22,7 +22,7 @@ class FindShops(BasePage):
         try:
             sdriver(*findshop).click()
             driver.switch_to_frame('iframe')
-            Select(sdriver(*province)).select_by_visible_text(w['province'])
+            Select(sdriver(*province)).select_by_visible_text(w['area'])
             Select(sdriver(*city)).select_by_visible_text(w['city'])
             Select(sdriver(*country)).select_by_visible_text(w['country'])
             driver.find_element_by_link_text(w['industry'])
@@ -71,14 +71,14 @@ class FindShops(BasePage):
 
 if __name__ == '__main__':
     from selenium import webdriver
-    from action import slogin
+    from action import action_login
     d = webdriver.Chrome()
     d.maximize_window()
     d.get('http://www.enterprise.com')
     testcase = dict(username='15000000393',password='888888',verifycode='1111',ifrememberusername='no',
                     province=u'全部',city=u'全部',country=u'全部',industry=u'全部',mallurl='www.22323.com'
                     )
-    print  slogin.Login(d).login(**testcase)
+    print  action_login.Login(d).login(**testcase)
     info = FindShops(d)
     res =  info.find_shop(**testcase)
     b = info.open_shop_detail(**testcase)
