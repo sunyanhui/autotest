@@ -35,7 +35,7 @@ class Regist(BasePage):
         try:
             driver.find_element(*registerlink).click()
             driver.implicitly_wait(3)
-            Select(driver.find_element(*province)).select_by_visible_text(w['area'])
+            Select(driver.find_element(*province)).select_by_visible_text(w['province'])
             Select(driver.find_element(*city)).select_by_visible_text(w['city'])
             driver.find_element(*nickname).clear()
             if w['nickname']=='random':
