@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.select import Select
-from element.person.element_place_order import *
+from element.person.element_person_place_order import *
 from common import output, common
 from action.basepage import BasePage
 import time

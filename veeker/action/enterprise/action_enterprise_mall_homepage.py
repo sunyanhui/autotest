@@ -1,7 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from selenium.webdriver.support.select import Select
-from element.enterprise.mall_homepage import *
+from element.enterprise.element_enterprise_mall_homepage import *
 from action.basepage import BasePage
 from common import output
 

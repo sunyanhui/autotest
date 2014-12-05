@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from element.supermarket.element_mall_homepage import *
+from element.supermarket.element_supermarket_mall_homepage import *
 from action.basepage import BasePage
 from common import output
 import sys

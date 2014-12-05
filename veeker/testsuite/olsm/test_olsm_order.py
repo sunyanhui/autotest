@@ -3,11 +3,11 @@
 import unittest
 import time
 
-from testdata.olsm.data_order import *
+from testdata.olsm.data_olsm_order import *
 from action.action_login import Login
 from action.person.sfind_goods import FindGoods
-from action.person.action_place_order import PlaceOrder
-from action.person.action_order_query import OrderQuery
+from action.person.action_person_place_order import PlaceOrder
+from action.person.action_person_order_query import OrderQuery
 from action.enterprise.action_enterprise_customer_order_settlement import EnterpriseCustomerOrderSettlement
 from action.enterprise.action_enterprise_customer_order_query import EnterpriseCustomerOrderQuery
 from action.enterprise.action_enterprise_mall_homepage import MallHomePage

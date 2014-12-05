@@ -4,7 +4,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.select import Select
-from element.enterprise.omodify_info import *
+from element.enterprise.element_enterprise_modify_info import *
 from action.basepage import BasePage
 from common import config, output, common
 import time, sys
