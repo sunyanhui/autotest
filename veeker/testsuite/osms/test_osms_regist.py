@@ -8,7 +8,7 @@ import unittest
 import logging
 import time
 
-class TestRegist(unittest.TestCase):
+class TestOsmsRegist(unittest.TestCase):
     u'''
     测试注册
     '''
@@ -22,18 +22,20 @@ class TestRegist(unittest.TestCase):
 
 
     def test_regist_case1(self):
-        u'''测试超市版注册页面，是否可收到验证码'''
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
-        r1 = self.regist.submit_information(**test_regist_case1)
-        self.assertTrue(r1['result'], r1['msg'])
-        r2 = self.regist.regist(**test_regist_case1)
-        self.assertTrue(r2['result'], r2['msg'])
+        u'''测试超市版注册功能，注册成功后，使用新注册的账号登录'''
+        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
+        r = self.regist.submit_information(**test_regist_case1)
+        self.assertTrue(r['result'], r['msg'])
+        r = self.regist.regist(**test_regist_case1)
+        self.assertTrue(r['result'], r['msg'])
+        r = self.login.login(**dict(username=r['useraccount'], password='888888', ifrememberusername='yes'))
+        self.assertTrue(r['result'], r['msg'])
 
 if __name__ == '__main__':
     #logging.basicConfig(level=logging.DEBUG)
 
     a = unittest.TestSuite()
-    a.addTests(unittest.makeSuite(TestRegist))
+    a.addTests(unittest.makeSuite(TestOsmsRegist))
     b = unittest.TextTestRunner()
     b.run(a)
     #unittest.main()

@@ -95,28 +95,23 @@ class Regist(BasePage):
         #判断验证码的值，False返回
         if w['vertifycode'] == False:
             return output.error_user_defined(driver, "验证码获取失败")
+
+        #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
+        try:
+            driver.find_element(*emailcode).clear()
+            driver.find_element(*emailcode).send_keys(w['vertifycode'])
+            driver.find_element(*submit).click()
+            driver.implicitly_wait(5)
+            regist_text = driver.find_element(*orderNumber).text
+            num = re.compile(r'\d{11}').findall(regist_text)
+            driver.find_element(*bact_login).click()
+        except:
+            return output.error_auto(driver)
+
+        if num:
+            return output.pass_user_defined(driver, 'regist succeed', useraccount=num[0])
         else:
-            return output.pass_user_defined(driver, "验证码获取成功")
-
-
-        # #执行输入验证码，然后点击提交，最后判断是否存在返回登录元素，不存在则抛异常
-        # try:
-        #     driver.find_element(*emailcode).clear()
-        #     driver.find_element(*emailcode).send_keys(w['vertifycode'])
-        #     driver.find_element(*submit).click()
-        #     time.sleep(5)
-        #
-        # except:
-        #     return output.error_auto(driver)
-        #
-        # driver.implicitly_wait(5)
-        # registtext = driver.find_element_by_xpath('/html/body/div[3]/div[3]/div/p[1]').text
-        # num = re.compile(r'\d{11}').findall(registtext)
-        #
-        # if num:
-        #     return output.pass_user_defined(driver, 'regist succeed', useraccount=num[0])
-        # else:
-        #     return output.error_user_defined(driver, 'register fialed')
+            return output.error_user_defined(driver, 'register fialed')
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()

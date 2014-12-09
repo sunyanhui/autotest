@@ -42,9 +42,6 @@ getmailcode = (By.ID, 'button')
 #提交按钮
 submit = (By.LINK_TEXT, u'提交')
 
-#返回登录按钮
-backtologin = (By.LINK_TEXT, u'返回登陆')
-
 #忘记登录密码链接
 forgotPassword = (By.LINK_TEXT, u'忘记登录密码？')
 
@@ -56,3 +53,9 @@ emailCodeForFind = (By.NAME, 'emailCode')
 
 #下一步按钮
 nextstep = (By.ID, 'submitButton')
+
+#返回登录
+bact_login = (By.LINK_TEXT, u"返回登录")
+
+#订单号码
+orderNumber = (By.XPATH, '/html/body/div[3]/div[3]/div/p[1]')
