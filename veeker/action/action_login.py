@@ -32,14 +32,6 @@ class Login(BasePage):
         driver = self.driver
         sdriver = driver.find_element
 
-
-        #判断登录页面是否有弹窗，有的话点一下
-        try:
-            driver.implicitly_wait(2)
-            driver.find_element_by_id("popup_ok").click()
-        except:
-            pass
-
         #输入用户名、密码、验证码，然后点击登录按钮
         try:
             sdriver(*username).clear()
@@ -47,8 +39,8 @@ class Login(BasePage):
             sdriver(*password).click()
             sdriver(*password1).clear()
             sdriver(*password1).send_keys(w['password'])
-            if w['ifrememberusername'].upper() == 'YES':
-                sdriver(*rememberuseraccount).click()
+            # if w['ifrememberusername'].upper() == 'YES':
+            #     sdriver(*rememberuseraccount).click()
             sdriver(*submit).click()
         except:
             return output.error_auto(driver)
@@ -58,17 +50,13 @@ class Login(BasePage):
             driver.implicitly_wait(10)
             driver.find_element(*logoutlink)
         except:
-            return output.error_user_defined(driver, '登录按钮还在，登录失败~!')
+            return output.error_user_defined(driver, '没找到登出链接，登录失败~!')
         else:
-            return output.pass_user_defined(driver, '登录成功', title = driver.title)
+            return output.pass_user_defined(driver, '登录成功~！', title = driver.title)
 
     def logout(self):
         u'''
         @该方法作用于用户退出登录
-
-        @返回数据
-        返回如下字典格式数据
-        {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
 
         driver = self.driver

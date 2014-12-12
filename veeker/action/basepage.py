@@ -35,6 +35,9 @@ class BasePage():
             logging.error(u"打开'%s'失败"%URL)
             return False
 
+    def find_element(self, element):
+        return self.driver.find_element(*element)
+
     def quit(self):
         try:
             BasePage.driver.quit()
@@ -43,13 +46,6 @@ class BasePage():
             return True
         except:
             logging.error(u"关闭浏览器失败")
-            return False
-
-    def exit(self):
-        try:
-            self.driver.find_element_by_link_text(u'退出登录').click()
-            return True
-        except:
             return False
 
     def upload_photo(self, imgpath):
