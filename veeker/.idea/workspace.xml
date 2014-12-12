@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49b66a84-bf8c-422d-b2d5-941139ab71cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/element/enterprise/element_enterprise_introduction.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/element/supermarket/element_supermarket_introduction.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/action/basepage.py" afterPath="$PROJECT_DIR$/action/basepage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp.py" afterPath="$PROJECT_DIR$/temp.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="veeker.iws" />
@@ -794,7 +790,11 @@
       <created>1418377371734</created>
       <updated>1418377371734</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="12.12">
+      <created>1418377379280</created>
+      <updated>1418377379280</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
