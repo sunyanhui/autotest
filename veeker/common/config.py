@@ -1,5 +1,6 @@
 #!/usr/bin/python2.7
 #coding=utf-8
+import os
 
 '''
 该文档用来配置一些全局变量以及一些公共配置
@@ -22,6 +23,9 @@ BROWSER = 'chrome'
 
 #错误截图存在路径
 ERRORIMGPATH = 'D:/errorimg/'
+
+#需上传图片选择路径
+IMGPATH = os.path.dirname(__file__)
 
 # #WEB主机IP
 # HOSTIP = '192.168.0.235'
