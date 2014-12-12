@@ -4,13 +4,13 @@
 from selenium.webdriver.common.by import By
 
 #修改企业信息链接
-modify_company_info_link = (By.LINK_TEXT, u'修改企业信息')
+modify_enterprise_info_link = (By.LINK_TEXT, u'修改企业信息')
 
 #企业名称输入框
-company_name = (By.NAME, 'enterpriseDTO.enterName')
+enterprise_name = (By.NAME, 'enterpriseDTO.enterName')
 
 #企业简称
-company_short_name = (By.NAME, 'enterpriseDTO.introduction')
+enterprise_short_name = (By.NAME, 'enterpriseDTO.introduction')
 
 #经营类型
 operate_type = (By.ID, 'industryId')
@@ -19,13 +19,13 @@ operate_type = (By.ID, 'industryId')
 operate_range = (By.NAME, 'enterpriseDTO.businessScope')
 
 #区域-省
-province = (By.ID, 'area')
+province = (By.ID, 'province')
 
 #区域-市
 city = (By.ID, 'city')
 
 #区域-县
-country = (By.ID, 'country')
+country = (By.ID, 'county')
 
 #详细地址
 address = (By.NAME, 'enterpriseDTO.address')
@@ -55,19 +55,19 @@ beianhao = (By.NAME, 'enterpriseDTO.icp')
 wangluojingyingxuke = (By.NAME, 'enterpriseDTO.netWorkLicense')
 
 #企业 QQ
-company_qq = (By.NAME, 'enterpriseDTO.qq')
+qq = (By.NAME, 'enterpriseDTO.qq')
 
 #网络安全证书
 wangluoanquanzhengshu = (By.NAME, 'enterpriseDTO.netWorkSecurity')
 
 #版本信息
-company_copyright = (By.NAME, 'enterpriseDTO.versionInfo')
+copyright = (By.NAME, 'enterpriseDTO.versionInfo')
 
 #二维码
 OR_code = (By.ID, 'erweima')
 
 #企业图标
-company_img = (By.ID, 'enterIco')
+ico = (By.ID, 'enterIco')
 
 #保存设置
 save = (By.CLASS_NAME, 'bcsz_btn01')
