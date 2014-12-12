@@ -27,6 +27,11 @@ class BasePage():
         self.driver = BasePage.driver
 
     def open_browser(self, URL):
+        u'''
+        打开指定URL
+        :param URL:URL地址，需加HTTP://
+        :return:True, False
+        '''
         try:
             self.driver.get(URL)
             logging.info(u"成功打开'%s'"%URL)
@@ -36,9 +41,17 @@ class BasePage():
             return False
 
     def find_element(self, element):
+        u'''
+        封装元素查找方法，简化传参方式
+        :param element:元素定位元组，如(By.ID, 'abc')
+        '''
         return self.driver.find_element(*element)
 
     def quit(self):
+        u'''
+        退出浏览器
+        :return:
+        '''
         try:
             BasePage.driver.quit()
             BasePage.driver = None
@@ -47,6 +60,16 @@ class BasePage():
         except:
             logging.error(u"关闭浏览器失败")
             return False
+
+    def insert_html_to_rich_text(self, id, html):
+        u'''
+        往富文本编辑框架里输入HTML字符
+        :param id: 编辑框ID
+        :param html: HTML字符
+        :return:不返回，不处理异常，异常在函数外处理
+        '''
+        JS = "UE.getEditor('%s').execCommand('inserthtml','%s');"%(id,html)
+        self.driver.execute_script(JS)
 
     def upload_photo(self, imgpath):
         u'''
