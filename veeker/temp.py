@@ -26,3 +26,4 @@ driver.switch_to_frame("iframe")
 JS = "UE.getEditor('enterIntroClob').execCommand('inserthtml','<b>123</b>');"
 driver.execute_script(JS)
 
+driver.switch_to_default_content()

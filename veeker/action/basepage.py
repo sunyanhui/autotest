@@ -61,14 +61,14 @@ class BasePage():
             logging.error(u"关闭浏览器失败")
             return False
 
-    def insert_html_to_rich_text(self, id, html):
+    def insert_html_to_richtext(self, id, html):
         u'''
         往富文本编辑框架里输入HTML字符
         :param id: 编辑框ID
         :param html: HTML字符
         :return:不返回，不处理异常，异常在函数外处理
         '''
-        JS = "UE.getEditor('%s').execCommand('inserthtml','%s');"%(id,html)
+        JS = "UE.getEditor('%s').execCommand('cleardoc');UE.getEditor('%s').execCommand('inserthtml','%s');"%(id,id,html)
         self.driver.execute_script(JS)
 
     def upload_photo(self, imgpath):
