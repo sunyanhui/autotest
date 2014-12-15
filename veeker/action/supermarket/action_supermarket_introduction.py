@@ -13,7 +13,7 @@ class SupermarketIntroduction(BasePage):
 
     def modify_introduction(self, **w):
         u'''
-        修改超市密码
+        修改超市介绍
         '''
 
         driver = self.driver
@@ -24,7 +24,7 @@ class SupermarketIntroduction(BasePage):
             find_element(introduction_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            self.insert_html_to_rich_text(introduction_rich_text, w['introduction'])
+            self.insert_html_to_richtext(introduction_rich_text, w['introduction'])
             find_element(introduction_button).click()
             driver.switch_to_default_content()
             find_element(confirm).click()
@@ -36,7 +36,7 @@ class SupermarketIntroduction(BasePage):
 
     def modify_culture(self, **w):
         u'''
-        修改超市密码
+        修改超市文件
         '''
 
         driver = self.driver
@@ -49,7 +49,7 @@ class SupermarketIntroduction(BasePage):
             time.sleep(1)
             find_element(culture).click()
             time.sleep(1)
-            self.insert_html_to_rich_text(culture_rich_text, w['culture'])
+            self.insert_html_to_richtext(culture_rich_text, w['culture'])
             find_element(culture_button).click()
             driver.switch_to_default_content()
             find_element(confirm).click()
@@ -61,7 +61,7 @@ class SupermarketIntroduction(BasePage):
 
     def modify_structure(self, **w):
         u'''
-        修改超市密码
+        修改超市组织结构
         '''
 
         driver = self.driver
@@ -74,15 +74,15 @@ class SupermarketIntroduction(BasePage):
             time.sleep(1)
             find_element(structure).click()
             time.sleep(1)
-            self.insert_html_to_rich_text(structure_rich_text, w['structure'])
+            self.insert_html_to_richtext(structure_rich_text, w['structure'])
             find_element(structure_button).click()
             driver.switch_to_default_content()
             find_element(confirm).click()
             time.sleep(3)
         except:
-            return output.error_user_defined(driver, "修改文化失败")
+            return output.error_user_defined(driver, "修改组织架构失败")
         else:
-            return output.pass_user_defined(driver, "修改文化成功")
+            return output.pass_user_defined(driver, "修改组织架构成功")
 
 if __name__ =='__main__':
     from action.action_login import Login
