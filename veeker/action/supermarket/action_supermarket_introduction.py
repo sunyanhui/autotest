@@ -23,6 +23,7 @@ class SupermarketIntroduction(BasePage):
             #点击修改企业信息链接，然后切进FRAME
             find_element(introduction_link).click()
             driver.switch_to_frame('iframe')
+            find_element(introduction).click()
             time.sleep(1)
             self.insert_html_to_richtext(introduction_rich_text, w['introduction'])
             find_element(introduction_button).click()

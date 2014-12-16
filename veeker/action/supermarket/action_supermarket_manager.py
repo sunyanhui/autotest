@@ -1,19 +1,19 @@
 #!/usr/bin/python2.7
 #coding=utf-8
 
-from element.supermarket.element_supermarket_role import *
+from element.supermarket.element_supermarket_manager import *
 from action.basepage import BasePage
 from common import output
 import time
 
-class SupermarketRole(BasePage):
+class SupermarketManager(BasePage):
     u'''
-    超市角色管理
+    超市操作员管理
     '''
 
-    def add_role(self, **w):
+    def add_manager(self, **w):
         u'''
-        添加角色
+        添加操作员
         '''
 
         driver = self.driver
@@ -21,23 +21,22 @@ class SupermarketRole(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(role_link).click()
+            find_element(manager_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            find_element(add_role).click()
-            find_element(role_name).send_keys(w['role_name'])
-            find_element(info).click()
+            find_element(add_manager).click()
+            find_element(manager_account).send_keys(w['manager_account'])
             find_element(submit).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
         except:
-            return output.error_user_defined(driver, "添加角色失败")
+            return output.error_user_defined(driver, "添加管理员失败")
         else:
-            return output.pass_user_defined(driver, "添加角色成功")
+            return output.pass_user_defined(driver, "添加管理员成功")
 
-    def del_role(self, **w):
+    def del_manager(self, **w):
         u'''
-        删除角色
+        删除操作员
         '''
 
         driver = self.driver
@@ -45,25 +44,26 @@ class SupermarketRole(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(role_link).click()
+            find_element(manager_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            find_element((By.XPATH, "//td[text()='%s']/../td[3]/input[2]"%w['role_name'])).click()
+            find_element((By.XPATH, "//td[text()='%s']/../td[5]/input[2]"%w['manager_account'])).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
             find_element(confirm).click()
             time.sleep(1)
         except:
-            return output.error_user_defined(driver, "删除角色失败")
+            return output.error_auto(driver)
+            return output.error_user_defined(driver, "删除管理员失败")
         else:
-            return output.pass_user_defined(driver, "删除角色成功")
+            return output.pass_user_defined(driver, "删除管理员成功")
 
 if __name__ =='__main__':
     from action.action_login import Login
     a = Login()
     a.open_browser("http://www.wiki100.cn")
-    a.login(username = 'XYHD3100056',password = '888888')
+    a.login(username = 'XYHD3100074',password = '888888')
 
-    b = SupermarketRole()
-    error = b.del_role(role_name ="tester")
+    b = SupermarketManager()
+    error = b.del_manager(manager_account ="14000000157")
     print error['msg']

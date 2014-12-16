@@ -1,1 +1,1 @@
-from testsuite.olsm import test_olsm_login
+from testsuite.olsm import test_enterprise_login

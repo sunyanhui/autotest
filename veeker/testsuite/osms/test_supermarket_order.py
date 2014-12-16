@@ -3,7 +3,7 @@
 import unittest
 import time
 
-from testdata.osms.data_osms_order import *
+from testdata.osms.data_supermarket_order import *
 from action.action_login import Login
 from action.person.sfind_goods import FindGoods
 from action.person.action_person_place_order import PlaceOrder
