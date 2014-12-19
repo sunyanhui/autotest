@@ -1,13 +1,14 @@
 #!/usr/bin/python3.3 
 # -*- coding: utf-8 -*-
 from selenium import webdriver
+from selenium.webdriver.support.select import Select
 from watsup.winGuiAuto import findControl,setEditText, findTopWindow,clickButton
 from common import config
-import os
+import os, types
 import logging
 
 
-class BasePage():
+class BasePage(object):
 
     driver = None
 
@@ -46,6 +47,24 @@ class BasePage():
         :param element:元素定位元组，如(By.ID, 'abc')
         '''
         return self.driver.find_element(*element)
+
+    def find_elements(self, element):
+        u'''
+        封装元素组查找方法，简化传参方式
+        :param element:元素定位元组，如(By.ID, 'abc')
+        '''
+        return self.driver.find_elements(*element)
+
+    def select(self, element, text):
+        u'''
+        封装下拉框选择方法
+        :param element:webelement对象
+        :param text:要选择的项
+        '''
+        if isinstance(text, types.IntType):
+            Select(element).select_by_index(text)
+        else:
+            Select(element).select_by_visible_text(text)
 
     def quit(self):
         u'''

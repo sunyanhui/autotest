@@ -1,12 +1,12 @@
 #!/usr/bin/python2.7
 #coding=utf-8
 
-from selenium import webdriver
-from selenium.webdriver.support.select import Select
-from element.supermarket.element_supermarket_modify_password import *
+import time
+
+from element.element_supermarket_modify_password import *
 from action.basepage import BasePage
 from common import output
-import time
+
 
 class SupermarketModifyPassword(BasePage):
     u'''

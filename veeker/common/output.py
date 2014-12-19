@@ -17,7 +17,7 @@ def error_user_defined(driver, msg):
     imgpath = config.ERRORIMGPATH + str(int(time.time() * 100)) + '.jpg'
     driver.get_screenshot_as_file(imgpath)
     return {'result': False,
-            'msg': msg + '\n' + imgpath
+            'msg': msg + '\n' + traceback.format_exc() + '\n'  + imgpath
     }
 
 def pass_auto(driver):

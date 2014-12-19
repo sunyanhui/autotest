@@ -1,12 +1,14 @@
 #!/usr/bin/python2.7
 #coding=utf-8
 
-from selenium import webdriver
+import time
+
 from selenium.webdriver.support.select import Select
-from element.enterprise.element_enterprise_modify_info import *
+
+from element.element_enterprise_modify_info import *
 from action.basepage import BasePage
 from common import output
-import time
+
 
 class EnterpriseModifyInfo(BasePage):
     u'''

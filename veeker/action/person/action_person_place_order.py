@@ -1,13 +1,15 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.support.select import Select
-from element.person.element_person_place_order import *
+
+from element.element_person_place_order import *
 from common import output, common
 from action.basepage import BasePage
-import time
+
 
 class PlaceOrder(BasePage):
 

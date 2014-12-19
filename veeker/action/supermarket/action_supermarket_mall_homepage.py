@@ -1,11 +1,11 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from element.supermarket.element_supermarket_mall_homepage import *
+import sys
+
+from element.element_supermarket_mall_homepage import *
 from action.basepage import BasePage
 from common import output
-import sys
+
 
 class MallHomePage(BasePage):
     u'''

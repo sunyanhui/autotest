@@ -1,10 +1,12 @@
 #!/usr/bin/python2.7
 #coding=utf-8
 
-from element.supermarket.element_supermarket_introduction import *
+import time
+
+from element.element_supermarket_introduction import *
 from action.basepage import BasePage
 from common import output
-import time
+
 
 class SupermarketIntroduction(BasePage):
     u'''

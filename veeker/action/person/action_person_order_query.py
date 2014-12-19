@@ -1,12 +1,13 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from element.person.omycenter import *
-from element.person.element_person_order_query import *
-from action.basepage import BasePage
-from common import output, common
 import time
 import re
+
+from element.person.omycenter import *
+from element.element_person_order_query import *
+from action.basepage import BasePage
+from common import output, common
 
 
 class OrderQuery(BasePage):

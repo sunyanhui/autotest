@@ -1,7 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from element.agency.element_agency_order_query import *
+from element.element_agency_order_query import *
 from action.basepage import BasePage
 from common import output
 
