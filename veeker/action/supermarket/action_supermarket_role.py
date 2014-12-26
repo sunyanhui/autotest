@@ -2,18 +2,18 @@
 #coding=utf-8
 
 import time
-
-from element.element_supermarket_role import *
+from selenium.webdriver.common.by import By
+from element.element_supermarket_role import ElementRole
 from action.basepage import BasePage
 from common import output
 
 
-class SupermarketRole(BasePage):
+class SupermarketRole(BasePage, ElementRole):
     u'''
     超市角色管理
     '''
 
-    def add_role(self, **w):
+    def add_role(self, role_name, **kwargs):
         u'''
         添加角色
         '''
@@ -23,13 +23,13 @@ class SupermarketRole(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(role_link).click()
+            find_element(self.role_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            find_element(add_role).click()
-            find_element(role_name).send_keys(w['role_name'])
-            find_element(info).click()
-            find_element(submit).click()
+            find_element(self.add_role_tab).click()
+            find_element(self.role_name).send_keys(role_name)
+            find_element(self.info).click()
+            find_element(self.submit).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
         except:
@@ -47,13 +47,13 @@ class SupermarketRole(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(role_link).click()
+            find_element(self.role_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
             find_element((By.XPATH, "//td[text()='%s']/../td[3]/input[2]"%w['role_name'])).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
-            find_element(confirm).click()
+            find_element(self.confirm).click()
             time.sleep(1)
         except:
             return output.error_user_defined(driver, "删除角色失败")

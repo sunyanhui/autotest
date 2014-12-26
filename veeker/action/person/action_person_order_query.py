@@ -3,14 +3,12 @@
 
 import time
 import re
-
-from element.person.omycenter import *
-from element.element_person_order_query import *
+from element.element_person_order_query import ElementOrderQuery
 from action.basepage import BasePage
 from common import output, common
 
 
-class OrderQuery(BasePage):
+class OrderQuery(BasePage, ElementOrderQuery):
     u'''
     该类集成了购物管理下相关操作
     @订单查询
@@ -31,10 +29,11 @@ class OrderQuery(BasePage):
         :return:True / False
         '''
         driver = self.driver
+        find_element = self.find_element
 
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
             return output.error_auto(driver)
@@ -51,21 +50,22 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
+        find_element = self.find_element
         try:
             #点击订单查询链接，然后切进 iframe
-            driver.find_element(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
             driver.find_element_by_css_selector\
                 ('''a[href^="javascript:cusOrder.confirmReceiptOrder('%s"'''%orderNumber).click()
             driver.switch_to_default_content()
-            driver.find_element(*okButton).click()
+            find_element(self.okButton).click()
         except:
             return output.error_user_defined(driver, "确认收货失败")
         else:
             return output.pass_user_defined(driver, "确认收货成功")
 
 
-    def order_query(self, **w):
+    def order_query(self, goodsname='',goodsstatus='',startdate='',enddate='',**w):
         u'''
         该方法用于检查 查询出来的订单总数与实际数是否相等
         :param w: 接收不定参数
@@ -73,34 +73,35 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
         orderlist = []
 
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            sdriver(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
-            if w['goodsname'] != '':
-                sdriver(*goodnameforquery).send_keys(w['goodsname'])
-            if w['goodsstatus'] != '':
-                sdriver(*goodstatus).find_element_by_xpath("//option[@value='"+w['goodsstatus']+"']").click()
-            if w['startdate'] != '':
-                sdriver(*startsaledate).send_keys(w['startdate'])
-            if w['enddate'] != '':
-                sdriver(*endsaledate).send_keys(w['enddate'])
-            sdriver(*searchButtonFororder).click()
+            if goodsname != '':
+                find_element(self.goodnameforquery).send_keys(goodsname)
+            if goodsstatus != '':
+                find_element(self.goodstatus).find_element_by_xpath("//option[@value='"+ goodsstatus +"']").click()
+            if startdate != '':
+                find_element(self.startsaledate).send_keys(startdate)
+            if enddate != '':
+                find_element(self.endsaledate).send_keys(enddate)
+            find_element(self.searchButtonFororder).click()
 
         except:
             return output.error_auto(driver)
 
         try:
             #把所有订单号收集到orderlist列表里
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
             for i in range(int(orderpage[1])):
-                for j in driver.find_elements(*stringoforder):
+                for j in find_elements(self.stringoforder):
                     orderlist.append(re.compile(r'\d{18}').search(j.text).group())
                 if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
+                find_element(self.nextpage).click()
         except:
             return output.error_auto(driver)
 
@@ -125,23 +126,23 @@ class OrderQuery(BasePage):
     #
     #     try:
     #         #点击订单查询链接，然后切进 iframe
-    #         sdriver(*orderQuery).click()
+    #         find_element(self.orderQuery).click()
     #         driver.switch_to_frame('iframe')
     #     except:
     #         return output.error_auto(driver)
     #
     #     #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
     #     try:
-    #         orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+    #         orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
     #         for i in range(int(orderpage[1])):
-    #             for j in driver.find_elements(*confirmreceipt):
+    #             for j in find_elements(self.confirmreceipt):
     #                 if re.compile(w['ordernumber']).search(j.get_attribute('href')):
     #                     j.click()
     #                     driver.switch_to_default_content()
-    #                     sdriver(*okButton).click()
+    #                     find_element(self.okButton).click()
     #                     return output.pass_user_defined(driver, 'confirm receipt success')
     #             if i == (int(orderpage[1])-1):break
-    #             sdriver(*nextpage).click()
+    #             find_element(self.nextpage).click()
     #     except:
     #         return output.error_auto(driver)
     #
@@ -156,11 +157,12 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
             #点击订单查询链接，然后切进 iframe
-            sdriver(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
             return output.error_auto(driver)
@@ -168,16 +170,16 @@ class OrderQuery(BasePage):
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
             for i in range(int(orderpage[1])):
-                for j in driver.find_elements(*deleteorder):
+                for j in find_elements(self.deleteorder):
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
                         j.click()
                         driver.switch_to_default_content()
-                        sdriver(*okButton).click()
+                        find_element(self.okButton).click()
                         return output.pass_user_defined(driver, 'delete order success')
                 if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
+                find_element(self.nextpage).click()
         except:
             return output.error_auto(driver)
 
@@ -191,27 +193,28 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
             #点击订单查询链接，然后切进 iframe
-            sdriver(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
             return output.error_auto(driver)
 
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
             for i in range(int(orderpage[1])):
-                for j in driver.find_elements(*undoorder):
+                for j in find_elements(self.undoorder):
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
                         j.click()
                         driver.switch_to_default_content()
-                        sdriver(*okButton).click()
+                        find_element(self.okButton).click()
                         return output.pass_user_defined(driver, 'undo order success')
                 if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
+                find_element(self.nextpage).click()
         except:
             return output.error_auto(driver)
 
@@ -227,11 +230,12 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
             #点击订单查询链接，然后切进 iframe
-            sdriver(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
             return output.error_auto(driver)
@@ -240,13 +244,13 @@ class OrderQuery(BasePage):
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
 
                 #找到有删除按钮的一组对象，然后循环判断每个对象，直至找出符合条件的
-                for j in driver.find_elements(*deleteorder):
+                for j in find_elements(self.deleteorder):
 
                     #判断其链接中是否包含指定订单号
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
@@ -260,16 +264,16 @@ class OrderQuery(BasePage):
 
                         #点击申请退货-- 填写退货表单，而后提交
                         driver.find_element_by_css_selector('a[href="'+href+'"]').click()
-                        sdriver(*returnreason).find_element_by_xpath("//option[@value='"+w['returnreason']+"']").click()
-                        sdriver(*returndescription).clear()
-                        sdriver(*returndescription).send_keys(w['returndescription'])
-                        sdriver(*returnnumber).clear()
-                        sdriver(*returnnumber).send_keys(w['returnnumber'])
-                        sdriver(*Button).click()
+                        find_element(self.returnreason).find_element_by_xpath("//option[@value='"+w['returnreason']+"']").click()
+                        find_element(self.returndescription).clear()
+                        find_element(self.returndescription).send_keys(w['returndescription'])
+                        find_element(self.returnnumber).clear()
+                        find_element(self.returnnumber).send_keys(w['returnnumber'])
+                        find_element(self.Button).click()
 
                         #判断是否存在‘申请退货已发出’字样，有则返回申请成功
                         driver.implicitly_wait(5)
-                        if u'申请退货已发出' in sdriver(*returnsucceed).text:
+                        if u'申请退货已发出' in find_element(self.returnsucceed).text:
                             driver.switch_to_default_content()
                             return output.pass_user_defined(driver, 'apply return success')
                         else:
@@ -277,10 +281,10 @@ class OrderQuery(BasePage):
 
                 #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
-                #sdriver(*inputpagenumber).clear()
-                #sdriver(*inputpagenumber).send_keys(str(int(i)+2))
-                #sdriver(*gobutton).click()
+                find_element(self.nextpage).click()
+                #find_element(self.inputpagenumber).clear()
+                #find_element(self.inputpagenumber).send_keys(str(int(i)+2))
+                #find_element(self.gobutton).click()
         except:
             return output.error_auto(driver)
 
@@ -297,11 +301,12 @@ class OrderQuery(BasePage):
         '''
 
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
             #点击订单查询链接，然后切进 iframe
-            sdriver(*orderQuery).click()
+            find_element(self.orderQuery).click()
             driver.switch_to_frame('iframe')
         except:
             return output.error_auto(driver)
@@ -309,13 +314,13 @@ class OrderQuery(BasePage):
         #遍历所有可以取消的订单，并匹配参数订单号，如匹配则取消
         try:
             #获得总页数
-            orderpage = common.get_orderpage(sdriver(*totalpagenumber).text)
+            orderpage = common.get_orderpage(find_element(self.totalpagenumber).text)
 
             #循环每一页
             for i in range(int(orderpage[1])):
 
                 #找到有删除按钮的一组对象，然后循环判断每个对象，直至找出符合条件的
-                for j in driver.find_elements(*deleteorder):
+                for j in find_elements(self.deleteorder):
 
                     #判断其链接中是否包含指定订单号
                     if re.compile(w['ordernumber']).search(j.get_attribute('href')):
@@ -330,35 +335,35 @@ class OrderQuery(BasePage):
                         #点击评价-- 填写评价表单，而后提交
                         driver.find_element_by_css_selector('a[href="'+href+'"]').click()
                         if w['reviewgrade'] == u'好评':
-                            sdriver(*reviewgrade_01).click()
+                            find_element(self.reviewgrade_01).click()
                         elif w['reviewgrade'] == u'中评':
-                            sdriver(*reviewgrade_02).click()
+                            find_element(self.reviewgrade_02).click()
                         elif w['reviewgrade'] == u'差评':
-                            sdriver(*reviewgrade_03).clcik()
+                            find_element(self.reviewgrade_03).clcik()
 
-                        sdriver(*reviewdetail).clear()
-                        sdriver(*reviewdetail).send_keys(w['reviewdetail'])
+                        find_element(self.reviewdetail).clear()
+                        find_element(self.reviewdetail).send_keys(w['reviewdetail'])
 
                         if w['ifanonymity'].upper() == 'YES':
-                            sdriver(*ifanonymity).click()
+                            find_element(self.ifanonymity).click()
                         else:
                             pass
 
-                        sdriver(*Button).click()
+                        find_element(self.Button).click()
 
                         #判断是否存在‘申请退货已发出’字样，有则返回申请成功
                         driver.switch_to_default_content()
                         driver.implicitly_wait(2)
-                        if sdriver(*promptmessage).text == u'评论成功！':
-                            sdriver(*okButton).click()
+                        if find_element(self.promptmessage).text == u'评论成功！':
+                            find_element(self.okButton).click()
                             return output.pass_user_defined(driver, 'review goods success')
                         else:
-                            sdriver(*okButton).click()
+                            find_element(self.okButton).click()
                             return output.error_user_defined(driver, 'review goods failed!')
 
                 #判断是否到最后一页，到最后一页则跳出循环
                 if i == (int(orderpage[1])-1):break
-                sdriver(*nextpage).click()
+                find_element(self.nextpage).click()
         except:
             return output.error_auto(driver)
 

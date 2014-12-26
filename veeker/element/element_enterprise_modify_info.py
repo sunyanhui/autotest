@@ -1,76 +1,78 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
-
 from selenium.webdriver.common.by import By
 
-#修改企业信息链接
-modify_enterprise_info_link = (By.LINK_TEXT, u'修改企业信息')
+class ElementModifyInfo(object):
 
-#企业名称输入框
-enterprise_name = (By.NAME, 'enterpriseDTO.enterName')
+    #修改企业信息链接
+    modify_enterprise_info_link = (By.LINK_TEXT,u"修改企业信息")
 
-#企业简称
-enterprise_short_name = (By.NAME, 'enterpriseDTO.introduction')
+    #企业名称输入框
+    enterprise_name = (By.NAME,u"enterpriseDTO.enterName")
 
-#经营类型
-operate_type = (By.ID, 'industryId')
+    #企业简称
+    enterprise_short_name = (By.NAME,u"enterpriseDTO.introduction")
 
-#经营范围
-operate_range = (By.NAME, 'enterpriseDTO.businessScope')
+    #经营类型
+    operate_type = (By.ID,u"industryId")
 
-#区域-省
-province = (By.ID, 'province')
+    #经营范围
+    operate_range = (By.NAME,u"enterpriseDTO.businessScope")
 
-#区域-市
-city = (By.ID, 'city')
+    #区域-省
+    province = (By.ID,u"province")
 
-#区域-县
-country = (By.ID, 'county')
+    #区域-市
+    city = (By.ID,u"city")
 
-#详细地址
-address = (By.NAME, 'enterpriseDTO.address')
+    #区域-县
+    country = (By.ID,u"county")
 
-#商城LOGO
-mall_logo = (By.ID, 'mallLogo')
+    #详细地址
+    address = (By.NAME,u"enterpriseDTO.address")
 
-#后台LOGO
-backgroud_logo = (By.ID, 'backlogo')
+    #商城LOGO
+    mall_logo = (By.ID,u"mallLogo")
 
-#商城名称
-mall_name = (By.NAME, 'enterpriseDTO.mallName')
+    #后台LOGO
+    backgroud_logo = (By.ID,u"backlogo")
 
-#商城域名
-mall_domain = (By.NAME, 'enterpriseDTO.domain')
+    #商城名称
+    mall_name = (By.NAME,u"enterpriseDTO.mallName")
 
-#服务电话
-service_phone = (By.NAME, 'enterpriseDTO.serviceTel')
+    #商城域名
+    mall_domain = (By.NAME,u"enterpriseDTO.domain")
 
-#投诉电话
-complaint_phone = (By.NAME, 'enterpriseDTO.complaintTel')
+    #服务电话
+    service_phone = (By.NAME,u"enterpriseDTO.serviceTel")
 
-#备案号
-beianhao = (By.NAME, 'enterpriseDTO.icp')
+    #投诉电话
+    complaint_phone = (By.NAME,u"enterpriseDTO.complaintTel")
 
-#网络经营许可
-wangluojingyingxuke = (By.NAME, 'enterpriseDTO.netWorkLicense')
+    #备案号
+    beianhao = (By.NAME,u"enterpriseDTO.icp")
 
-#企业 QQ
-qq = (By.NAME, 'enterpriseDTO.qq')
+    #网络经营许可证
+    wangluojingyingxuke = (By.NAME,u"enterpriseDTO.netWorkLicense")
 
-#网络安全证书
-wangluoanquanzhengshu = (By.NAME, 'enterpriseDTO.netWorkSecurity')
+    #QQ
+    qq = (By.NAME,u"enterpriseDTO.qq")
 
-#版本信息
-copyright = (By.NAME, 'enterpriseDTO.versionInfo')
+    #网络安全证书
+    wangluoanquanzhengshu = (By.NAME,u"enterpriseDTO.netWorkSecurity")
 
-#二维码
-OR_code = (By.ID, 'erweima')
+    #版权信息
+    copyright = (By.NAME,u"enterpriseDTO.versionInfo")
 
-#企业图标
-ico = (By.ID, 'enterIco')
+    #二维码
+    OR_code = (By.ID,u"erweima")
 
-#保存设置
-save = (By.CLASS_NAME, 'bcsz_btn01')
+    #企业图标
+    ico = (By.ID,u"enterIco")
 
-#标题
-title = (By.CLASS_NAME, 'public_tab')
+    #保存设置
+    save = (By.CLASS_NAME,u"bcsz_btn01")
+
+    #标题
+    title = (By.CLASS_NAME,u"public_tab")
+

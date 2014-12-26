@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
 
-#客户订单结算查询
-customerOrderSettlement = (By.LINK_TEXT, u'客户订单结算')
+class ElementOrderQuery(object):
 
-#订单编号
-order_number = (By.ID, 'orderNo')
+    #客户订单结算查询
+    customerOrderSettlement = (By.LINK_TEXT,u"客户订单结算")
 
-#搜索按钮
-search = (By.CLASS_NAME, 'search_btn')
+    #订单编号
+    order_number = (By.ID,u"orderNo")
+
+    #搜索按钮
+    search = (By.CLASS_NAME,u"searchbtn")
+

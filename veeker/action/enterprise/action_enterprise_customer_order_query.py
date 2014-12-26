@@ -1,14 +1,14 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from element.element_enterprise_order_query import *
+from element.element_enterprise_customer_order_query import ElementCustomerOrderQuery
 from action.basepage import BasePage
 from common import output
 
 
-class EnterpriseCustomerOrderQuery(BasePage):
-    '''
-
+class EnterpriseCustomerOrderQuery(BasePage, ElementCustomerOrderQuery):
+    u'''
+    企业客户订单查询
     '''
 
     def if_order_exist(self, orderNumber):
@@ -17,13 +17,14 @@ class EnterpriseCustomerOrderQuery(BasePage):
         :return:True / False
         '''
         driver = self.driver
+        find_element = self.find_element
 
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*customerOrderQuery).click()
+            find_element(self.customerOrderQuery).click()
             driver.switch_to_frame('iframe')
-            driver.find_element(*order_number).send_keys(orderNumber)
-            driver.find_element(*search).click()
+            find_element(self.order_number).send_keys(orderNumber)
+            find_element(self.search).click()
         except:
             return output.error_auto(driver)
 

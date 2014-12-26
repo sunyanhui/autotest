@@ -2,94 +2,101 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
 
-#***********************订单查询***********************#
-#订单查询链接
-orderQuery = (By.LINK_TEXT, u'订单查询')
+class ElementOrderQuery(object):
 
-#商品名称
-goodnameforquery = (By.CLASS_NAME, 'spmc_box_text')
+    #订单查询链接
+    orderQuery = (By.LINK_TEXT,u"订单查询")
 
-#交易状态
-goodstatus = (By.ID, 'itemName')
+    #商品名称
+    goodnameforquery = (By.CLASS_NAME,u"spmc_box_text")
 
-#成交日期
-startsaledate = (By.ID, 'searchbeginDateId')
-endsaledate = (By.ID, 'searchendDateId')
+    #交易状态
+    goodstatus = (By.ID,u"itemName")
 
-#搜索按钮
-searchButtonFororder = (By.NAME, 'cx')
+    #成交日期-开始
+    startsaledate = (By.ID,u"searchbeginDateId")
 
-#订单号码字符串
-stringoforder = (By.CSS_SELECTOR, 'td.order_titlee')
+    #成交日期-结束
+    endsaledate = (By.ID,u"searchendDateId")
 
-#总条数+总页数 字符串
-totalpagenumber = (By.CSS_SELECTOR, 'div.page_yemal p')
+    #搜索按钮
+    searchButtonFororder = (By.NAME,u"cx")
 
-#下一页
-nextpage = (By.LINK_TEXT, u"下一页")
+    #订单号码字符串
+    stringoforder = (By.CSS_SELECTOR,u"td.order_titlee")
 
-#输入页码
-inputpagenumber = (By.ID, 'go1')
+    #总条数+总页数 字符串
+    totalpagenumber = (By.CSS_SELECTOR,u"div.page_yemal p")
 
-#GO按钮
-gobutton = (By.LINK_TEXT, 'GO')
+    #下一页
+    nextpage = (By.LINK_TEXT,u"下一页")
 
-#取消订单
-undoorder = (By.LINK_TEXT, u'取消订单')
+    #输入页码
+    inputpagenumber = (By.ID,u"go1")
 
-#删除订单
-deleteorder = (By.LINK_TEXT, u'删除')
+    #GO按钮
+    gobutton = (By.LINK_TEXT,u"GO")
 
-#确认收货
-confirmreceipt = (By.CSS_SELECTOR, "a[href^='javascript:cusOrder.confirmReceiptOrder']")
+    #取消订单
+    undoorder = (By.LINK_TEXT,u"取消订单")
 
-#***********************申请退货***********************#
+    #删除订单
+    deleteorder = (By.LINK_TEXT,u"删除")
 
-#退货原因
-returnreason = (By.ID, 'reasonId')
+    #确认收货
+    confirmreceipt = (By.CSS_SELECTOR,u"a[href^='javascript:cusOrder.confirmReceiptOrder']")
 
-#退货说明
-returndescription = (By.NAME, 'replaceGoodsDTO.memo')
+    #退货原因
+    returnreason = (By.ID,u"reasonId")
 
-#退货数量
-returnnumber = (By.NAME, 'replaceGoodsDTO.goodsNum')
+    #退货说明
+    returndescription = (By.NAME,u"replaceGoodsDTO.memo")
 
-#申请退货已发出文字
-returnsucceed = (By.CSS_SELECTOR, "div.thBox ul li h3")
+    #退货数量
+    returnnumber = (By.NAME,u"replaceGoodsDTO.goodsNum")
 
-#***********************评价链接***********************#
+    #申请退货已发出文字
+    returnsucceed = (By.CSS_SELECTOR,u"div.thBox ul li h3")
 
-#评价等级（01：好评， 02：中评， 03差评）
-reviewgrade_01 = (By.CSS_SELECTOR, "input[value='01']")
-reviewgrade_02 = (By.CSS_SELECTOR, "input[value='02']")
-reviewgrade_03 = (By.CSS_SELECTOR, "input[value='03']")
+    #好评
+    reviewgrade_01 = (By.CSS_SELECTOR,u"input[value='01']")
 
-#评价内容
-reviewdetail = (By.ID, 'myarea')
+    #中评
+    reviewgrade_02 = (By.CSS_SELECTOR,u"input[value='02']")
 
-#是否匿名
-ifanonymity = (By.NAME, 'commentDTO.commentType')
+    #差评
+    reviewgrade_03 = (By.CSS_SELECTOR,u"input[value='02']")
 
-#提示消息
-promptmessage = (By.ID, 'popup_message')
+    #评价内容
+    reviewdetail = (By.ID,u"myarea")
 
-#************************购物车************************#
-#购物车链接
-shoppingCart = (By.LINK_TEXT, u'购物车')
+    #是否匿名
+    ifanonymity = (By.NAME,u"commentDTO.commentType")
 
-#************************抵值券************************#
-#我的抵值券链接
-myCoupon = (By.LINK_TEXT, u'我的抵值券')
+    #提示消息
+    promptmessage = (By.ID,u"popup_message")
 
-#企业名称
-entername = (By.ID, 'enterName')
+    #购物车链接
+    shoppingCart = (By.LINK_TEXT,u"购物车")
 
-#有效期选择
-startDateForCoupon = (By.ID, 'startDate')
-endDateForCoupon = (By.ID, 'endDate')
+    #我的抵值券链接
+    myCoupon = (By.LINK_TEXT,u"我的抵值券")
 
-#状态
-stateForCoupon = (By.ID, 'state', "//option[@value='01']")
+    #企业名称
+    entername = (By.ID,u"enterName")
 
-#搜索按钮
-searchButtonForCoupon = (By.CLASS_NAME, 'btnApplyLong btnanniu')
+    #有效期-开始
+    startDateForCoupon = (By.ID,u"startDate")
+
+    #有效期-结束
+    endDateForCoupon = (By.ID,u"endDate")
+
+    #搜索按钮
+    searchButtonForCoupon = (By.CLASS_NAME,u"btnApplyLong btnanniu")
+
+    #OK按钮
+    okButton = (By.ID,u"popup_ok")
+
+    #保存提交按钮按钮
+    Button = (By.ID,u"button")
+

@@ -6,6 +6,7 @@ from watsup.winGuiAuto import findControl,setEditText, findTopWindow,clickButton
 from common import config
 import os, types
 import logging
+import traceback
 
 
 class BasePage(object):

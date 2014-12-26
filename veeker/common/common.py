@@ -8,6 +8,7 @@ import smtplib
 import re
 import urllib2
 import logging
+import traceback
 
 def send_mail(file_path, tolist):
     u'''
@@ -20,18 +21,19 @@ def send_mail(file_path, tolist):
     att1["Content-Type"] = 'application/octet-stream'
     att1["Content-Disposition"] = 'attachment; filename=%s'%file_path.split("\\")[-1]
     msg.attach(att1)
-    msg['from'] = 'hgbac@163.com'
-    msg['to'] = 'hgbac@163.com'
+    msg['from'] = 'hgbac@126.com'
+    msg['to'] = 'hgbac@126.com'
     msg['Subject'] = u'测试报告'
 
     try:
-        server = smtplib.SMTP('smtp.163.com')
+        server = smtplib.SMTP('smtp.126.com')
         server.login('hgbac','hgbac123abc')
         server.sendmail(msg['from'], tolist, msg.as_string())
         logging.info(u'邮件发送成功~!')
         server.quit()
         return True
     except:
+        print traceback.format_exc()
         logging.error(u'邮件发送失败~!')
         return False
 

@@ -1,99 +1,102 @@
 #!/usr/bin/python2.7
-#coding=utf-8
+# -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
-#***********************普通商品详情***********************#
 
-#商品规格
-goodsoption = (By.CSS_SELECTOR, "a[onclick^='argument1(this']")
+class ElementPlaceOrder(object):
 
-#商品数量
-goodsnum = (By.ID, 'goodsNum')
+    #普通商品详情----商品规格
+    goodsoption = (By.CSS_SELECTOR,u"a[onclick^='argument1(this']")
 
-#立即购买
-buynow = (By.CSS_SELECTOR, "input[onclick^=shopping]")
+    #商品数量
+    goodsnum = (By.ID,u"goodsNum")
 
-#加入到购物车
-addtochat = (By.CSS_SELECTOR, "input[onclick^=addShopCart]")
+    #立即购买
+    buynow = (By.CSS_SELECTOR,u"input[onclick^=shopping]")
 
-#去购物车结算
-gotosettle = (By.CSS_SELECTOR, "input[onclick^='goAccounts']")
+    #加入到购物车
+    addtochat = (By.CSS_SELECTOR,u"input[onclick^=addShopCart]")
 
-#加入收藏
-collect = (By.LINK_TEXT, u"收藏商品")
+    #去购物车结算
+    gotosettle = (By.CSS_SELECTOR,u"input[onclick^='goAccounts']")
 
-#***********************团购商品详情***********************#
+    #加入收藏
+    collect = (By.LINK_TEXT,u"收藏商品")
 
-#马上团
-groupnow = (By.CSS_SELECTOR, "input[onclick='xianshi()']")
+    #团购商品详情---马上团
+    groupnow = (By.CSS_SELECTOR,u"input[onclick='xianshi()']")
 
-#选择类型
-select_class = (By.CSS_SELECTOR, "input[type='checkbox']")
+    #选择类型
+    select_class = (By.CSS_SELECTOR,u"input[type='checkbox']")
 
-#确定
-confirm = (By.CSS_SELECTOR, "input[onclick='buying()']")
+    #确定
+    confirm = (By.CSS_SELECTOR,u"input[onclick='buying()']")
 
-#*****************第一次新增收货地址的表单*****************#
+    #第一次新增收货地址的表单
+    nulladressform = (By.ID,u"AddNullReciveAdress")
 
-nulladressform = (By.ID, "AddNullReciveAdress")
+    #省
+    province_null = (By.ID,u"area")
 
-#第一次新增——省市县
-province_null = (By.ID, 'area')
-city_null = (By.ID, 'addNuCity')
-country_null = (By.ID, 'addNuCounty')
+    #市
+    city_null = (By.ID,u"addNuCity")
 
-#详细地址
-detailaddress = (By.NAME, 'receiveAddDTO.addDetail')
+    #县
+    country_null = (By.ID,u"addNuCounty")
 
-#邮政编码
-zipcode = (By.NAME, 'receiveAddDTO.zipCode')
+    #详细地址
+    detailaddress = (By.NAME,u"receiveAddDTO.addDetail")
 
-#收货人
-receivename = (By.NAME, 'receiveAddDTO.revicerName')
+    #邮政编码
+    zipcode = (By.NAME,u"receiveAddDTO.zipCode")
 
-#手机号码
-mobilenumber = (By.NAME, 'receiveAddDTO.mobile')
+    #收货人
+    receivename = (By.NAME,u"receiveAddDTO.revicerName")
 
-#电话号码
-telephonenumber = (By.NAME, 'receiveAddDTO.telPhone')
+    #手机号码
+    mobilenumber = (By.NAME,u"receiveAddDTO.mobile")
 
-#是否设为默认收货地址
-ifdefaultaddress = (By.NAME, 'receiveAddDTO.isDefault')
+    #电话号码
+    telephonenumber = (By.NAME,u"receiveAddDTO.telPhone")
 
-#第一次新增按钮
-button_null = (By.ID, 'addButton')
+    #是否设为默认收货地址
+    ifdefaultaddress = (By.NAME,u"receiveAddDTO.isDefault")
 
-#有了再新增
-addreciveadress = (By.ID, 'AddReciveAdress')
+    #第一次新增按钮
+    button_null = (By.ID,u"addButton")
 
-#编辑收货地址
-updatereciveadress_null = (By.ID, 'updateReciveAdress')
+    #有了再新增
+    addreciveadress = (By.ID,u"AddReciveAdress")
 
-#***********************订单结算页面***********************#
+    #编辑收货地址
+    updatereciveadress_null = (By.ID,u"updateReciveAdress")
 
-#商品总价
-total_price = (By.NAME, 'price')
+    #订单结算页面---商品总价
+    total_price = (By.NAME,u"price")
 
-#应付总额
-should_pay_price = (By.ID, 'J_ActualFee')
+    #应付总额
+    should_pay_price = (By.ID,u"J_ActualFee")
 
-#是否开发票
-invoice_yes = (By.CSS_SELECTOR, "input[value='01'][name='orderDTO.isNeedInvoice']")
-invoice_no = (By.CSS_SELECTOR, "input[value='02'][name='orderDTO.isNeedInvoice']")
+    #开发票
+    invoice_yes = (By.CSS_SELECTOR,u"input[value='01'][name='orderDTO.isNeedInvoice']")
 
-#发票抬头
-invoice_title = (By.ID, 'invoiceChequeTextId')
+    #不开发票
+    invoice_no = (By.CSS_SELECTOR,u"input[value='02'][name='orderDTO.isNeedInvoice']")
 
-#备注
-remark = (By.ID, 'mallmemoid')
+    #发票抬头
+    invoice_title = (By.ID,u"invoiceChequeTextId")
 
-#结算方式贷到付款
-payondelivery = (By.CSS_SELECTOR, "input[value='02'][name='orderDTO.payKind']")
+    #备注
+    remark = (By.ID,u"mallmemoid")
 
-#使用抵值券
-usecoupon = (By.CSS_SELECTOR, "input[onclick='showCusCoupon('cusCouponListId');']")
+    #结算方式贷到付款
+    payondelivery = (By.CSS_SELECTOR,u"input[value='02'][name='orderDTO.payKind']")
 
-#提交订单
-submitorder = (By.CSS_SELECTOR, "input[onclick='submitOrders()']")
+    #使用抵值券
+    usecoupon = (By.CSS_SELECTOR,u"input[onclick='showCusCoupon('cusCouponListId');']")
 
-#订单号码
-ordernumber = (By.XPATH, "//div[@class='ordersuccess']/p/b[1]")
+    #提交订单
+    submitorder = (By.CSS_SELECTOR,u"input[onclick='submitOrders()']")
+
+    #订单号码
+    ordernumber = (By.XPATH,u"//div[@class='ordersuccess']/p/b[1]")
+

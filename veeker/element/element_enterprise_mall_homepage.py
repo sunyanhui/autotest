@@ -2,17 +2,20 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
 
-#今日订单
-today_order = (By.CSS_SELECTOR, "div.service_right p b")
+class ElementMallHomepage(object):
 
-#月订单
-month_order = (By.CSS_SELECTOR, "div.huiyuan_right span a")
+    #今日订单
+    today_order = (By.CSS_SELECTOR,u"div.service_right p b")
 
-#切换城市
-change_city = (By.ID, 'changeArea')
+    #月订单
+    month_order = (By.CSS_SELECTOR,u"div.huiyuan_right span a")
 
-#选择地区
-area = (By.CLASS_NAME, 'weather-city')
+    #切换城市
+    change_city = (By.ID,u"changeArea")
 
-#更换按钮
-change_button = (By.CLASS_NAME, 'gh_btn')
+    #选择地区
+    area = (By.CLASS_NAME,u"weather-city")
+
+    #更换按钮
+    change_button = (By.CLASS_NAME,u"gh_btn")
+

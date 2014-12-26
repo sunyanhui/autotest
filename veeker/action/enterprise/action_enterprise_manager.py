@@ -2,18 +2,18 @@
 #coding=utf-8
 
 import time
-
-from element.element_enterprise_manager import *
+from selenium.webdriver.common.by import By
+from element.element_enterprise_manager import ElementManager
 from action.basepage import BasePage
 from common import output
 
 
-class EnterpriseManager(BasePage):
+class EnterpriseManager(BasePage, ElementManager):
     u'''
     企业操作员管理
     '''
 
-    def add_manager(self, **w):
+    def add_manager(self, manager_account, **kwargs):
         u'''
         添加操作员
         '''
@@ -23,12 +23,12 @@ class EnterpriseManager(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(manager_link).click()
+            find_element(self.manager_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            find_element(add_manager).click()
-            find_element(manager_account).send_keys(w['manager_account'])
-            find_element(submit).click()
+            find_element(self.add_manager_tab).click()
+            find_element(self.manager_account).send_keys(manager_account)
+            find_element(self.submit).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
         except:
@@ -36,7 +36,7 @@ class EnterpriseManager(BasePage):
         else:
             return output.pass_user_defined(driver, "添加管理员成功")
 
-    def del_manager(self, **w):
+    def del_manager(self,manager_account,**kwargs):
         u'''
         删除操作员
         '''
@@ -46,13 +46,13 @@ class EnterpriseManager(BasePage):
 
         try:
             #点击修改企业信息链接，然后切进FRAME
-            find_element(manager_link).click()
+            find_element(self.manager_link).click()
             driver.switch_to_frame('iframe')
             time.sleep(1)
-            find_element((By.XPATH, "//td[text()='%s']/../td[5]/input[2]"%w['manager_account'])).click()
+            find_element((By.XPATH, "//td[text()='%s']/../td[5]/input[2]"%manager_account)).click()
             self.driver.switch_to_default_content()
             time.sleep(1)
-            find_element(confirm).click()
+            find_element(self.confirm).click()
             time.sleep(1)
         except:
             return output.error_user_defined(driver, "删除管理员失败")

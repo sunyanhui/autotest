@@ -9,7 +9,8 @@ locationDict = {
     'name':'By.NAME',
     'class':'By.CLASS_NAME',
     'css':'By.CSS_SELECTOR',
-    'xpath':'By.XPATH'}
+    'xpath':'By.XPATH',
+    'partial_link':'By.PARTIAL_LINK_TEXT'}
 
 def creat_element_file(excel, excel_name, tableName):
     u'''

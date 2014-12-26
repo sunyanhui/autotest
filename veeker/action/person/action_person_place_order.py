@@ -2,23 +2,22 @@
 # -*- coding: utf-8 -*-
 
 import time
-
 from selenium import webdriver
 from selenium.webdriver.common.alert import Alert
-
-from element.element_person_place_order import *
+from element.element_person_place_order import ElementPlaceOrder
 from common import output, common
 from action.basepage import BasePage
 
 
-class PlaceOrder(BasePage):
+class PlaceOrder(BasePage, ElementPlaceOrder):
 
     def collect_goods(self):
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
-            sdriver(*collect).click()
+            find_element(self.collect).click()
             time.sleep(3)
         except:
             return output.error_auto(driver)
@@ -33,48 +32,49 @@ class PlaceOrder(BasePage):
 
     def add_to_cart(self, **w):
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
-            options = driver.find_elements(*goodsoption)
+            options = find_elements(self.goodsoption)
             if options:
                 for i in options:
                     i.click()
 
-            sdriver(*goodsnum).clear()
-            sdriver(*goodsnum).send_keys(w['goodsnumber'])
-            sdriver(*addtochat).click()
+            find_element(self.goodsnum).clear()
+            find_element(self.goodsnum).send_keys(w['goodsnumber'])
+            find_element(self.addtochat).click()
             try:
                 Alert(driver).accept()
             except:
                 pass
-            sdriver(*gotosettle).click()
+            find_element(self.gotosettle).click()
         except:
             return output.error_auto(driver)
 
-        if common.is_element_present(driver, buynow):
+        if common.is_element_present(driver, self.buynow):
             return output.error_user_defined(driver, 'add to cart failed')
         else:
             return output.pass_user_defined(driver, 'add to cart Success')
 
 
-    def buy_it_now_normal(self, **w):
+    def buy_it_now_normal(self, **kwargs):
         u'''
         购买正常商品
         '''
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
 
         try:
             #如下代码，以后再用
-            # options = driver.find_elements(*goodsoption)
+            # options = find_elements(self.goodsoption)
             # if options:
             #     for i in options:
             #         i.click()
             #
-            # sdriver(*goodsnum).clear()
-            # sdriver(*goodsnum).send_keys(w['goodsnumber'])
-            sdriver(*buynow).click()
+            # find_element(self.goodsnum).clear()
+            # find_element(self.goodsnum).send_keys(w['goodsnumber'])
+            find_element(self.buynow).click()
             try:
                 Alert(driver).accept()
             except:
@@ -90,16 +90,17 @@ class PlaceOrder(BasePage):
         购买团购商品
         '''
         driver = self.driver
-        sdriver = driver.find_element
+        find_element = self.find_element
+        find_elements = self.find_elements
 
         try:
-            sdriver(*groupnow).click()
-            time.sleep(3)
-            options = driver.find_elements(*select_class)
+            find_element(self.groupnow).click()
+            driver.implicitly_wait(30)
+            options = find_elements(self.select_class)
             if options:
                 for i in options:
                     i.click()
-            sdriver(*confirm).click()
+            find_element(self.confirm).click()
         except:
             return output.error_user_defined(driver, '团购失败')
         else:
@@ -111,30 +112,30 @@ class PlaceOrder(BasePage):
         #     return output.pass_user_defined(driver, 'but it now Success')
 
 
-    def order_settlement(self, **w):
+    def order_settlement(self, invoice_title='only a test',
+                         payondelivery='no', invoice='no',remark='its a test', **w):
         driver = self.driver
-        sdriver = driver.find_element
-        sdrivers = driver.find_elements
+        find_element = self.find_element
         time.sleep(3)
 
         # if common.is_element_displayed(driver, *nulladressform):
         #     try:
         #         Select(sdrivers(*province_null)[1]).select_by_visible_text(w['area'])
-        #         Select(sdriver(*city_null)).select_by_visible_text(w['city'])
-        #         Select(sdriver(*country_null)).select_by_visible_text(w['country'])
-        #         sdriver(*nulladressform).find_element(*detailaddress).clear()
-        #         sdriver(*nulladressform).find_element(*detailaddress).send_keys(w['address'])
-        #         sdriver(*nulladressform).find_element(*zipcode).clear()
-        #         sdriver(*nulladressform).find_element(*zipcode).send_keys(w['zipcode'])
-        #         sdriver(*nulladressform).find_element(*receivename).clear()
-        #         sdriver(*nulladressform).find_element(*receivename).send_keys(w['name'])
-        #         sdriver(*nulladressform).find_element(*mobilenumber).clear()
-        #         sdriver(*nulladressform).find_element(*mobilenumber).send_keys(w['mobile'])
-        #         sdriver(*nulladressform).find_element(*telephonenumber).clear()
-        #         sdriver(*nulladressform).find_element(*telephonenumber).send_keys(w['telephone'])
+        #         Select(find_element(self.city_null)).select_by_visible_text(w['city'])
+        #         Select(find_element(self.country_null)).select_by_visible_text(w['country'])
+        #         find_element(self.nulladressform).find_element(*detailaddress).clear()
+        #         find_element(self.nulladressform).find_element(*detailaddress).send_keys(w['address'])
+        #         find_element(self.nulladressform).find_element(*zipcode).clear()
+        #         find_element(self.nulladressform).find_element(*zipcode).send_keys(w['zipcode'])
+        #         find_element(self.nulladressform).find_element(*receivename).clear()
+        #         find_element(self.nulladressform).find_element(*receivename).send_keys(w['name'])
+        #         find_element(self.nulladressform).find_element(*mobilenumber).clear()
+        #         find_element(self.nulladressform).find_element(*mobilenumber).send_keys(w['mobile'])
+        #         find_element(self.nulladressform).find_element(*telephonenumber).clear()
+        #         find_element(self.nulladressform).find_element(*telephonenumber).send_keys(w['telephone'])
         #         if w['isdefault'].upper() == 'YES':
-        #             sdriver(*nulladressform).find_element(*ifdefaultaddress).click()
-        #         sdriver(*nulladressform).find_element(*button_null).click()
+        #             find_element(self.nulladressform).find_element(*ifdefaultaddress).click()
+        #         find_element(self.nulladressform).find_element(*button_null).click()
         #         time.sleep(3)
         #     except:
         #         return output.error_auto(driver)
@@ -142,41 +143,40 @@ class PlaceOrder(BasePage):
         #     pass
 
         try:
-            if w['invoice'].upper == 'YES':
+            if invoice.upper == 'YES':
                 driver.implicitly_wait(3)
-                sdriver(*invoice_yes).click()
-                sdriver(*invoice_title).send_keys(w['invoicetitle'])
-            elif w['invoice'].upper == 'NO':
+                find_element(self.invoice_yes).click()
+                find_element(self.invoice_title).send_keys(invoice_title)
+            elif invoice.upper == 'NO':
                 driver.implicitly_wait(3)
-                sdriver(*invoice_no).click()
+                find_element(self.invoice_no).click()
             else:
                 driver.implicitly_wait(3)
-                sdriver(*invoice_no).click()
+                find_element(self.invoice_no).click()
 
-            if w['payondelivery'].upper == 'YES':
-                sdriver(*payondelivery).click()
+            if payondelivery.upper == 'YES':
+                find_element(self.payondelivery).click()
             else:
                 pass
 
-            totalPrice = sdriver(*total_price).text
-            shouldPayPrice = sdriver(*should_pay_price).text
-            sdriver(*remark).send_keys(w['remark'])
-            sdriver(*submitorder).click()
+            totalPrice = find_element(self.total_price).text
+            shouldPayPrice = find_element(self.should_pay_price).text
+            find_element(self.remark).send_keys(remark)
+            find_element(self.submitorder).click()
 
         except:
             return output.error_auto(driver)
 
         try:
-            newordernumber = sdriver(*ordernumber).text
+            new_order_number = find_element(self.ordernumber).text
             driver.close()
             driver.switch_to_window(driver.window_handles[0])
             time.sleep(1)
         except:
-            return output.error_auto(driver)
             return output.error_user_defined(driver, '下订单失败')
 
         return output.pass_user_defined(driver, '下订单成功',
-                                        ordernumber = newordernumber,
+                                        ordernumber = new_order_number,
                                         totalPrice = totalPrice,
                                         shouldPayPrice = shouldPayPrice)
 

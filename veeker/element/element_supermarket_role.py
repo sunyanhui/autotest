@@ -1,22 +1,24 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
-
 from selenium.webdriver.common.by import By
 
-#角色权限链接
-role_link = (By.LINK_TEXT, u'角色权限')
+class ElementRole(object):
 
-#添加角色选项卡
-add_role = (By.ID, 'two2')
+    #角色权限链接
+    role_link = (By.LINK_TEXT,u"角色权限")
 
-#角色名称
-role_name = (By.ID, 'roleDescribe')
+    #添加角色选项卡
+    add_role_tab = (By.ID,u"two2")
 
-#超市信息CHECKBOX
-info = (By.NAME, 'all120034')
+    #角色名称
+    role_name = (By.ID,u"roleDescribe")
 
-#提交
-submit = (By.CSS_SELECTOR, "input[onclick='submitForm();']")
+    #超市信息CHECKBOX
+    info = (By.NAME,u"all120034")
 
-#confirm
-confirm = (By.ID, "popup_ok")
+    #提交
+    submit = (By.CSS_SELECTOR,u"input[onclick='submitForm();']")
+
+    #confirm
+    confirm = (By.ID,u"popup_ok")
+

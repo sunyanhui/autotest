@@ -2,20 +2,19 @@
 #coding=utf-8
 
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from element.element_login import *
+from element.element_person_login import ElementLogin
 from action.basepage import BasePage
 from common import config, output, common
 import time, sys
 
 
 
-class Login(BasePage):
+class Login(BasePage, ElementLogin):
     u'''
     登录类定义所有与登录相关的操作
     '''
 
-    def login(self, **w):
+    def login(self, username, password ,if_remember_username='YES', **kwargs):
         u'''
         @该方法作用于用户登录页面
 
@@ -34,21 +33,21 @@ class Login(BasePage):
 
         #输入用户名、密码、验证码，然后点击登录按钮
         try:
-            sdriver(*username).clear()
-            sdriver(*username).send_keys(w['username'])
-            sdriver(*password).click()
-            sdriver(*password1).clear()
-            sdriver(*password1).send_keys(w['password'])
-            # if w['ifrememberusername'].upper() == 'YES':
-            #     sdriver(*rememberuseraccount).click()
-            sdriver(*submit).click()
+            sdriver(*self.username).clear()
+            sdriver(*self.username).send_keys(username)
+            sdriver(*self.password).click()
+            sdriver(*self.password1).clear()
+            sdriver(*self.password1).send_keys(password)
+            if if_remember_username.upper() == 'YES':
+                sdriver(*self.rememberuseraccount).click()
+            sdriver(*self.submit).click()
         except:
             return output.error_auto(driver)
 
         #判断是否登录成功，成功返回True，失败返回False
         try:
             driver.implicitly_wait(10)
-            driver.find_element(*logoutlink)
+            driver.find_element(*self.logoutlink)
         except:
             return output.error_user_defined(driver, '没找到登出链接，登录失败~!')
         else:
@@ -61,13 +60,13 @@ class Login(BasePage):
 
         driver = self.driver
         try:
-            driver.find_element(*logoutlink).click()
+            driver.find_element(*self.logoutlink).click()
             driver.implicitly_wait(3)
-            driver.find_element(*logoutbutton).click()
+            driver.find_element(*self.logoutbutton).click()
         except:
             output.error_auto(driver)
 
-        if common.is_element_present(driver, *submit):
+        if common.is_element_present(driver, *self.submit):
             return output.pass_user_defined(driver, '登出成功')
         else:
             return output.error_user_defined(driver, '登出失败')

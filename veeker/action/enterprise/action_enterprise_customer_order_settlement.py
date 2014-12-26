@@ -3,14 +3,14 @@
 
 import time
 
-from element.element_supermarket_order_query import *
+from element.element_enterprise_customer_order_settlement import ElementCustomerOrderSettlement
 from action.basepage import BasePage
 from common import output
 
 
-class EnterpriseCustomerOrderSettlement(BasePage):
-    '''
-
+class EnterpriseCustomerOrderSettlement(BasePage, ElementCustomerOrderSettlement):
+    u'''
+    企业客户订单结算
     '''
 
     def if_order_exist(self, orderNumber):
@@ -18,13 +18,14 @@ class EnterpriseCustomerOrderSettlement(BasePage):
         判断订单是否存在
         '''
         driver = self.driver
+        find_element = self.find_element
 
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*customerOrderQuery).click()
+            find_element(self.customerOrderQuery).click()
             driver.switch_to_frame('iframe')
-            driver.find_element(*order_number).send_keys(orderNumber)
-            driver.find_element(*search).click()
+            find_element(self.order_number).send_keys(orderNumber)
+            find_element(self.search).click()
         except:
             return output.error_auto(driver)
 
@@ -35,12 +36,13 @@ class EnterpriseCustomerOrderSettlement(BasePage):
 
     def send_out_goods(self, orderNumber):
         driver = self.driver
+        find_element = self.find_element
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*customerOrderSettlement).click()
+            find_element(self.customerOrderSettlement).click()
             driver.switch_to_frame('iframe')
-            driver.find_element(*order_number).send_keys(orderNumber)
-            driver.find_element(*search).click()
+            find_element(self.order_number).send_keys(orderNumber)
+            find_element(self.search).click()
         except:
             return output.error_auto(driver)
 
@@ -48,9 +50,9 @@ class EnterpriseCustomerOrderSettlement(BasePage):
             return output.error_user_defined(driver, '订单不存在')
 
         try:
-            driver.find_element(*sendOutGoods).click()
+            find_element(self.sendOutGoods).click()
             driver.switch_to_default_content()
-            driver.find_element(*confirm).click()
+            find_element(self.confirm).click()
             time.sleep(3)
         except:
             return output.error_user_defined(driver, '发货失败')
@@ -60,12 +62,13 @@ class EnterpriseCustomerOrderSettlement(BasePage):
 
     def confirm_receipt(self, orderNumber):
         driver = self.driver
+        find_element = self.find_element
         try:
             #点击订单查询链接-切换到iframe-输入商品名称、状态、日期，然后点击搜索
-            driver.find_element(*customerOrderSettlement).click()
+            find_element(self.customerOrderSettlement).click()
             driver.switch_to_frame('iframe')
-            driver.find_element(*order_number).send_keys(orderNumber)
-            driver.find_element(*search).click()
+            find_element(self.order_number).send_keys(orderNumber)
+            find_element(self.search).click()
         except:
             return output.error_auto(driver)
 
@@ -73,9 +76,9 @@ class EnterpriseCustomerOrderSettlement(BasePage):
             return output.error_user_defined(driver, '订单不存在')
 
         try:
-            driver.find_element(*confirmReceipt).click()
+            find_element(self.confirmReceipt).click()
             driver.switch_to_default_content()
-            driver.find_element(*confirm).click()
+            find_element(self.confirm).click()
             time.sleep(3)
         except:
             return output.error_user_defined(driver, '确认收款失败')
