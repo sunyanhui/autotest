@@ -4,8 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from watsup.winGuiAuto import findControl,setEditText, findTopWindow,clickButton
 from common import config
-import os, types
+import os
+import types
 import logging
+import random
 import traceback
 
 
@@ -80,6 +82,9 @@ class BasePage(object):
         except:
             logging.error(u"关闭浏览器失败")
             return False
+    def creat_random_string(self):
+        s = ''.join(random.sample(['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'], 9))
+        return s
 
     def insert_html_to_richtext(self, id, html):
         u'''

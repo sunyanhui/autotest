@@ -6,7 +6,7 @@ import os
 该文档用来配置一些全局变量以及一些公共配置
 '''
 
-ENV = 'online'
+ENV = 'test'
 
 if ENV == 'test':
 

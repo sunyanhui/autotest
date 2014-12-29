@@ -1,3 +1,4 @@
+#coding=utf-8
 # from PIL import Image
 
 # im = Image.open('2.bmp')
@@ -16,5 +17,14 @@
 # 		print list(l)[i],
 # 		i = i+1
 # 	print '\r\n'
-a = [1]
-print type(a)
+#coding=utf-8
+# import xlrd
+#
+# excel = xlrd.open_workbook(u"element.xls")
+# print excel.sheet_names()
+
+
+import re
+s = "共11条，共1111页"
+r = re.compile("(\d+)")
+print r.findall(s)

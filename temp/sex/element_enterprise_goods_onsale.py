@@ -10,9 +10,3 @@ class ElementGoodsOnsale(object):
     #出售中的商品链接
     goods_onsale = (By.LINK_TEXT,u"出售中的商品")
 
-    #商品名称
-    goods_name = (By.ID,u"goodsname")
-
-    #搜索按钮
-    search = (By.ID,u"tijiao")
-

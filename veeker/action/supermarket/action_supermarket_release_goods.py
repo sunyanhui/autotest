@@ -2,14 +2,13 @@
 #coding=utf-8
 
 import time
-
-from element.element_enterprise_release_goods import ElementReleaseGoods
+from element.element_supermarket_release_goods import ElementReleaseGoods
 from action.basepage import BasePage
 from common import output
 
 
 
-class EnterpriseReleaseGoods(BasePage, ElementReleaseGoods):
+class SupermarketReleaseGoods(BasePage, ElementReleaseGoods):
     u'''
     企业发布商品
     '''
@@ -43,23 +42,19 @@ class EnterpriseReleaseGoods(BasePage, ElementReleaseGoods):
             find_element(self.photo_for_click).click()
             self.insert_html_to_richtext(self.goods_desc_rich[1], goods_desc)
             find_element(self.add).click()
+            driver.switch_to_default_content()
             time.sleep(1)
         except:
-            driver.switch_to_default_content()
             return output.error_user_defined(driver, "发布商品失败")
-
-        if u"发布商品成功！" in driver.page_source:
-            driver.switch_to_default_content()
-            return output.pass_user_defined(driver, "发布商品成功", goods_name=goods_name)
         else:
-            driver.switch_to_default_content()
-            return output.error_user_defined(driver, "发布商品失败")
+            return output.pass_user_defined(driver, "发布商品成功", goods_name=goods_name)
 
 if __name__ =='__main__':
     from action.action_login import Login
     a = Login()
     a.open_browser("http://www.wiki100.cn")
-    a.login(username = 'XYHD3100028',password = '888888')
-    b = EnterpriseReleaseGoods()
+    a.login(username = 'XYHD3100030',password = '888888')
+
+    b = SupermarketReleaseGoods()
     error = b.release_goods()
     print error

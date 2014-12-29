@@ -49,4 +49,6 @@ if __name__ == '__main__':
         sheetNames = excel.sheet_names()
 
         for i in sheetNames:
+            if i == u"目录":
+                continue
             creat_element_file(excel, excel_name, i)

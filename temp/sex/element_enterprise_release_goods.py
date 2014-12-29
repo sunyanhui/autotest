@@ -20,7 +20,7 @@ class ElementReleaseGoods(object):
     sale_type = (By.CLASS_NAME,u"xslb_box")
 
     #商品库存
-    goods_stock = (By.NAME,u"goodsDTO.storeNum")
+    goods_stock = (By.CLASS_NAME,u"spdj_box")
 
     #使用抵值券
     use_coupon = (By.CSS_SELECTOR,u"input[name='goodsDTO.isCoupon'][vlaue='Y']")
@@ -35,7 +35,7 @@ class ElementReleaseGoods(object):
     not_use_discount = (By.CSS_SELECTOR,u"input[name='goodsDTO.isMemDiscount'][vlaue='N']")
 
     #商品描述
-    goods_desc = (By.NAME,u"describeDTO.describeName")
+    goods_desc = (By.CLASS_NAME,u"spdj_box")
 
     #价格
     price = (By.CSS_SELECTOR,u"input[name='price'][id='val0']")
