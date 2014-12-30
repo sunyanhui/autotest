@@ -4,8 +4,8 @@ from common.config import IMGPATH
 
 #testcase1 验证正常发布商品
 test_goods_case1 = dict(
-    username = 'XYHD3101059',
-    password = '888888',
+    username = 'XYHD3100000',
+    password = '6666666',
     goods_name = u'测试发布商品S',
     goods_stock = '111',
     goods_desc = 'Its only a test',

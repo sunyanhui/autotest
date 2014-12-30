@@ -4,4 +4,4 @@ import os
 from common.output import Model
 
 #testcase1 验证正常添加角色
-test_brand_case1 = Model(username = 'XYHD3100012',password = '888888')
+test_brand_case1 = Model(username = 'XYHD3100012',password = '6666666')
