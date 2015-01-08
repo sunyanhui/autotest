@@ -50,12 +50,14 @@ class TestEnterpriseLogin(unittest.TestCase):
     def test_login_case4(self):
         u'''测试分销商操作员正常登录'''
         r = self.login.login(**test_login_case4)
+        self.assertTrue(r.result, r.msg)
         self.assertEqual(r.title, test_login_case4.title, u"登录成功，但身份不正确")
 
     #testcase5
     def test_login_case5(self):
         u'''测试企业操作员正常登录'''
         r = self.login.login(**test_login_case5)
+        self.assertTrue(r.result, r.msg)
         self.assertEqual(r.title, test_login_case5.title, u"登录成功，但身份不正确")
 
     #testcase6

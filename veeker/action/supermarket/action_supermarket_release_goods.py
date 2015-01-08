@@ -14,6 +14,7 @@ class SupermarketReleaseGoods(BasePage, ElementReleaseGoods):
     '''
 
     def release_goods(self, goods_name="random", goods_stock="1000", goods_desc="only a test",
+                      new_type_name=u'测试',new_type_value=u'测试',
                       price="999.9", cprice="999.9", cgprice="999.9", **kwargs):
         u'''
         发布商品
@@ -35,6 +36,9 @@ class SupermarketReleaseGoods(BasePage, ElementReleaseGoods):
             find_element(self.goods_name).send_keys(goods_name)
             find_element(self.goods_stock).send_keys(goods_stock)
             find_element(self.goods_desc).send_keys(goods_desc)
+            find_element(self.add_type).click()
+            find_element(self.new_type_name).send_keys(new_type_name)
+            find_element(self.new_type_value).send_keys(new_type_value)
             find_element(self.price).send_keys(price)
             find_element(self.cprice).send_keys(cprice)
             find_element(self.cgprice).send_keys(cgprice)

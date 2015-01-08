@@ -2,14 +2,29 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 from watsup.winGuiAuto import findControl,setEditText, findTopWindow,clickButton
 from common import config
 import os
+import time
 import types
 import logging
 import random
 import traceback
+import re
 
+
+
+def exeTime(func):
+    def newFunc(*args, **args2):
+        t0 = time.time()
+        print "@%s, {%s} start" % (time.strftime("%X", time.localtime()), func.__name__)
+        back = func(*args, **args2)
+        print "@%s, {%s} end" % (time.strftime("%X", time.localtime()), func.__name__)
+        print "@%.3fs taken for {%s}" % (time.time() - t0, func.__name__)
+        return back
+    return newFunc
 
 class BasePage(object):
 
@@ -49,6 +64,7 @@ class BasePage(object):
         封装元素查找方法，简化传参方式
         :param element:元素定位元组，如(By.ID, 'abc')
         '''
+        self.driver.implicitly_wait(30)
         return self.driver.find_element(*element)
 
     def find_elements(self, element):
@@ -56,6 +72,7 @@ class BasePage(object):
         封装元素组查找方法，简化传参方式
         :param element:元素定位元组，如(By.ID, 'abc')
         '''
+        self.driver.implicitly_wait(2)
         return self.driver.find_elements(*element)
 
     def select(self, element, text):
@@ -68,6 +85,20 @@ class BasePage(object):
             Select(element).select_by_index(text)
         else:
             Select(element).select_by_visible_text(text)
+
+    def select_new(self, element, text):
+        u'''
+        封装下拉框选择方法
+        :param element:webelement对象
+        :param text:要选择的项
+        '''
+        if isinstance(text, types.IntType):
+            Select(self.find_element(element)).select_by_index(text)
+        else:
+            Select(self.find_element(element)).select_by_visible_text(text)
+
+    def select_radio(self, radio_element, radio):
+        self.find_element((By.XPATH, radio_element[1]%radio)).click()
 
     def quit(self):
         u'''
@@ -82,6 +113,26 @@ class BasePage(object):
         except:
             logging.error(u"关闭浏览器失败")
             return False
+
+    #@exeTime
+    def get_list_num(self, element):
+        u'''
+        获取列表条目数量
+        element:列表元素定位元组
+        return:列表条目数量
+        '''
+        r = re.compile("(\d+)")
+        try:
+            self.driver.implicitly_wait(2)
+            text = self.find_element(element).text
+            #text = WebDriverWait(self.driver, 2).until(lambda x: self.find_element(element).text)
+            num =  int(r.findall(text)[0])
+        except:
+            num = 0
+
+        return num
+
+
     def creat_random_string(self):
         s = ''.join(random.sample(['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'], 9))
         return s
@@ -117,12 +168,14 @@ class BasePage(object):
         else:
             title = u'打开'
         try:
+            #form=findTopWindow(wantedClass="#32770")
             form=findTopWindow(wantedText=title.encode("gb2312"))
             button=findControl(form,wantedText=u'打开'.encode("gb2312"))
             editbox=findControl(form,wantedClass='Edit')
             setEditText(editbox,[imgpath])
             clickButton(button)
         except:
+            print traceback.format_exc()
             return False
         else:
             return True
@@ -144,6 +197,8 @@ class BasePage(object):
             return file_list[0].strip()
         else:
             return False
+
+
 
 
 if __name__ == '__main__':

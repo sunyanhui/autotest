@@ -61,3 +61,12 @@ class ElementReleaseGoods(object):
     #保存并上架
     add = (By.CLASS_NAME,u"czsp_serbtn02")
 
+    #添加规格按钮
+    add_type = (By.CSS_SELECTOR,u"input[value='添加'][class='sptj_btn']")
+
+    #新增规格名称
+    new_type_name = (By.ID,u"val4")
+
+    #新增规格值
+    new_type_value = (By.ID,u"key4")
+

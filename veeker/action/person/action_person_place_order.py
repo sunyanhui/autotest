@@ -95,7 +95,7 @@ class PlaceOrder(BasePage, ElementPlaceOrder):
 
         try:
             find_element(self.groupnow).click()
-            driver.implicitly_wait(30)
+            time.sleep(3)
             options = find_elements(self.select_class)
             if options:
                 for i in options:

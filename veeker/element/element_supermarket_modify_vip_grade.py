@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 class ElementModifyVipGrade(object):
 
     #会员等级链接
-    vip_grade = (By.LINK_TEXT,u"会员等级设置")
+    vip_grade = (By.LINK_TEXT,u"会员等级")
 
     #修改按钮
     modify = (By.ID,u"modify")
