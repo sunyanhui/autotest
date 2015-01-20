@@ -17,6 +17,9 @@ import re
 
 
 def exeTime(func):
+    u'''
+    测试函数时间装饰器
+    '''
     def newFunc(*args, **args2):
         t0 = time.time()
         print "@%s, {%s} start" % (time.strftime("%X", time.localtime()), func.__name__)
@@ -27,6 +30,9 @@ def exeTime(func):
     return newFunc
 
 class BasePage(object):
+    u'''
+    页面基类
+    '''
 
     driver = None
 
@@ -48,8 +54,8 @@ class BasePage(object):
     def open_browser(self, URL):
         u'''
         打开指定URL
-        :param URL:URL地址，需加HTTP://
-        :return:True, False
+        URL:URL地址，需加HTTP://
+        True, False
         '''
         try:
             self.driver.get(URL)
@@ -62,24 +68,22 @@ class BasePage(object):
     def find_element(self, element):
         u'''
         封装元素查找方法，简化传参方式
-        :param element:元素定位元组，如(By.ID, 'abc')
+        element:元素定位元组，如(By.ID, 'abc')
         '''
-        self.driver.implicitly_wait(30)
         return self.driver.find_element(*element)
 
     def find_elements(self, element):
         u'''
         封装元素组查找方法，简化传参方式
-        :param element:元素定位元组，如(By.ID, 'abc')
+        element:元素定位元组，如(By.ID, 'abc')
         '''
-        self.driver.implicitly_wait(2)
         return self.driver.find_elements(*element)
 
     def select(self, element, text):
         u'''
         封装下拉框选择方法
-        :param element:webelement对象
-        :param text:要选择的项
+        element:webelement对象
+        text:要选择的项
         '''
         if isinstance(text, types.IntType):
             Select(element).select_by_index(text)
@@ -89,8 +93,8 @@ class BasePage(object):
     def select_new(self, element, text):
         u'''
         封装下拉框选择方法
-        :param element:webelement对象
-        :param text:要选择的项
+        element:定位元组
+        text:要选择的项
         '''
         if isinstance(text, types.IntType):
             Select(self.find_element(element)).select_by_index(text)
@@ -98,12 +102,16 @@ class BasePage(object):
             Select(self.find_element(element)).select_by_visible_text(text)
 
     def select_radio(self, radio_element, radio):
+        u'''
+        选择radio
+        :param radio_element:radio定位元组
+        :param radio: 替换字符
+        '''
         self.find_element((By.XPATH, radio_element[1]%radio)).click()
 
     def quit(self):
         u'''
         退出浏览器
-        :return:
         '''
         try:
             BasePage.driver.quit()
@@ -125,16 +133,21 @@ class BasePage(object):
         try:
             self.driver.implicitly_wait(2)
             text = self.find_element(element).text
-            #text = WebDriverWait(self.driver, 2).until(lambda x: self.find_element(element).text)
             num =  int(r.findall(text)[0])
         except:
             num = 0
 
         return num
 
-
     def creat_random_string(self):
-        s = ''.join(random.sample(['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'], 9))
+        u'''
+        生成9位随机字母字符串
+        '''
+        s = ''.join(
+            random.sample(
+            ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'],
+            9)
+        )
         return s
 
     def insert_html_to_richtext(self, id, html):
@@ -197,9 +210,6 @@ class BasePage(object):
             return file_list[0].strip()
         else:
             return False
-
-
-
 
 if __name__ == '__main__':
     BasePage().upload_photo('d:\\Tulips.jpg')

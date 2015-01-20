@@ -13,9 +13,15 @@ class SupermarketReleaseGoods(BasePage, ElementReleaseGoods):
     企业发布商品
     '''
 
-    def release_goods(self, goods_name="random", goods_stock="1000", goods_desc="only a test",
-                      new_type_name=u'测试',new_type_value=u'测试',
-                      price="999.9", cprice="999.9", cgprice="999.9", **kwargs):
+    def release_goods(self,
+                      goods_name="random",
+                      goods_stock="1000",
+                      goods_desc="only a test",
+                      new_type_name=u'测试',
+                      new_type_value=u'测试',
+                      price="999.9",
+                      cprice="999.9",
+                      cgprice="999.9", **kwargs):
         u'''
         发布商品
         '''

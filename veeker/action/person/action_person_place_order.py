@@ -95,21 +95,19 @@ class PlaceOrder(BasePage, ElementPlaceOrder):
 
         try:
             find_element(self.groupnow).click()
-            time.sleep(3)
+            time.sleep(5)
             options = find_elements(self.select_class)
             if options:
                 for i in options:
                     i.click()
+
             find_element(self.confirm).click()
         except:
             return output.error_user_defined(driver, '团购失败')
         else:
             return output.pass_user_defined(driver, '团购成功')
-
-        # if common.is_element_present(driver, *buynow):
-        #     return output.error_user_defined(driver, 'buy it now failed')
-        # else:
-        #     return output.pass_user_defined(driver, 'but it now Success')
+        finally:
+            driver.implicitly_wait(5)
 
 
     def order_settlement(self, invoice_title='only a test',

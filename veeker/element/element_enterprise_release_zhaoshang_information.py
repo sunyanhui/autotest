@@ -14,7 +14,7 @@ class ElementReleaseZhaoshangInformation(object):
     grade = (By.ID,u"grade")
 
     #合作模式
-    mode = (By.XPATH,u"//span[text()='%s']/preceding-sibling::input")
+    mode = (By.XPATH,u"//span[text()='%s']/preceding-sibling::input[1]")
 
     #招商要求
     require = (By.ID,u"reQuire")

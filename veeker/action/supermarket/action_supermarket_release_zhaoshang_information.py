@@ -184,9 +184,9 @@ if __name__ =='__main__':
     a.login(username = 'XYHD3100030',password = '888888')
 
     b = SupermarketReleaseZhaoshangInformation()
-    print b.add().msg
-    print b.modify().msg
+    print b.add(mode = u"产品服务").msg
+    # print b.modify().msg
     print b.release().msg
-    print b.close().msg
-    print b.delete().msg
-    #print error.msg
+    # print b.close().msg
+    # print b.delete().msg
+    # #print error.msg

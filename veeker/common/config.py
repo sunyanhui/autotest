@@ -14,7 +14,7 @@ IMGPATH       =  os.path.dirname(__file__)         #需上传图片选择路径
 
 REPORT_RECEIVE_LIST = ['414746010@qq.com']         #报告邮件接收人
 
-ENV = 'test'
+ENV = 'online'
 
 if ENV == 'test':
 
