@@ -35,3 +35,18 @@ driver.quit()
 # driver.switch_to_default_content()
 # driver.find_element_by_css_selector()
 # driver.implicitly_wait()
+
+driver.switch_to.frame()
+driver.switch_to.default_content()
+
+#!/usr/bin/env python
+#coding=utf-8
+from selenium import webdriver
+import logging
+
+logging.BASIC_FORMAT()
+d = webdriver.Chrome()
+print "`"*30
+d.get("http://www.baidu.com")
+print "`"*30
+d.quit()

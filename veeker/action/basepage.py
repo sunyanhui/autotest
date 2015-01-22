@@ -65,11 +65,12 @@ class BasePage(object):
             logging.error(u"打开'%s'失败"%URL)
             return False
 
-    def find_element(self, element):
+    def find_element(self, element, timeout=30):
         u'''
         封装元素查找方法，简化传参方式
         element:元素定位元组，如(By.ID, 'abc')
         '''
+        self.driver.implicitly_wait(timeout)
         return self.driver.find_element(*element)
 
     def find_elements(self, element):
@@ -108,6 +109,21 @@ class BasePage(object):
         :param radio: 替换字符
         '''
         self.find_element((By.XPATH, radio_element[1]%radio)).click()
+
+    def set_time(self, name, setTime='now', timeType='day'):
+        '''
+        设置
+        :param name    :定位属性（key, value）
+        :param setTime :设置的时间，如果是now，则取当前时间
+        :param timeType:设置的时间类型，有day和seconds两种选择
+        '''
+        if setTime == 'now' and timeType == 'seconds':
+            setTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+        elif setTime == 'now' and timeType == 'day':
+            setTime = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+
+        js = "$(\"input[%s='%s']\").attr('value','%s')"%(name[0], name[1], setTime)
+        self.driver.execute_script(js)
 
     def quit(self):
         u'''
