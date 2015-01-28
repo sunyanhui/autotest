@@ -5,7 +5,7 @@ from element.element_agency_basic_information import ElementBasicInformation
 from action.basepage import BasePage
 from common import output
 from common.config import IMGPATH
-import os
+import os, time
 import traceback
 
 class AgencyBasicInformation(BasePage, ElementBasicInformation):
@@ -13,31 +13,31 @@ class AgencyBasicInformation(BasePage, ElementBasicInformation):
     分销商基本信息
     '''
 
-    def test_telephone(self, telephone=''):
+    def test_telephone(self, telephone='', **kwargs):
         u'''
         验证手机号码输入框
         '''
         return self.__test_input(self.telephone, telephone)
 
-    def test_weixin(self, weixin=''):
+    def test_weixin(self, weixin='', **kwargs):
         u'''
         验证微信输入框
         '''
         return self.__test_input(self.weixin, weixin)
 
-    def test_location(self, location=''):
+    def test_location(self, location='', **kwargs):
         u'''
         验证开户行所在地输入框
         '''
         return self.__test_input(self.opening_bank_location, location)
 
-    def test_agency_account(self, agency_account=''):
+    def test_agency_account(self, agency_account='', **kwargs):
         u'''
         验证对公账号输入框
         '''
         return self.__test_input(self.agency_account, agency_account)
 
-    def test_bank_data(self):
+    def test_bank_data(self, **kwargs):
         u'''
         验证银行选择下拉框数据
         '''
@@ -52,13 +52,13 @@ class AgencyBasicInformation(BasePage, ElementBasicInformation):
         except:
             return output.error_auto(self.driver)
         else:
-            return output.pass_user_defined(self.driver, "获取银行列表成功",bank_list=bank_list )
+            return output.pass_user_defined(self.driver, "获取银行列表成功",bank_list=set(bank_list) )
         finally:
             self.driver.switch_to.default_content()
 
 
-    def modify(self,telephone = '13133036086',weixin  = '123456',opening_bank_location = u'河南省郑州市',
-                 opening_bank =  u'光大银行',img_name = os.path.join(IMGPATH, 'or.jpg')):
+    def modify(self,telephone = '15133036086',weixin  = '123456',opening_bank_location = u'河南省郑州市',
+                 opening_bank =  u'光大银行',img_name = os.path.join(IMGPATH, 'or.jpg'), **kwargs):
         try:
             self.find_element(self.basic_information_link).click()
             self.driver.switch_to.frame("iframe")

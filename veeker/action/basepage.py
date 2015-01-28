@@ -70,6 +70,7 @@ class BasePage(object):
         封装元素查找方法，简化传参方式
         element:元素定位元组，如(By.ID, 'abc')
         '''
+        time.sleep(0.1)
         self.driver.implicitly_wait(timeout)
         return self.driver.find_element(*element)
 
@@ -121,7 +122,6 @@ class BasePage(object):
             setTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
         elif setTime == 'now' and timeType == 'day':
             setTime = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-
         js = "$(\"input[%s='%s']\").attr('value','%s')"%(name[0], name[1], setTime)
         self.driver.execute_script(js)
 

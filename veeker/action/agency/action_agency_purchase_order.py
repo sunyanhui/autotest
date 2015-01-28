@@ -1,15 +1,15 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-from element.element_shop_purchase_order import ElementPurchaseOrder
+from element.element_agency_purchase_order import ElementPurchaseOrder
 from selenium.webdriver.common.action_chains import ActionChains
 from action.basepage import BasePage
 from common import output
-import traceback, time, re
+import traceback, time
 
-class ShopPurchaseOrder(BasePage, ElementPurchaseOrder):
+class AgencyPurchaseOrder(BasePage, ElementPurchaseOrder):
     u'''
-    联盟店采购订单
+    分销商采购订单
     '''
 
     def add(self, supermarket=None,telephone='13183036086',mark='only a test~!'):
@@ -31,20 +31,18 @@ class ShopPurchaseOrder(BasePage, ElementPurchaseOrder):
             self.driver.switch_to.default_content()
             time.sleep(1)
             self.find_element(self.my_goods).click()
-            self.driver.find_element_by_xpath("(//input[@class='add_btn btn01'])[1]").click()
-            time.sleep(2)
+            self.find_element(self.add_goods_btn).click()
             ActionChains(self.driver).move_to_element(self.find_element(self.close_btn)).perform()
             self.find_element(self.close_btn).click()
-            time.sleep(1)
             self.driver.switch_to.frame("iframe")
             self.find_element(self.submit).click()
             time.sleep(0.5)
-            assert u"采购单添加成功" in self.driver.page_source
+            assert u"采购单发布成功" in self.driver.page_source
         except:
             print traceback.format_exc()
             return output.error_auto(self.driver)
         else:
-            return output.pass_user_defined(self.driver, "添加采购订单成功")
+            return output.pass_user_defined(self.driver, "采购单发布成功")
         finally:
             self.driver.switch_to.default_content()
 
@@ -56,9 +54,8 @@ if __name__ == '__main__':
 
     login = Login()
     login.open_browser("http://www.wiki100.cn")
-    login.login("31000000001","888888")
-    s = ShopPurchaseOrder()
-    for i in range(10):
-        s.add()
+    login.login("41000000020","888888")
+    s = AgencyPurchaseOrder()
+    s.add()
     # time.sleep(3)
     # s.quit()
