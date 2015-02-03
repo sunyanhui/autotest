@@ -57,8 +57,10 @@ class AgencyBasicInformation(BasePage, ElementBasicInformation):
             self.driver.switch_to.default_content()
 
 
-    def modify(self,telephone = '15133036086',weixin  = '123456',opening_bank_location = u'河南省郑州市',
+    def modify(self,telephone = None,weixin  = '123456',opening_bank_location = u'河南省郑州市',
                  opening_bank =  u'光大银行',img_name = os.path.join(IMGPATH, 'or.jpg'), **kwargs):
+
+        telephone = '131' + str(time.time())[1:9] if telephone is None else telephone
         try:
             self.find_element(self.basic_information_link).click()
             self.driver.switch_to.frame("iframe")

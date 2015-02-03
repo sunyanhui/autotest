@@ -1,11 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_enterprise_picture_space import *
-else:
-    from testdata_online.olsm.data_enterprise_picture_space import *
-
+from testdata.olsm.data_enterprise_picture_space import *
 from action.action_login import Login
 from action.enterprise.action_enterprise_picture_space import EnterprisePictureSpace
 import unittest
@@ -19,9 +15,9 @@ class TestEnterprisePictureSpace(unittest.TestCase):
         self.login_page = Login()
         self.picture_space_page = EnterprisePictureSpace()
 
-    def tearDown(self):
-        time.sleep(1)
-        self.login_page.quit()
+    # def tearDown(self):
+    #     time.sleep(1)
+    #     self.login_page.quit()
 
     def test_picture_space_case1(self):
         u'''测试企业图片空间上传图片'''

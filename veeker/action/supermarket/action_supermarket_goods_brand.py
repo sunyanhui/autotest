@@ -27,7 +27,7 @@ class SupermarketGoodsBrand(BasePage, ElementGoodsBrand):
             driver.switch_to_frame('iframe')
             r = re.compile("(\d+)")
             try:
-                text = find_element(self.num).text
+                text = find_element(self.num, 3).text
                 num_before =  int(r.findall(text)[0])
             except:
                 num_before = 0
@@ -41,7 +41,7 @@ class SupermarketGoodsBrand(BasePage, ElementGoodsBrand):
             find_element(self.submit).click()
             time.sleep(1)
 
-            text = find_element(self.num).text
+            text = find_element(self.num, 3).text
             num_after =  int(r.findall(text)[0])
         except:
             return output.error_user_defined(driver, "添加商品品牌失败")
@@ -71,7 +71,7 @@ class SupermarketGoodsBrand(BasePage, ElementGoodsBrand):
             driver.switch_to_frame('iframe')
             r = re.compile("(\d+)")
             try:
-                text = find_element(self.num).text
+                text = find_element(self.num, 3).text
                 num_before =  int(r.findall(text)[0])
             except:
                 return output.error_user_defined(driver, "没找到可以删除的品牌")
@@ -81,7 +81,7 @@ class SupermarketGoodsBrand(BasePage, ElementGoodsBrand):
             find_element(self.confirm).click()
             find_element(self.confirm).click()
             driver.switch_to_frame('iframe')
-            text = find_element(self.num).text
+            text = find_element(self.num, 3).text
             num_after =  int(r.findall(text)[0])
         except:
             return output.error_user_defined(driver, "删除商品品牌失败")

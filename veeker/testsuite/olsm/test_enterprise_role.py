@@ -1,10 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_enterprise_role import *
-else:
-    from testdata_online.olsm.data_enterprise_role import *
+from testdata.olsm.data_enterprise_role import *
 from action.pagefactory import PageFactory
 import unittest
 import time

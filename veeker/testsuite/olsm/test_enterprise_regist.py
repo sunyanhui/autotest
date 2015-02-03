@@ -1,10 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.data_regist import *
-else:
-    from testdata_online.data_regist import *
+from testdata.data_regist import *
 from action.action_login import Login
 from action.action_regist import Regist
 import unittest
@@ -32,7 +29,6 @@ class TestEnterpriseRegist(unittest.TestCase):
         r = self.regist.regist()
         self.assertTrue(r.result, r.msg)
 
-        print r.useraccount
         r = self.login.login(username=r.useraccount, password='888888', if_remember_username='yes')
         self.assertTrue(r.result, r.msg)
 

@@ -1,10 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.osms.data_supermarket_modify_vip_grade import *
-else:
-    from testdata_online.osms.data_supermarket_modify_vip_grade import *
+from testdata.osms.data_supermarket_modify_vip_grade import *
 from action.action_login import Login
 from action.supermarket.action_supermarket_modify_vip_grade import SupermarketModifyVipGrade
 import unittest

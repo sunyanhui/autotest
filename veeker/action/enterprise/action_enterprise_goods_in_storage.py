@@ -28,10 +28,10 @@ class EnterpriseGoodsInStorage(BasePage, ElementGoodsInStorage):
             time.sleep(1)
             find_element(self.goods_name).send_keys(goods_name)
             find_element(self.search).click()
-            if not find_elements(self.shangjia_button):
+            if not find_elements(self.shangjia_button,1):
                 return output.error_user_defined(driver, "没有找到上架商品")
-            while find_elements(self.shangjia_button):
-                find_elements(self.shangjia_button)[0].click()
+            while find_elements(self.shangjia_button,1):
+                find_elements(self.shangjia_button,1)[0].click()
             driver.switch_to_default_content()
             time.sleep(1)
         except:
@@ -57,10 +57,10 @@ class EnterpriseGoodsInStorage(BasePage, ElementGoodsInStorage):
             time.sleep(1)
             find_element(self.goods_name).send_keys(goods_name)
             find_element(self.search).click()
-            if not find_elements(self.xiajia_button):
+            if not find_elements(self.xiajia_button,1):
                 return output.error_user_defined(driver, "没有找到下架商品")
-            while find_elements(self.xiajia_button):
-                find_elements(self.xiajia_button)[0].click()
+            while find_elements(self.xiajia_button,1):
+                find_elements(self.xiajia_button,1)[0].click()
             driver.switch_to_default_content()
             time.sleep(1)
         except:
@@ -85,8 +85,8 @@ class EnterpriseGoodsInStorage(BasePage, ElementGoodsInStorage):
             time.sleep(1)
             find_element(self.goods_name).send_keys(goods_name)
             find_element(self.search).click()
-            while find_elements(self.delete_link):
-                find_elements(self.delete_link)[0].click()
+            while find_elements(self.delete_link,1):
+                find_elements(self.delete_link,1)[0].click()
                 driver.switch_to_default_content()
                 find_element(self.confirm).click()
                 find_element(self.confirm).click()

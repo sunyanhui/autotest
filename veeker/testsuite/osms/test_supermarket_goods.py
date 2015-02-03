@@ -1,11 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.osms.data_sueprmarket_goods import *
-else:
-    from testdata_online.osms.data_sueprmarket_goods import *
-
+from testdata.osms.data_sueprmarket_goods import *
 from action.action_login import Login
 from action.supermarket.action_supermarket_release_goods import SupermarketReleaseGoods
 from action.supermarket.action_supermarket_release_group import SupermarketReleaseGroup
@@ -92,3 +88,11 @@ class TestSupermarketGoods(unittest.TestCase):
         #在仓库中的商品页面删除商品
         r = self.enterprise_goods_in_storage.delete(goods_name)
         self.assertTrue(r.result, r.msg)
+
+if __name__ == '__main__':
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    a = unittest.TestSuite()
+    a.addTests(unittest.makeSuite(TestSupermarketGoods))
+    b = unittest.TextTestRunner()
+    b.run(a)

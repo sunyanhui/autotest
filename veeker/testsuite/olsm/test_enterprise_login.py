@@ -2,11 +2,7 @@
 #coding=utf-8
 
 from common.config import *
-if ENV == 'test':
-    from testdata_test.data_login import *
-else:
-    from testdata_online.data_login import *
-
+from testdata.data_login import *
 from action.action_login import Login
 import unittest
 import logging
@@ -21,9 +17,9 @@ class TestEnterpriseLogin(unittest.TestCase):
         self.login = Login()
         self.login.open_browser(OLMS_URL)
 
-    def tearDown(self):
-        time.sleep(1)
-        self.login.quit()
+    # def tearDown(self):
+    #     time.sleep(1)
+    #     self.login.quit()
 
     #testcase1
     def test_login_case1(self):

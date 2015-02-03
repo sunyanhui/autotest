@@ -1,11 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.osms.data_shop_basic_information import *
-else:
-    from testdata_online.osms.data_shop_basic_information import *
-
+from testdata.osms.data_shop_basic_information import *
 from action.action_login import Login
 from action.shop.action_shop_basic_information import ShopBasicInformation
 import unittest
@@ -131,7 +127,7 @@ class TestShopBasicInformation(unittest.TestCase):
         u'''验证微信号输入空格'''
 
         case = test_shop_basic_information_case7
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
 
         #登录
         r = self.login_page.login(**case)
@@ -394,7 +390,7 @@ class TestShopBasicInformation(unittest.TestCase):
         u'''对公账号输入框输入为空'''
 
         case = test_shop_basic_information_case23
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
 
         #登录
         r = self.login_page.login(**case)

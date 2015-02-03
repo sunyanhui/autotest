@@ -1,17 +1,13 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_enterprise_honor import *
-else:
-    from testdata_online.olsm.data_enterprise_honor import *
-
+from testdata.olsm.data_enterprise_honor import *
 from action.action_login import Login
 from action.enterprise.action_enterprise_honor import EnterpriseHonor
 import unittest
 import time
 
-class TestEnterpriseBrand(unittest.TestCase):
+class TestEnterpriseHonor(unittest.TestCase):
     u'''
     测试超市商品品牌
     '''

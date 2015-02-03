@@ -1,11 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_enterprise_release_zhaoshang_information import *
-else:
-    from testdata_online.olsm.data_enterprise_release_zhaoshang_information import *
-
+from testdata.olsm.data_enterprise_release_zhaoshang_information import *
 from action.action_login import Login
 from action.enterprise.action_enterprise_release_zhaoshang_information import EnterpriseReleaseZhaoshangInformation
 import unittest
@@ -19,9 +15,9 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
         self.login_page = Login()
         self.release_zhaoshang_information_page = EnterpriseReleaseZhaoshangInformation()
 
-    def tearDown(self):
-        time.sleep(1)
-        self.login_page.quit()
+    # def tearDown(self):
+    #     time.sleep(1)
+    #     self.login_page.quit()
 
     def test_release_zhaoshang_information_case1(self):
         u'''测试企业添加招商信息'''

@@ -2,11 +2,7 @@
 #coding=utf-8
 
 from common.config import *
-if ENV == 'test':
-    from testdata_test.data_login import *
-else:
-    from testdata_online.data_login import *
-
+from testdata.data_login import *
 from action.action_login import Login
 import unittest
 import logging

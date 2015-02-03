@@ -74,11 +74,13 @@ class BasePage(object):
         self.driver.implicitly_wait(timeout)
         return self.driver.find_element(*element)
 
-    def find_elements(self, element):
+    def find_elements(self, element, timeout=30):
         u'''
         封装元素组查找方法，简化传参方式
         element:元素定位元组，如(By.ID, 'abc')
         '''
+        time.sleep(0.1)
+        self.driver.implicitly_wait(timeout)
         return self.driver.find_elements(*element)
 
     def select(self, element, text):
@@ -112,7 +114,7 @@ class BasePage(object):
         self.find_element((By.XPATH, radio_element[1]%radio)).click()
 
     def set_time(self, name, setTime='now', timeType='day'):
-        '''
+        u'''
         设置
         :param name    :定位属性（key, value）
         :param setTime :设置的时间，如果是now，则取当前时间
@@ -147,8 +149,7 @@ class BasePage(object):
         '''
         r = re.compile("(\d+)")
         try:
-            self.driver.implicitly_wait(2)
-            text = self.find_element(element).text
+            text = self.find_element(element, 2).text
             num =  int(r.findall(text)[0])
         except:
             num = 0

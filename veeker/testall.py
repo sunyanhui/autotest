@@ -29,4 +29,4 @@ if __name__ == '__main__':
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'测试报告', description=u'测试报告')
     runner.run(testunit)
     fp.close()
-    print common.send_mail(filename, config.REPORT_RECEIVE_LIST)
+    print common.send_mail(filename, config.RECEIVER)

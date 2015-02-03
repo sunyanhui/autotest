@@ -5,6 +5,7 @@ import time
 from element.element_supermarket_goods_onsale import ElementGoodsOnsale
 from action.basepage import BasePage
 from common import output
+import logging
 
 class SupermarketGoodsOnsale(BasePage, ElementGoodsOnsale):
     u'''
@@ -27,10 +28,10 @@ class SupermarketGoodsOnsale(BasePage, ElementGoodsOnsale):
             time.sleep(1)
             find_element(self.goods_name).send_keys(goods_name)
             find_element(self.search).click()
-            if not find_elements(self.xiajia_link):
+            if not find_elements(self.xiajia_link,1):
                 return output.error_user_defined(driver, "没找到需要下架的商品")
-            while find_elements(self.xiajia_link):
-                find_elements(self.xiajia_link)[0].click()
+            while find_elements(self.xiajia_link,1):
+                find_elements(self.xiajia_link,1)[0].click()
             driver.switch_to_default_content()
             time.sleep(1)
         except:

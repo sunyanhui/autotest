@@ -1,11 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_enterprise_notice import *
-else:
-    from testdata_online.olsm.data_enterprise_notice import *
-
+from testdata.olsm.data_enterprise_notice import *
 from action.action_login import Login
 from action.enterprise.action_enterprise_notice import EnterpriseNotice
 import unittest

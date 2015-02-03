@@ -3,10 +3,7 @@
 import unittest
 import time
 from common import config
-if config.ENV == 'test':
-    from testdata_test.olsm.data_person_order import *
-else:
-    from testdata_online.olsm.data_person_order import *
+from testdata.olsm.data_person_order import *
 from action.action_login import Login
 from action.person.action_person_find_goods import FindGoods
 from action.person.action_person_place_order import PlaceOrder
@@ -30,9 +27,9 @@ class TestOrder(unittest.TestCase):
         self.agencyCustomerOrderSettlementPage = AgencyCustomerOrderSettlement()
         self.mallHomePage = MallHomePage()
 
-    def tearDown(self):
-        time.sleep(1)
-        self.loginPage.quit()
+    # def tearDown(self):
+    #     time.sleep(1)
+    #     self.loginPage.quit()
 
     def test_order_case1(self):
         u'''验证下订单流程(企业商城正常商品、无联盟店)'''

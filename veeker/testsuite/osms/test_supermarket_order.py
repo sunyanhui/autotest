@@ -3,10 +3,7 @@
 import unittest
 import time
 from common import config
-if config.ENV == 'test':
-    from testdata_test.osms.data_person_order import *
-else:
-    from testdata_online.osms.data_person_order import *
+from testdata.osms.data_person_order import *
 from action.action_login import Login
 from action.person.action_person_find_goods import FindGoods
 from action.person.action_person_place_order import PlaceOrder

@@ -1,10 +1,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 from common import config
-if config.ENV == 'test':
-    from testdata_test.data_regist import *
-else:
-    from testdata_online.data_regist import *
+from testdata.data_regist import *
 from action.action_login import Login
 from action.action_regist import Regist
 import unittest
