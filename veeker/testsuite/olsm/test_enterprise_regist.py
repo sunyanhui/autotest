@@ -22,7 +22,7 @@ class TestEnterpriseRegist(unittest.TestCase):
 
     def test_regist_case1(self):
         u'''测试企业注册功能，注册成功后，使用新注册的账号登录'''
-        self.assertTrue(self.login.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.regist.submit_information(**test_regist_case1)
         self.assertTrue(r.result, r.msg)
 

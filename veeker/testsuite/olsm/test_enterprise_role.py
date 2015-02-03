@@ -22,7 +22,7 @@ class TestEnterpriseRole(unittest.TestCase):
         
     def test_modify_role_case1(self):
         u'''测试企业添加角色'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_role_case1)
         self.assertTrue(r.result, r.msg)
@@ -32,7 +32,7 @@ class TestEnterpriseRole(unittest.TestCase):
 
     def test_modify_role_case2(self):
         u'''测试企业删除角色'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_role_case2)
         self.assertTrue(r.result, r.msg)

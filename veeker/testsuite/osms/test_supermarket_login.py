@@ -15,7 +15,7 @@ class TestSupermarketLogin(unittest.TestCase):
 
     def setUp(self):
         self.login = Login()
-        self.login.open_browser(OSMS_URL)
+        self.login.open_browser(BASE_URL)
 
     def tearDown(self):
         time.sleep(1)

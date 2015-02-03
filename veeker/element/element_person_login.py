@@ -20,7 +20,7 @@ class ElementLogin(object):
     rememberuseraccount = (By.ID,u"rememberUserAccount")
 
     #提交
-    submit = (By.CSS_SELECTOR,u"a[href='javascript:login()']")
+    submit = (By.CSS_SELECTOR,u"a[href='javascript:login();']")
 
     #退出登录
     logoutlink = (By.PARTIAL_LINK_TEXT,u"退出")

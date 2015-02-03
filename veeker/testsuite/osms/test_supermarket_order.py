@@ -36,7 +36,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case1(self):
         u'''验证下订单流程(超市商城正常商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login.login(**test_order_case1_person)
         self.assertTrue(r.result, r.msg)
@@ -66,7 +66,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case2(self):
         u'''验证下订单流程(超市商城团购商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login.login(**test_order_case2_person)
         self.assertTrue(r.result, r.msg)
@@ -97,7 +97,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case3(self):
         u'''验证下订单流程(超市商城打折商品、无联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login.login(**test_order_case3_person)
         self.assertTrue(r.result, r.msg)
@@ -133,7 +133,7 @@ class TestOrder(unittest.TestCase):
         before_today = int(r.today_order)
         before_month = int(r.month_order)
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login.login(**test_order_case4)
         self.assertTrue(r.result, r.msg)
@@ -160,7 +160,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case5(self):
         u'''验证下订单流程(超市商城打折商品、有联盟店)'''
 
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login.login(**test_order_case5_person)
         self.assertTrue(r.result, r.msg)
@@ -194,7 +194,7 @@ class TestOrder(unittest.TestCase):
         data_supermarket = test_order_case1_supermarket
 
         #打开首页
-        self.assertTrue(self.login.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login.open_browser(config.BASE_URL),u"打开首页失败")
 
         #登录个人账号
         r = self.login.login(**data_person)

@@ -43,14 +43,8 @@ class Login(BasePage, ElementLogin):
             sdriver(*self.submit).click()
         except:
             return output.error_auto(driver)
-
-        #判断是否登录成功，成功返回True，失败返回False
-        try:
-            driver.implicitly_wait(10)
-            driver.find_element(*self.logoutlink)
-        except:
-            return output.error_user_defined(driver, '没找到登出链接，登录失败~!')
         else:
+            time.sleep(1)
             return output.pass_user_defined(driver, '登录成功~！', title = driver.title)
 
     def logout(self):

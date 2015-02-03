@@ -4,6 +4,7 @@
 from element.element_shop_business_cooperation import ElementBusinessCooperation
 from action.basepage import BasePage
 from common import output
+import time
 
 class ShopBusinessCooperation(BasePage, ElementBusinessCooperation):
     u'''
@@ -26,11 +27,11 @@ class ShopBusinessCooperation(BasePage, ElementBusinessCooperation):
         except:
             return output.error_auto(self.driver)
         else:
-            return output.pass_user_defined(self.driver, "获取联盟状态成功",alliance_status_list=alliance_status_list )
+            return output.pass_user_defined(self.driver, "获取联盟状态成功",alliance_status_list=set(alliance_status_list) )
         finally:
             self.driver.switch_to.default_content()
 
-    def search(self, company='',alliance_status=u'已绑定'):
+    def search(self, company='',alliance_status=u'已绑定', *args, **kwargs):
         u'''
         合作商家搜索脚本
         '''
@@ -42,6 +43,8 @@ class ShopBusinessCooperation(BasePage, ElementBusinessCooperation):
             time.sleep(1)
             self.driver.find_element_by_xpath(u"//li[contains(text(),'%s')]"%alliance_status).click()
             self.find_element(self.search_button).click()
+            self.driver.implicitly_wait(3)
+            self.driver.find_element_by_partial_link_text(company)
         except:
             return output.error_auto(self.driver)
         else:

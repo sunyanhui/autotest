@@ -21,7 +21,7 @@ class TestEnterpriseManager(unittest.TestCase):
 
     def test_modify_manager_case1(self):
         u'''测试企业添加操作员'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_manager_case1)
         self.assertTrue(r.result, r.msg)
@@ -31,7 +31,7 @@ class TestEnterpriseManager(unittest.TestCase):
 
     def test_modify_manager_case2(self):
         u'''测试企业删除操作员'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_manager_case2)
         self.assertTrue(r.result, r.msg)

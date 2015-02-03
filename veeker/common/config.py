@@ -18,10 +18,10 @@ IMGPATH       =  os.path.dirname(__file__)
 RECEIVER      = ['414746010@qq.com']
 
 #超市版域名--生产环境
-OSMS_URL      = 'http://www.wiki100.cn'
+BASE_URL      = 'http://www.wiki110.com'
 
-#全国版域名--生产环境
-OLMS_URL      = 'http://www.wiki168.com'
+# #全国版域名--生产环境
+# BASE_URL      = 'http://www.wiki168.com'
 
 #超市商城--生产环境
 OSMS_MALL_URL = "http://www.dayushangdu.com/"

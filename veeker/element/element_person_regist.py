@@ -20,7 +20,7 @@ class ElementRegist(object):
     nickname = (By.ID,u"nickName")
 
     #密码
-    password = (By.ID,u"userPassword")
+    password = (By.ID,u"passWord")
 
     #密码确认
     confirmpassword = (By.ID,u"userPasswordComfirm")

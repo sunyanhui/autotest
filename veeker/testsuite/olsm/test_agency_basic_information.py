@@ -26,7 +26,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证手机号输入10位数字'''
 
         case = test_agency_basic_information_case1
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -43,7 +43,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证手机号输入12位数字'''
 
         case = test_agency_basic_information_case2
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -60,7 +60,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证手机号输入为空'''
 
         case = test_agency_basic_information_case3
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -77,7 +77,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证手机号输入汉字'''
 
         case = test_agency_basic_information_case4
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -94,7 +94,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证手机号输入英文'''
 
         case = test_agency_basic_information_case5
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -112,7 +112,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入特殊字符'''
 
         case = test_agency_basic_information_case6
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -129,7 +129,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入空格'''
 
         case = test_agency_basic_information_case7
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -144,7 +144,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入汉字'''
 
         case = test_agency_basic_information_case8
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -161,7 +161,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u"""验证微信号输入含字母、数字、下划线和减号的字符"""
 
         case = test_agency_basic_information_case9
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -176,7 +176,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入小于5位的字符'''
 
         case = test_agency_basic_information_case10
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -193,7 +193,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入大于20位的字符'''
 
         case = test_agency_basic_information_case11
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -210,7 +210,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u"""验证微信号输入5~20位的字符"""
 
         case = test_agency_basic_information_case12
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -224,7 +224,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入为空'''
 
         case = test_agency_basic_information_case13
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -239,7 +239,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证微信号输入html字符'''
 
         case = test_agency_basic_information_case14
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -257,7 +257,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证开户行下拉框数据'''
 
         case = test_agency_basic_information_case15
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -274,7 +274,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证开户行所在地输入小于50个汉字'''
 
         case = test_agency_basic_information_case16
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -289,7 +289,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证开户行所在地输入大于50个汉字'''
 
         case = test_agency_basic_information_case17
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -307,7 +307,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证开户行所在地输入字母、数字、空格、汉字、特殊字符'''
 
         case = test_agency_basic_information_case18
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -322,7 +322,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证开户行输入为空'''
 
         case = test_agency_basic_information_case19
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -339,7 +339,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证对公账号输入框输入小于16个数字'''
 
         case = test_agency_basic_information_case20
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -357,7 +357,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证对公账号输入框输入大于19个数字'''
 
         case = test_agency_basic_information_case21
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -375,7 +375,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''验证对公账号输入框输入非数字的其它字符'''
 
         case = test_agency_basic_information_case22
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -392,7 +392,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''对公账号输入框输入为空'''
 
         case = test_agency_basic_information_case23
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -410,7 +410,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u'''对公账号输入框粘贴进去有空格的数字'''
 
         case = test_agency_basic_information_case24
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)
@@ -427,7 +427,7 @@ class TestAgencyBasicInformation(unittest.TestCase):
         u"""验证正确保存基本信息"""
 
         case = test_agency_basic_information_case25
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL), u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL), u"打开首页失败")
 
         # 登录
         r = self.login_page.login(**case)

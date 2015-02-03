@@ -15,7 +15,7 @@ class TestEnterpriseLogin(unittest.TestCase):
 
     def setUp(self):
         self.login = Login()
-        self.login.open_browser(OLMS_URL)
+        self.login.open_browser(BASE_URL)
 
     # def tearDown(self):
     #     time.sleep(1)

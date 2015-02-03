@@ -23,7 +23,7 @@ class TestSupermarketModifyPassword(unittest.TestCase):
 
     def test_modify_password_case1(self):
         u'''测试超市修改密码功能'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_password_case1)
         self.assertTrue(r.result, r.msg)
         r = self.modify_password_page.modify_pass(**test_modify_password_case1)
@@ -31,7 +31,7 @@ class TestSupermarketModifyPassword(unittest.TestCase):
 
     def test_modify_password_case2(self):
         u'''测试超市修改密码功能，把密码修改回来'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_password_case2)
         self.assertTrue(r.result, r.msg)
         r = self.modify_password_page.modify_pass(**test_modify_password_case2)

@@ -21,7 +21,7 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
 
     def test_release_zhaoshang_information_case1(self):
         u'''测试企业添加招商信息'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_release_zhaoshang_information_case1)
         self.assertTrue(r.result, r.msg)
@@ -31,7 +31,7 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
 
     def test_release_zhaoshang_information_case2(self):
         u'''测试企业修改招商信息'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_release_zhaoshang_information_case1)
         self.assertTrue(r.result, r.msg)
@@ -41,7 +41,7 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
 
     def test_release_zhaoshang_information_case3(self):
         u'''测试企业发布招商信息'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_release_zhaoshang_information_case1)
         self.assertTrue(r.result, r.msg)
@@ -51,7 +51,7 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
 
     def test_release_zhaoshang_information_case4(self):
         u'''测试企业关闭招商信息'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_release_zhaoshang_information_case1)
         self.assertTrue(r.result, r.msg)
@@ -61,7 +61,7 @@ class TestEnterpriseReleaseZhaoshangInformation(unittest.TestCase):
 
     def test_release_zhaoshang_information_case5(self):
         u'''测试企业删除招商信息'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_release_zhaoshang_information_case1)
         self.assertTrue(r.result, r.msg)

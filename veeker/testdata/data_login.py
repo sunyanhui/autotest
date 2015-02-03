@@ -13,7 +13,7 @@ test_login_case1 = Model(
 test_login_case2 = Model(
     username=Account.person1,
     password=Account.person1_password,
-    title=u"个人中心首页")
+    title=u"会员服务中心首页")
 
 #市级分销商正常登录
 test_login_case3 = Model(

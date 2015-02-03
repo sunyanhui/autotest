@@ -21,7 +21,7 @@ class TestSupermarketManager(unittest.TestCase):
 
     def test_modify_manager_case1(self):
         u'''测试超市添加操作员'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_manager_case1)
         self.assertTrue(r.result, r.msg)
@@ -31,7 +31,7 @@ class TestSupermarketManager(unittest.TestCase):
 
     def test_modify_manager_case2(self):
         u'''测试超市删除操作员'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_manager_case2)
         self.assertTrue(r.result, r.msg)

@@ -30,7 +30,7 @@ class TestEnterpriseGoods(unittest.TestCase):
         u'''企业发布普通商品；
         点击“在售商品”链接，进入后找到该商品，然后下架
         点击“仓库中的商品”链接，进入后找到该商品，上架，下架，然后删除'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         #登录
         r = self.login_page.login(**test_goods_case1)
@@ -62,7 +62,7 @@ class TestEnterpriseGoods(unittest.TestCase):
         u'''企业发布团购商品；
         点击“在售商品”链接，进入后找到该商品，然后下架
         点击“仓库中的商品”链接，进入后找到该商品，上架，下架，然后删除'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         #登录
         r = self.login_page.login(**test_goods_case1)

@@ -22,7 +22,7 @@ class TestSupermarketModifyInfo(unittest.TestCase):
 
     def test_modify_info_case1(self):
         u'''测试超市版注册功能，注册成功后，使用新注册的账号登录'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_info_case1)
         self.assertTrue(r.result, r.msg)
         r = self.modify_info_page.modify_info(**test_modify_info_case1)

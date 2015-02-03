@@ -22,7 +22,7 @@ class TestEnterpriseModifyIntroduction(unittest.TestCase):
 
     def test_modify_introduction_case1(self):
         u'''测试企业修改企业介绍内容'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_introduction_case1)
         self.assertTrue(r.result, r.msg)
         r = self.modify_introduction_page.modify_introduction(**test_modify_introduction_case1)
@@ -30,7 +30,7 @@ class TestEnterpriseModifyIntroduction(unittest.TestCase):
 
     def test_modify_introduction_case2(self):
         u'''测试企业修改企业文化内容'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_introduction_case2)
         self.assertTrue(r.result, r.msg)
         r = self.modify_introduction_page.modify_culture(**test_modify_introduction_case2)
@@ -39,7 +39,7 @@ class TestEnterpriseModifyIntroduction(unittest.TestCase):
 
     def test_modify_introduction_case3(self):
         u'''测试企业修改企业组织架构内容'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
         r = self.login_page.login(**test_modify_introduction_case3)
         self.assertTrue(r.result, r.msg)
         r = self.modify_introduction_page.modify_structure(**test_modify_introduction_case3)

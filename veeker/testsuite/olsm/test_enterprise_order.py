@@ -34,7 +34,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case1(self):
         u'''验证下订单流程(企业商城正常商品、无联盟店)'''
 
-        self.assertTrue(self.loginPage.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**test_order_case1_person)
         self.assertTrue(r.result, r.msg)
@@ -64,7 +64,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case2(self):
         u'''验证下订单流程(企业商城团购商品、无联盟店)'''
 
-        self.assertTrue(self.loginPage.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**test_order_case2_person)
         self.assertTrue(r.result, r.msg)
@@ -95,7 +95,7 @@ class TestOrder(unittest.TestCase):
     def test_order_case3(self):
         u'''验证下订单流程(企业商城打折商品、无联盟店)'''
 
-        self.assertTrue(self.loginPage.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**test_order_case3_person)
         self.assertTrue(r.result, r.msg)
@@ -130,7 +130,7 @@ class TestOrder(unittest.TestCase):
         self.assertTrue(r.result, r.msg)
         before = int(r.today_order)
 
-        self.assertTrue(self.loginPage.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**test_order_case4)
         self.assertTrue(r.result, r.msg)
@@ -156,7 +156,7 @@ class TestOrder(unittest.TestCase):
         data_supermarket = test_order_case1_enterprise
 
         #打开首页
-        self.assertTrue(self.loginPage.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         #登录个人账号
         r = self.loginPage.login(**data_person)
@@ -225,7 +225,7 @@ class TestOrder(unittest.TestCase):
         data_person = test_order_case6_person
         data_agency = test_order_case6_agency
 
-        self.assertTrue(self.loginPage.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**data_person)
         self.assertTrue(r.result, r.msg)
@@ -258,7 +258,7 @@ class TestOrder(unittest.TestCase):
         data_person = test_order_case7_person
         data_agency = test_order_case7_agency
 
-        self.assertTrue(self.loginPage.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**data_person)
         self.assertTrue(r.result, r.msg)
@@ -291,7 +291,7 @@ class TestOrder(unittest.TestCase):
         data_person = test_order_case8_person
         data_agency = test_order_case8_agency
 
-        self.assertTrue(self.loginPage.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.loginPage.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.loginPage.login(**data_person)
         self.assertTrue(r.result, r.msg)

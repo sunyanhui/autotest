@@ -4,6 +4,7 @@
 from element.element_agency_business_cooperation import ElementBusinessCooperation
 from action.basepage import BasePage
 from common import output
+import time
 
 class AgencyBusinessCooperation(BasePage, ElementBusinessCooperation):
     u'''
@@ -42,6 +43,9 @@ class AgencyBusinessCooperation(BasePage, ElementBusinessCooperation):
             time.sleep(1)
             self.driver.find_element_by_xpath(u"//li[contains(text(),'%s')]"%alliance_status).click()
             self.find_element(self.search_button).click()
+            self.driver.implicitly_wait(3)
+            self.driver.find_element_by_partial_link_text(company)
+            #assert company in self.driver.page_source
         except:
             return output.error_auto(self.driver)
         else:

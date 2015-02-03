@@ -21,7 +21,7 @@ class TestSupermarketPictureSpace(unittest.TestCase):
 
     def test_picture_space_case1(self):
         u'''测试超市图片空间上传图片'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_picture_space_case1)
         self.assertTrue(r.result, r.msg)
@@ -31,7 +31,7 @@ class TestSupermarketPictureSpace(unittest.TestCase):
 
     def test_picture_space_case2(self):
         u'''测试超市图片空间删除图片'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_picture_space_case1)
         self.assertTrue(r.result, r.msg)
@@ -41,7 +41,7 @@ class TestSupermarketPictureSpace(unittest.TestCase):
 
     def test_picture_space_case3(self):
         u'''测试超市图片空间清空回收站'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_picture_space_case1)
         self.assertTrue(r.result, r.msg)

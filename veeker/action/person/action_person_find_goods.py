@@ -10,7 +10,12 @@ from selenium.webdriver.common.by import By
 
 class FindGoods(BasePage, ElementFindGoods):
 
-    def find_goods(self, goodname='',startprice='',endprice='',selectindustry='',**kwargs):
+    def find_goods(self,
+                   goodname       = '',
+                   startprice     = '',
+                   endprice       = '',
+                   selectindustry = '',**kwargs):
+
         driver = self.driver
         find_element = self.find_element
         find_elements = self.find_elements

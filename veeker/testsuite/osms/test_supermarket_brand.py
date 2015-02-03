@@ -21,7 +21,7 @@ class TestSupermarketBrand(unittest.TestCase):
 
     def test_brand_case1(self):
         u'''测试超市添加商品品牌，然后删除'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_brand_case1)
         self.assertTrue(r.result, r.msg)

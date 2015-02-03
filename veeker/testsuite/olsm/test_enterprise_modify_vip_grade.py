@@ -24,7 +24,7 @@ class TestEnterpriseModifyVipGrade(unittest.TestCase):
 
     def test_modify_vip_grade_case1(self):
         u'''测试正常情况下，企业修改会员等级'''
-        self.assertTrue(self.login_page.open_browser(config.OLMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_modify_vip_grade_case1)
         self.assertTrue(r.result, r.msg)

@@ -21,7 +21,7 @@ class TestSupermarketHonor(unittest.TestCase):
 
     def test_honor_case1(self):
         u'''测试超市添加超市荣誉并删除'''
-        self.assertTrue(self.login_page.open_browser(config.OSMS_URL),u"打开首页失败")
+        self.assertTrue(self.login_page.open_browser(config.BASE_URL),u"打开首页失败")
 
         r = self.login_page.login(**test_honor_case1)
         self.assertTrue(r.result, r.msg)
