@@ -7,7 +7,7 @@ from ..account import Account
 test_agency_business_cooperation_case1 = Model(
     username=Account.agency_city,
     password=Account.agency_city_password,
-    alliance_status_list=set([u'请选择...',u'已绑定',u'已解绑']))
+    alliance_status_list={u'请选择...',u'已绑定',u'已解绑'})
 
 
 # testcase2 验证正确的联盟企业搜索

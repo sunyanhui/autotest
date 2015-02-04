@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
 
-class ElementPurchaseOrder(object):
+class ElementAddOrder(object):
 
     #添加采购单链接
-    purchase_order_link = (By.LINK_TEXT,u"添加采购单")
+    add_order_link = (By.LINK_TEXT,u"发布采购订单")
 
     #合作超市下拉框
     supermarket = (By.CLASS_NAME,u"select_showbox")
@@ -36,4 +36,7 @@ class ElementPurchaseOrder(object):
 
     #我的商品
     my_goods = (By.LINK_TEXT,u"我的商品")
+
+    #添加商品按钮
+    add_goods_btn = (By.XPATH,u"(//input[@class='add_btn btn01'])[1]")
 

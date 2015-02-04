@@ -50,29 +50,6 @@ class AgencySupplyOrder(BasePage, ElementSupplyOrder):
         finally:
             self.driver.switch_to.default_content()
 
-    def publish(self):
-        u'''
-        发布供货订单
-        '''
-        try:
-            self.find_element(self.supply_order_link).click()
-            self.driver.switch_to.frame("iframe")
-            self.find_element(self.order_status).click()
-            self.find_element(self.unpublished).click()
-            self.driver.find_elements_by_link_text(u"发布")[0].click()
-            self.driver.switch_to.default_content()
-            self.find_element(self.ok_btn).click()
-            self.driver.switch_to.frame('iframe')
-            assert u'采购单发布成功' in self.driver.page_source
-        except:
-            print traceback.format_exc()
-            return output.error_auto(self.driver)
-        else:
-            return output.pass_user_defined(self.driver, "发布供货订单成功")
-        finally:
-            self.driver.switch_to.default_content()
-
-
     def __get_num(self):
         js = '''return $("div.pagelist").text()'''
         text = self.driver.execute_script(js)
