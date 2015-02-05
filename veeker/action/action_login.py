@@ -29,18 +29,19 @@ class Login(BasePage, ElementLogin):
         {'result':True|False ,'msg':msg,['errorimg':imgpath]}
         '''
         driver = self.driver
+        find_element = self.find_element
         sdriver = driver.find_element
 
         #输入用户名、密码、验证码，然后点击登录按钮
         try:
-            sdriver(*self.username).clear()
-            sdriver(*self.username).send_keys(username)
-            sdriver(*self.password).click()
-            sdriver(*self.password1).clear()
-            sdriver(*self.password1).send_keys(password)
+            find_element(self.username).clear()
+            find_element(self.username).send_keys(username)
+            find_element(self.password).click()
+            find_element(self.password1).clear()
+            find_element(self.password1).send_keys(password)
             if if_remember_username.upper() == 'YES':
-                sdriver(*self.rememberuseraccount).click()
-            sdriver(*self.submit).click()
+                find_element(self.rememberuseraccount,2).click()
+            find_element(self.submit,2).click()
         except:
             return output.error_auto(driver)
         else:
