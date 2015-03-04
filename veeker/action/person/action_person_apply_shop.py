@@ -1,16 +1,13 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 
-import time
-import re
 from element.element_person_apply_shop import ElementApplyShop
 from action.basepage import BasePage
-from common import output, common
 
 
 class ApplyShop(BasePage, ElementApplyShop):
     u'''
-
+    新版个人中心目前没有实现这个功能
     '''
 
     def apply(self,mode=u"采购代理", *args, **kwargs):
@@ -28,6 +25,3 @@ class ApplyShop(BasePage, ElementApplyShop):
 
         except:
             pass
-
-if __name__ == '__main__':
-    pass

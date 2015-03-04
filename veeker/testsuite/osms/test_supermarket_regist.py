@@ -27,7 +27,9 @@ class TestSupermarketRegist(unittest.TestCase):
         self.assertTrue(r.result, r.msg)
 
         r = self.regist.regist()
+
         self.assertTrue(r.result, r.msg)
+        print r.useraccount
 
         r = self.login.login(username=r.useraccount, password='888888', ifrememberusername='yes')
         self.assertTrue(r.result, r.msg)

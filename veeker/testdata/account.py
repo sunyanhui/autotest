@@ -62,6 +62,14 @@ class Test:
     person2                                = '41000000019'
     person2_password                       = '888888'
 
+    #个人账号 测试联盟店退货用
+    person_for_shop_sales_return           = '41000000030'
+    person_for_shop_sales_return_password  = '888888'
+
+    #个人账号 测试分销商退货用
+    person_for_agency_sales_return         = '41000000024'
+    person_for_agency_sales_return_password= '888888'
+
 class Online:
     u'''
     账号类，方便统一修改
@@ -119,6 +127,15 @@ class Online:
     #个人账号2
     person2                                = '41000000120'
     person2_password                       = '6666666'
+
+    #个人账号 测试联盟店退货用
+    person_for_shop_sales_return           = '41000000272'
+    person_for_shop_sales_return_password  = '888888'
+
+    #个人账号 测试分销商退货用
+    person_for_agency_sales_return         = '13000000019'
+    person_for_agency_sales_return_password= '111111'
+
 
 if ENV == 'test':
     Account = Test

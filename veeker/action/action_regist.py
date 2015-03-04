@@ -113,22 +113,3 @@ class Regist(BasePage, ElementRegist):
             return output.pass_user_defined(driver, '注册成功', useraccount=num[0])
         else:
             return output.error_user_defined(driver, '注册失败')
-
-if __name__ == '__main__':
-    driver = webdriver.Chrome()
-    driver.get('http://www.enterprise.com')
-    try:
-        driver.implicitly_wait(2)
-        driver.find_element_by_id("popup_ok").click()
-    except:
-        pass
-    regist = Regist()
-    testcase = {'area':u'河南省', 'city':u'许昌市', 'nickname':'random', 'password':'111111', 'confirmpassword':'111111',
-                'email':'random','vertifycode':'autoget'}
-
-    a= regist.submit_information(**testcase)
-    print a['msg']
-    b= regist.regist(**testcase)
-    print b['msg']
-    time.sleep(5)
-    driver.quit()
