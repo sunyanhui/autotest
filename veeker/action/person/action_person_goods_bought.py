@@ -7,6 +7,7 @@ from element.element_person_goods_bought import ElementGoodsBought
 from action.basepage import BasePage
 from common import output
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
 import traceback,time
 
 
@@ -24,22 +25,28 @@ class GoodsBought(BasePage, ElementGoodsBought):
         u"""
         该方法用于退货
         :param order:订单号码
-        :param args:
-        :param kwargs:
-        :return:
         """
         driver = self.driver
         find_element = self.find_element
-        select = self.select_new
+        return_link = (By.XPATH, u"//span[text()='%s']/../../../tr[2]//a[text()='%s']"%(order,u"申请退货") )
+        reason_select = (By.XPATH, self.return_reason_select[1]%reason)
 
         try:
             find_element(self.goods_bought_link).click()
             time.sleep(1)
-            driver.find_element_by_xpath(u"//span[text()='%s']/../../../tr[2]//a[text()='%s']"%(order,u"申请退货")).click()
+            find_element(return_link, 2).click()
+
+            # 把鼠标移动到退货原因输入框，然后点击
+            ActionChains(driver).move_to_element(find_element(self.return_reason_input)).perform()
+            time.sleep(1)
             find_element(self.return_reason_input).click()
-            time.sleep(2)
-            ActionChains(driver).move_to_element(self.return_reason_select[1]%reason)
-            driver.find_element_by_xpath(self.return_reason_select[1]%reason).click()
+            time.sleep(1)
+
+            # 把鼠标移动到下拉框中的选项，然后点击
+            ActionChains(driver).move_to_element(find_element(reason_select,2)).perform()
+            time.sleep(1)
+            find_element(reason_select, 2).click()
+
             find_element(self.return_describe).send_keys(describe)
             find_element(self.return_number).clear()
             find_element(self.return_number).send_keys(number)
@@ -56,8 +63,8 @@ if __name__ == '__main__':
     a = GoodsBought()
     b = Login()
     a.open_browser("http://www.wiki110.com")
-    b.login('41000000030', '888888')
-    print a.returns('103531133941000030')
+    b.login('41000000024', '888888')
+    print a.returns('103569147244000024').msg
     import time
     time.sleep(3)
     #a.quit()

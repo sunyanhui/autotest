@@ -70,6 +70,10 @@ class Test:
     person_for_agency_sales_return         = '41000000024'
     person_for_agency_sales_return_password= '888888'
 
+    # 个人账号， 测试修改密码用
+    person_for_modify_password             = '41000000038'
+    person_for_modify_password_password    = '888888'
+
 class Online:
     u'''
     账号类，方便统一修改
@@ -136,6 +140,9 @@ class Online:
     person_for_agency_sales_return         = '13000000019'
     person_for_agency_sales_return_password= '111111'
 
+    # 个人账号， 测试修改密码用
+    person_for_modify_password             = '21000000003'
+    person_for_modify_password_password    = '888888'
 
 if ENV == 'test':
     Account = Test

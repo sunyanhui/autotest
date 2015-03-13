@@ -93,7 +93,7 @@ class MallHomePage(BasePage, ElementMallHomepage):
 if __name__ == '__main__':
     a = MallHomePage()
     a.open_browser("http://www.shopp100.cn/")
-    print a.login('41000000040','888888')
+    print a.login('41000000024','888888')
     print a.search(u"测试专用-正常商品-企")
     time.sleep(3)
-    a.quit()
+    #a.quit()
